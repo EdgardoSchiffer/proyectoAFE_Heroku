@@ -17,7 +17,7 @@ class ClientSeeder extends Seeder
     {
         $clients = [
             [
-               'cliente_name' => 'Don Jeff',
+               'client_name' => 'Don Jeff',
                 'dui' => '03554781-2',
                 'email' => 'don.jeff@gmail.com',
                 'address' => 'Residencial La High de Opico',
@@ -26,7 +26,7 @@ class ClientSeeder extends Seeder
                 'municipality_id' => 10
             ],
             [
-                'cliente_name' => 'Juan Perez',
+                'client_name' => 'Juan Perez',
                  'dui' => '02247894-1',
                  'email' => 'juan.perez@gmail.com',
                  'address' => 'Residencial Buena vista',
@@ -35,7 +35,7 @@ class ClientSeeder extends Seeder
                  'municipality_id' => 5
              ],
              [
-                'cliente_name' => 'Bryan Gomez',
+                'client_name' => 'Bryan Gomez',
                  'dui' => '02235417-4',
                  'email' => 'bryan.gomez@gmail.com',
                  'address' => 'Residencial La vida no vale nada',
@@ -44,7 +44,7 @@ class ClientSeeder extends Seeder
                  'municipality_id' => 12
              ],
              [
-                'cliente_name' => 'Miguel Cervantes',
+                'client_name' => 'Miguel Cervantes',
                  'dui' => '02245170-3',
                  'email' => 'miguel.cervantes@gmail.com',
                  'address' => 'Colonia España',
@@ -53,7 +53,7 @@ class ClientSeeder extends Seeder
                  'municipality_id' => 8
              ],
              [
-                'cliente_name' => 'Sancho Panza',
+                'client_name' => 'Sancho Panza',
                  'dui' => '0224789-5',
                  'email' => 'sancho.panza@gmail.com',
                  'address' => 'Canton los gorditos',
@@ -62,7 +62,7 @@ class ClientSeeder extends Seeder
                  'municipality_id' => 3
              ],
              [
-                'cliente_name' => 'Cristiano Ronaldo',
+                'client_name' => 'Cristiano Ronaldo',
                  'dui' => '011244478-9',
                  'email' => 'the.goat@gmail.com',
                  'address' => 'Altos de madeira',
@@ -71,7 +71,7 @@ class ClientSeeder extends Seeder
                  'municipality_id' => 9
              ],
              [
-                'cliente_name' => 'Elon Musk',
+                'client_name' => 'Elon Musk',
                  'dui' => '03333247-1',
                  'email' => 'elon.musk@gmail.com',
                  'address' => 'Palo Alto',
@@ -80,7 +80,7 @@ class ClientSeeder extends Seeder
                  'municipality_id' => 10
              ],
              [
-                'cliente_name' => 'Nayik Bukele',
+                'client_name' => 'Nayik Bukele',
                  'dui' => '09999999-1',
                  'email' => 'nayik.dictador@gmail.com',
                  'address' => 'Residencial Las Luces',
@@ -89,7 +89,7 @@ class ClientSeeder extends Seeder
                  'municipality_id' => 3
              ],
              [
-                'cliente_name' => 'Yanira Berrios',
+                'client_name' => 'Yanira Berrios',
                  'dui' => '07784128-3',
                  'email' => 'mis.corazones.bellos@gmail.com',
                  'address' => 'Urb. Nueva San Salvador',
@@ -98,7 +98,7 @@ class ClientSeeder extends Seeder
                  'municipality_id' => 4
              ],
              [
-                'cliente_name' => 'Lebron James',
+                'client_name' => 'Lebron James',
                  'dui' => '00147418-5',
                  'email' => 'lebron.james@gmail.com',
                  'address' => 'Calabazas',

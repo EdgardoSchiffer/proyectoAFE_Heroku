@@ -24,6 +24,10 @@ class RoleSeeder extends Seeder
                 'role_name' => 'Client',
                 'description' => 'Role with permission to rent a car',
             ],
+            [
+                'role_name' => 'Adviser',
+                'description' => 'Role with permission to give fr rent a vehicle',
+            ],
         ];
         foreach ($roles as $role) {
             Role::create($role);

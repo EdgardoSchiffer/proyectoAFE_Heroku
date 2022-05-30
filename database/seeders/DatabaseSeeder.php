@@ -27,5 +27,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ClientSeeder::class);
         $this->call(BrandSeeder::class);
         $this->call(FuelTypeSeeder::class);
+        $this->call(UserSeeder::class);
     }
 }
