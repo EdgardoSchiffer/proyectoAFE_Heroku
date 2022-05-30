@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
+            $table->string('cliente_name');
+            $table->string('dui');
+            $table->string('email');
+            $table->string('address');
+            $table->integer('phone');
+            $table->foreignId('role_id')->reference('id')->on('roles');
+            $table->foreignId('municipality_id')->reference('id')->on('municipalities');
             $table->timestamps();
         });
     }
