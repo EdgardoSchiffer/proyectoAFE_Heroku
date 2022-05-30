@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('rentals', function (Blueprint $table) {
             $table->id();
             $table->timestamps('rental_date'); //fecha que se realiza el alquiler
-            $table->timestamps('rental_withdrawal_date'); //fecha de retiro del vehiculo por parte del cliente
-            $table->timestamps('delivery_date'); //fecha de entrega del vehiculo al cliente
+            $table->timestamp('rental_withdrawal_date')->nullable(); //fecha de retiro del vehiculo por parte del cliente
+            $table->timestamp('delivery_date')->nullable(); //fecha de entrega del vehiculo al cliente
             $table->foreignId('vehicle_id')->reference('id')->on('vehicles'); 
             $table->foreignId('client_id')->reference('id')->on('clients'); //usuario que hace la reserva
             $table->float('advance'); 
