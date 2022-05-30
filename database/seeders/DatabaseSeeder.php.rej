@@ -1,0 +1,8 @@
+diff a/database/seeders/DatabaseSeeder.php b/database/seeders/DatabaseSeeder.php	(rejected hunks)
+@@ -28,5 +28,6 @@
+         $this->call(BrandSeeder::class);
+         $this->call(FuelTypeSeeder::class);
+         $this->call(UserSeeder::class);
++        $this->call(VehicleTypeSeeder::class);
+     }
+ }
