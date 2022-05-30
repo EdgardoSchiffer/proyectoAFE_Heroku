@@ -18,6 +18,9 @@ class BrandSeeder extends Seeder
         $brands = [
             ['brand_name'=>'Toyota'],
             ['brand_name'=>'Honda'],
+            ['brand_name'=>'Hyundai'],
+            ['brand_name'=>'Mc Laren'],
+            ['brand_name'=>'Chevrolet'],
             ['brand_name'=>'Mazda'],
             ['brand_name'=>'BMW'],
             ['brand_name'=>'Mercedes Benz'],

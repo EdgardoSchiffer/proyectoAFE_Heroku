@@ -15,6 +15,16 @@ return new class extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('vehicle_type_id')->reference('id')->on('vehicle_types');
+            $table->string("vehicle_name");
+            $table->string("color");
+            $table->integer("year");
+            $table->integer("doors_number");
+            $table->foreignId('fuel_type_id')->reference('id')->on('fuel_types');
+            $table->float('rental_price');
+            $table->integer("status");
+            $table->string("registry_number");
+            $table->foreignId('brand_id')->reference('id')->on('brands');
             $table->timestamps();
         });
     }
