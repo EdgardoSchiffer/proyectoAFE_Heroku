@@ -126,7 +126,7 @@ class VehicleSeeder extends Seeder
             ],
             [
                 'vehicle_type_id'=> 1,
-                'vehicle_name'=> '3',
+                'vehicle_name'=> 'Mazda 3',
                 'color'=> 'White',
                 'year'=> 2022,
                 'doors_number'=> 5,
