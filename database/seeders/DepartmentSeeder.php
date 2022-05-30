@@ -31,8 +31,8 @@ class DepartmentSeeder extends Seeder
             ['department_name'=>'Sonsonate'],
             ['department_name'=>'Usulután'],
         ];
-        foreach ($departaments as $departament) {
-            Department::create($departament);
+        foreach ($departaments as $department) {
+            Department::create($department);
         }
     }
 }
