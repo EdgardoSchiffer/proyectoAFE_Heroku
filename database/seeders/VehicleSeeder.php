@@ -27,6 +27,7 @@ class VehicleSeeder extends Seeder
                 'status'=> 1,
                 'registry_number'=> 'P87410014',
                 'brand_id'=> 3,
+                'stock'=> 1
             ],
             [
                 'vehicle_type_id'=> 7,
@@ -39,6 +40,7 @@ class VehicleSeeder extends Seeder
                 'status'=> 1,
                 'registry_number'=> 'P22471009',
                 'brand_id'=> 4,
+                'stock'=> 1
             ],
             [
                 'vehicle_type_id'=> 7,
@@ -51,6 +53,7 @@ class VehicleSeeder extends Seeder
                 'status'=> 1,
                 'registry_number'=> 'P22471009',
                 'brand_id'=> 4,
+                'stock'=> 1
             ],
             [
                 'vehicle_type_id'=> 2,
@@ -63,6 +66,7 @@ class VehicleSeeder extends Seeder
                 'status'=> 1,
                 'registry_number'=> 'P554101047',
                 'brand_id'=> 6,
+                'stock'=> 1
             ],
             [
                 'vehicle_type_id'=> 7,
@@ -75,6 +79,7 @@ class VehicleSeeder extends Seeder
                 'status'=> 1,
                 'registry_number'=> 'P22471009',
                 'brand_id'=> 4,
+                'stock'=> 1
             ],
             [
                 'vehicle_type_id'=> 6,
@@ -87,6 +92,7 @@ class VehicleSeeder extends Seeder
                 'status'=> 1,
                 'registry_number'=> 'P00214763',
                 'brand_id'=> 1,
+                'stock'=> 1
             ],
             [
                 'vehicle_type_id'=> 4,
@@ -99,6 +105,7 @@ class VehicleSeeder extends Seeder
                 'status'=> 1,
                 'registry_number'=> 'P344178509',
                 'brand_id'=> 5,
+                'stock'=> 1
             ],
             [
                 'vehicle_type_id'=> 9,
@@ -111,6 +118,7 @@ class VehicleSeeder extends Seeder
                 'status'=> 1,
                 'registry_number'=> 'P665741017',
                 'brand_id'=> 1,
+                'stock'=> 1
             ],
             [
                 'vehicle_type_id'=> 10,
@@ -123,6 +131,7 @@ class VehicleSeeder extends Seeder
                 'status'=> 1,
                 'registry_number'=> 'P877410254',
                 'brand_id'=> 5,
+                'stock'=> 1
             ],
             [
                 'vehicle_type_id'=> 1,
@@ -135,6 +144,7 @@ class VehicleSeeder extends Seeder
                 'status'=> 1,
                 'registry_number'=> 'P855401885',
                 'brand_id'=> 6,
+                'stock'=> 1
             ],
         ];
         foreach ($vehicles as $vehicle) {
