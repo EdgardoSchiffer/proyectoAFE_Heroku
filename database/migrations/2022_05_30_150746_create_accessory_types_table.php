@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('accessory_types', function (Blueprint $table) {
             $table->id();
+            $table->string("accessory_type_name");
+            $table->softDeletes();
             $table->timestamps();
         });
     }
