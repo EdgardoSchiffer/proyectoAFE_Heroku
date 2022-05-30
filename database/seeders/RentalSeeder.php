@@ -27,7 +27,7 @@ class RentalSeeder extends Seeder
                  'comment'=> 'Vehiculo en excelentes condiciones, todos las prestaciones funcionando al 100%',
                  'damage_charge'=> 200,
                  'rental_time'=> 10,
-                 'user_delivery'=> null,
+                 'user_delivery_id'=> null,
                  'user_receive_id'=> null,
              ],
              [
@@ -41,7 +41,7 @@ class RentalSeeder extends Seeder
                 'comment'=> 'Vehiculo en excelentes condiciones, no posee aire acondicionado',
                 'damage_charge'=> 200,
                 'rental_time'=> 10,
-                'user_delivery'=> null,
+                'user_delivery_id'=> null,
                 'user_receive_id'=> null,
             ],
             [
@@ -55,7 +55,7 @@ class RentalSeeder extends Seeder
                 'comment'=> 'Vehiculo en excelentes condiciones, no posee aire acondicionado',
                 'damage_charge'=> 200,
                 'rental_time'=> 10,
-                'user_delivery'=> null,
+                'user_delivery_id'=> null,
                 'user_receive_id'=> null,
             ],
             [
@@ -69,7 +69,7 @@ class RentalSeeder extends Seeder
                 'comment'=> 'Vehiculo en excelentes condiciones, no posee aire acondicionado',
                 'damage_charge'=> 200,
                 'rental_time'=> 10,
-                'user_delivery'=> null,
+                'user_delivery_id'=> null,
                 'user_receive_id'=> null,
             ],
         ];
