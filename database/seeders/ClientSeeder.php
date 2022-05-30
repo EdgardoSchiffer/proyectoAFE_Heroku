@@ -78,7 +78,7 @@ class ClientSeeder extends Seeder
                  'address' => 'Palo Alto',
                  'phone' => 74110090,
                  'role_id' => 2,
-                 'municipality_id' => 10
+                 'municipality_id' => 10 
              ],
              [
                 'client_name' => 'Nayik Bukele',
