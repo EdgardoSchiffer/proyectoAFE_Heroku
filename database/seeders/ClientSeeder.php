@@ -23,7 +23,8 @@ class ClientSeeder extends Seeder
                 'address' => 'Residencial La High de Opico',
                 'phone' => 74415209,
                 'role_id' => 2,
-                'municipality_id' => 10
+                'municipality_id' => 10,
+                'user_id' => 1
             ],
             [
                 'client_name' => 'Juan Perez',
