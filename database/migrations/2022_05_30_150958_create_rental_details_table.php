@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('rental_details', function (Blueprint $table) {
             $table->id();
+            $table->string("previous_state");
+            $table->string("later_state");
+            $table->foreignId('rental_id')->reference('id')->on('rentals');
+            $table->foreignId('accessory_id')->reference('id')->on('accessories');
             $table->timestamps();
         });
     }
