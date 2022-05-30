@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('fuel_types', function (Blueprint $table) {
             $table->id();
+            $table->string('fuel_type_name')->nullable();
+            $table->string('description')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
