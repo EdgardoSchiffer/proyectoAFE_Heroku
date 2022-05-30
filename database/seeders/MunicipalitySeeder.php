@@ -73,8 +73,8 @@ class MunicipalitySeeder extends Seeder
                 'municipality_name' => 'Usulután',
             ],
         ];
-        foreach ($municipalities as $municiaplity) {
-            Municipality::create($municiaplity);
+        foreach ($municipalities as $municipality) {
+            Municipality::create($municipality);
         }
     }
 }
