@@ -9,10 +9,10 @@ class Rental_user extends Model
 {
     use HasFactory;
 
-    public function rentals(){
-        return $this->hasMany(Rental::class);
+    public function rental(){
+        return $this->belongsTo(Rental::class);
     }
-    public function users(){
-        return $this->hasMany(User::class);
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }
