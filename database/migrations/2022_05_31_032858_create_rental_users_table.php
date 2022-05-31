@@ -13,8 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('galeries', function (Blueprint $table) {
+        Schema::create('rental_users', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('rental_id')->reference('id')->on('rentals');
+            $table->foreignId('user_id')->reference('id')->on('users');
+            $table->string('option'); //option recibir, entregar
+            $table->timestamp('date'); //fecha depende de la opcion recibir, entregar
             $table->softDeletes();
             $table->timestamps();
         });
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('galeries');
+        Schema::dropIfExists('rental_users');
     }
 };

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string("registry_number");
             $table->foreignId('brand_id')->reference('id')->on('brands');
             $table->integer("stock");
+            $table->softDeletes();
             $table->timestamps();
         });
     }

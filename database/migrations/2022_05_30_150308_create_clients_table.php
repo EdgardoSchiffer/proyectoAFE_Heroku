@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreignId('role_id')->reference('id')->on('roles');
             $table->foreignId('municipality_id')->reference('id')->on('municipalities');
             $table->foreignId('user_id')->reference('id')->on('users')->nullable()->constrained();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

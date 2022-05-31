@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("later_state");
             $table->foreignId('rental_id')->reference('id')->on('rentals');
             $table->foreignId('accessory_id')->reference('id')->on('accessories');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
