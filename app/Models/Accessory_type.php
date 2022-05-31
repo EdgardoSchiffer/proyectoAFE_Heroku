@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Accessory_type extends Model
 {
     use HasFactory;
+    public function accessories(){
+        return $this->hasMany(Accessory::class);
+    }
 }
