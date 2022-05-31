@@ -17,4 +17,7 @@ class Rental extends Model
     public function client(){
         return $this->belongsTo(Client::class);
     }
+    public function rental_user(){
+        return $this->belongsTo(Rental_user::class);
+    }
 }

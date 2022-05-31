@@ -51,4 +51,7 @@ class User extends Authenticatable
     public function role(){
         return $this->belongsTo(Role::class);
     }
+    public function rental_user(){
+        return $this->belongsTo(Rental_user::class);
+    }
 }
