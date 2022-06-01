@@ -17,6 +17,23 @@ Route::get('/', function () {
     return redirect('/home');
 });
 
+Route::get('/brand', function () {
+    return view('vue/brand');
+});
+
+Route::get('/fuel_type', function () {
+    return view('vue/fuel_type');
+});
+
+Route::get('/vehicle_type', function () {
+    return view('vue/vehicle_type');
+});
+
+
+Route::get('/vehicle', function () {
+    return view('vue/vehicle');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

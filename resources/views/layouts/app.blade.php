@@ -12,6 +12,10 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <!--<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -30,6 +34,19 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 
+                <a class="navbar-brand" href="{{ url('/brand') }}">
+                    Marcas
+                </a>
+                <a class="navbar-brand" href="{{ url('/fuel_type') }}">
+                    tipo de combustible
+                </a>
+                <a class="navbar-brand" href="{{ url('/vehicle_type') }}">
+                    tipo de vehículo
+                </a>
+                <a class="navbar-brand" href="{{ url('/vehicle') }}">
+                    Vehículos
+                </a>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
