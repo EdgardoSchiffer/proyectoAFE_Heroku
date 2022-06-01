@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Client;
+use App\Models\Municipality;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -51,8 +53,16 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'lastname' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255', 'unique:users,username'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'dui'=>['required', 'string', 'regex:/^\d{9}$/'],
+            'address'=> ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:8'],
+            'municipality' => ['required', 'int']
+        ],[
+            'dui' => 'El DUI debe contener 9 digitos sin guiones',
         ]);
     }
 
@@ -64,10 +74,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
+            'last_name' => $data['lastname'],
+            'username' => $data['username'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => bcrypt($data['password']),
+            'role_id' => 2
         ]);
+        $client = Client::create([
+            'client_name' => $data['username']." ".$data['lastname'],
+             'dui' => $data['dui'],
+             'email' => $data['email'],
+             'address' => $data['address'],
+             'phone' => $data['phone'],
+             'role_id' => 2,
+             'municipality_id' => $data['municipality'],
+             'user_id' => $user->id
+         ]);
+        return $user;
+    }
+
+    public function showRegistrationForm()
+    {
+        $municipality=Municipality::all();
+        return view('auth.register',compact('municipality'));
     }
 }
