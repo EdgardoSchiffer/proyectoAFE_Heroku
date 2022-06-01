@@ -14,7 +14,7 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        //
+        return Vehicle::with('fuel_type')->with('brand')->with('vehicle_type')->orderBy('id', 'ASC')->get();
     }
 
     /**
@@ -35,7 +35,20 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vehicle = new Vehicle;
+        $vehicle->vehicle_type_id = $request->vehicle["vehicle_type"];
+        $vehicle->vehicle_name = $request->vehicle["vehicle_name"];
+        $vehicle->color = $request->vehicle["color"];
+        $vehicle->year = $request->vehicle["year"];
+        $vehicle->doors_number = $request->vehicle["doors_number"];
+        $vehicle->fuel_type_id = $request->vehicle["fuel_type"];
+        $vehicle->rental_price = $request->vehicle["rental_price"];
+        $vehicle->status = $request->vehicle["status"];
+        $vehicle->brand_id = $request->vehicle["brand"];
+        $vehicle->registry_number = $request->vehicle["registry_number"];
+        $vehicle->stock = $request->vehicle["stock"];
+        $vehicle->save();
+        return $vehicle;
     }
 
     /**
@@ -67,9 +80,26 @@ class VehicleController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vehicle $vehicle)
+    public function update(Request $request, $id)
     {
         //
+        $vehicle = Vehicle::find($id);
+        if ($vehicle) {
+            $vehicle->vehicle_type_id = $request->vehicle["vehicle_type"];
+            $vehicle->vehicle_name = $request->vehicle["vehicle_name"];
+            $vehicle->color = $request->vehicle["color"];
+            $vehicle->year = $request->vehicle["year"];
+            $vehicle->doors_number = $request->vehicle["doors_number"];
+            $vehicle->fuel_type_id = $request->vehicle["fuel_type"];
+            $vehicle->rental_price = $request->vehicle["rental_price"];
+            $vehicle->status = $request->vehicle["status"];
+            $vehicle->brand_id = $request->vehicle["brand"];
+            $vehicle->registry_number = $request->vehicle["registry_number"];
+            $vehicle->stock = $request->vehicle["stock"];
+            $vehicle->save();
+            return $vehicle;
+        }
+        return "Vehículo no encontrado";
     }
 
     /**
@@ -78,8 +108,14 @@ class VehicleController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vehicle $vehicle)
+    public function destroy($id)
     {
-        //
+        
+        $vehicle = Vehicle::find($id);
+        if ($vehicle) {
+            $vehicle->delete();
+            return "Vehículo eliminado";
+        }
+        return "Vehículo no encontrado";
     }
 }

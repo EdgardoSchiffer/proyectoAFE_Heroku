@@ -19,7 +19,7 @@ window.Vue = require('vue').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,6 +27,25 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+ import { library } from '@fortawesome/fontawesome-svg-core'
+ import { faPlusSquare, faTrash, faPenToSquare, faXmark, faFilePen } from '@fortawesome/free-solid-svg-icons'
+ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+ 
+ library.add(faPlusSquare, faTrash,faPenToSquare, faXmark, faFilePen)
+ 
+ Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+import IndexBrand from './components/brands/index.vue'
+import IndexFuelType from './components/fuel_types/index.vue'
+import IndexVehicleType from './components/vehicle_types/index.vue'
+import IndexVehicle from './components/vehicles/index.vue'
+
 const app = new Vue({
     el: '#app',
+    components: {
+        IndexBrand,
+        IndexFuelType,
+        IndexVehicleType,
+        IndexVehicle,
+    }
 });

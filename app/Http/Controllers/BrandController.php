@@ -12,9 +12,28 @@ class BrandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        $brands = Brand::OrderBy('id', 'DESC')->paginate(10);
+        return [
+            'pagination' => [
+                'total' => $brands->total(),
+                'current_page' => $brands->currentPage(),
+                'per_page' => $brands->perPage(),
+                'last_page' => $brands->lastPage(),
+                'from' => $brands->firstItem(),
+                'to' => $brands->lastPage(),
+            ],
+            'brands' => $brands
+        ];
+    }
+
+    public function listar()
+    {
+        //
+        return  Brand::OrderBy('id', 'DESC')->get();
+        
     }
 
     /**
@@ -24,7 +43,6 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -36,6 +54,10 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         //
+        $newBrand = new Brand();
+        $newBrand->brand_name = $request->brand["brand_name"];
+        $newBrand->save();
+        return $newBrand;
     }
 
     /**
@@ -67,9 +89,15 @@ class BrandController extends Controller
      * @param  \App\Models\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Brand $brand)
+    public function update(Request $request, $id)
     {
-        //
+        $existingBrand = Brand::find($id);
+        if ($existingBrand) {
+            $existingBrand->brand_name = $request->brand["brand_name"];
+            $existingBrand->save();
+            return $existingBrand;
+        }
+        return "Brand not found";
     }
 
     /**
@@ -78,8 +106,13 @@ class BrandController extends Controller
      * @param  \App\Models\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Brand $brand)
+    public function destroy($id)
     {
-        //
+        $existingBrand = Brand::find($id);
+        if ($existingBrand) {
+            $existingBrand->delete();
+            return "Brand successfully deleted";
+        }
+        return "Brand not found";
     }
 }

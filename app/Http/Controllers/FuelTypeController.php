@@ -14,7 +14,8 @@ class FuelTypeController extends Controller
      */
     public function index()
     {
-        //
+        // 
+        return Fuel_type::orderBy('id', 'DESC')->get();
     }
 
     /**
@@ -24,7 +25,7 @@ class FuelTypeController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -36,6 +37,11 @@ class FuelTypeController extends Controller
     public function store(Request $request)
     {
         //
+        $newFuelType = new Fuel_type;
+        $newFuelType->fuel_type_name = $request->fuel_type["fuel_type_name"];
+        $newFuelType->description = $request->fuel_type["description"];
+        $newFuelType->save();
+        return $newFuelType;
     }
 
     /**
@@ -67,9 +73,16 @@ class FuelTypeController extends Controller
      * @param  \App\Models\Fuel_type  $fuel_type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Fuel_type $fuel_type)
+    public function update(Request $request, $id)
     {
-        //
+        $fuelType = Fuel_type::find($id);
+        if($fuelType){
+            $fuelType->fuel_type_name = $request->fuel_type["fuel_type_name"];
+        $fuelType->description = $request->fuel_type["description"];
+        $fuelType->save();
+        return $fuelType;
+        }
+        return "Tipo de combustible no encontrado";
     }
 
     /**
@@ -78,8 +91,14 @@ class FuelTypeController extends Controller
      * @param  \App\Models\Fuel_type  $fuel_type
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Fuel_type $fuel_type)
+    public function destroy($id)
     {
         //
+        $fuelType = Fuel_type::find($id);
+        if($fuelType){
+            $fuelType->delete();
+            return "Tipo de combustible eliminado";
+        }
+        return "Tipo de combustible no encontrado";
     }
 }

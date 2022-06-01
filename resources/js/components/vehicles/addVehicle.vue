@@ -1,0 +1,296 @@
+<template>
+  <div class="container col-sm-4 col-lg-4 col-md-4 col-xl-4">
+    <h1>Agregar vehículo</h1>
+    <form>
+      <div class="form-group">
+        <label>Nombre</label>
+        <input
+          class="form-control form-control-sm"
+          type="text"
+          v-model="vehicle.vehicle_name"
+          v-on:keyup="validateTextNumber()"
+        />
+        <div class="danger" v-if="messageErrorVehicleName">
+          Verificar datos
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Tipo</label>
+          
+        <select v-model="vehicle.vehicle_type_id" class="form-control form-control-sm">
+        <option value="0" selected>Seleccione</option>
+            <option v-for="vehicle_type in vehicle_types" v-bind:key="vehicle_type.id">{{vehicle_type.vehicle_type_name}}</option>
+        </select>
+        <div class="danger" v-if="messageErrorVehicleType">
+          Verificar datos
+        </div>
+      </div>
+      <div class="form-group">
+        <label>color</label>
+        <input
+          class="form-control form-control-sm"
+          type="text"
+          v-model="vehicle.color"
+          v-on:keyup="validateText()"
+        />
+        <div class="danger" v-if="messageErrorColor">
+          Verificar datos
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Año</label>
+        <select v-model="vehicle.year" class="form-control form-control-sm">
+            <option value="0" selected>Seleccione</option>
+            <option v-for="yearv in years" v-bind:key="yearv">{{yearv}}</option>
+        </select>
+        <div class="danger" v-if="messageErrorYear">
+          Verificar datos
+        </div>
+      </div>
+      <div class="form-group">
+        <label>No puertas</label>
+        <select v-model="vehicle.doors_number" class="form-control form-control-sm">
+            <option value="0" selected>Seleccione</option>
+            <option v-for="door in doors" v-bind:key="door">{{door}}</option>
+        </select>
+        <div class="danger" v-if="messageErrorDoorsNumber">
+          Verificar datos
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Combustible</label>
+        <select v-model="vehicle.fuel_type_id" class="form-control form-control-sm">
+            <option value="0" selected>Seleccione</option>
+            <option v-for="fuel_type in fuel_types" v-bind:key="fuel_type.id">{{fuel_type.fuel_type_name}}</option>
+        </select>
+        <div class="danger" v-if="messageErrorFuelType">
+          Verificar datos
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Precio de alquiler</label>
+        <input
+          class="form-control form-control-sm"
+          type="text"
+          v-model="vehicle.rental_price"
+          v-on:keyup="isIntegerOrFloat()"
+        />
+        <div class="danger" v-if="messageErrorRentalPrice">
+          Verificar datos
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Estado</label>
+        <select v-model="vehicle.status" class="form-control form-control-sm">
+            <option value="1" selected>Disponible</option>
+            <option value="2">En uso</option>
+            <option value="2">Fuera de uso</option>
+        </select>
+        <div class="danger" v-if="messageErrorStatus">
+          Verificar datos
+        </div>
+      </div>
+      <div class="form-group">
+        <label>No registro</label>
+        <input
+          class="form-control form-control-sm"
+          type="text"
+          v-model="vehicle.registry_number"
+          v-on:keyup="validateTextNumberRegistryNumber()"
+        />
+        <div class="danger" v-if="messageErrorRegistryNumber">
+          Verificar datos
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Marca</label>
+        <select v-model="vehicle.brand_id" class="form-control form-control-sm">
+            <option value="0" selected>Seleccione</option>
+            <option v-for="brand in brands" v-bind:key="brand.id">{{brand.brand_name}}</option>
+        </select>
+        <div class="danger" v-if="messageErrorBrand">
+          Verificar datos
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Existencia</label>
+        <input
+          class="form-control form-control-sm"
+          type="text"
+          v-model="vehicle.stock"
+          v-on:keyup="validateNumber()"
+        />
+        <div class="danger" v-if="messageErrorStock">
+          Verificar datos
+        </div>
+      </div>
+
+      <font-awesome-icon
+        icon="plus-square"
+        @click.prevent="addItem()"
+        :class="[
+          vehicle.vehicle_name 
+            ? 'active'
+            : 'inactive',
+          'plus',
+        ]"
+      />
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  data: function () {
+    return {
+      vehicle: {
+        vehicle_type_id: 0,
+        vehicle_name: "",
+        color: "",
+        year: 0,
+        doors_number: 0,
+        fuel_type_id: 0,
+        rental_price: 0.0,
+        status: 1,
+        registry_number: "",
+        brand_id: 0,
+        stock: 1
+      },
+      fuel_types: [],
+      brands:[],
+      vehicle_types: [],
+      years:[
+          2022,2021,2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000,
+      ],
+      doors:[1,2,3,4,5,6,7,8,9,10],
+      messageErrorVehicleName: false,
+      messageErrorColor: false,
+      messageErrorYear: false,
+      messageErrorRentalPrice: false,
+      messageErrorStock: false,
+      messageErrorBrand: false,
+      messageErrorVehicleType: false,
+      messageErrorFuelType: false,
+      messageErrorRegistryNumber: false,
+      messageErrorStatus: false
+    };
+  },
+  methods: {
+    addItem() {
+      if (
+        this.vehicle.vehicle_name == "" ||
+        this.messageErrorVehicleName ||
+        this.messageErrorColor
+      ) {
+        return;
+      }
+      axios
+        .post("api/vehicle/store", {
+          vehicle: this.vehicle,
+        })
+        .then((response) => {
+          if (response.status == 201) {
+            swal("Guardado", "Registro guardado exitosamente", "success");
+            this.vehicle.vehicle_name = "";
+            this.$emit("reloadlist");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, //addItem
+    getFuelTypes() {
+      axios
+        .get("api/fuel_types")
+        .then((response) => {
+          this.fuel_types = response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },//get fuel type
+    getBrands() {
+      var urlBrands = "api/brand/listar";
+      axios
+        .get(urlBrands)
+        .then((response) => {
+          this.brands = response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, //get list
+    getVehicleTypes() {
+      axios
+        .get("api/vehicle_types")
+        .then((response) => {
+          this.vehicle_types = response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    validateTextNumber() {
+      if (this.vehicle.vehicle_name.search(/^[a-zA-Z0-9.]+$/)) {
+        this.messageErrorVehicleName = true;
+      } else {
+        this.messageErrorVehicleName = false;
+      }
+    },//validate texto number
+
+validateTextNumberRegistryNumber() {
+      if (this.vehicle.registry_number.search(/^[a-zA-Z0-9.]+$/)) {
+        this.messageErrorRegistryNumber = true;
+      } else {
+        this.messageErrorRegistryNumber = false;
+      }
+    },//validate texto number
+
+
+    validateText() {
+      if (this.vehicle.color.search(/^[a-zA-Z\s]*$/)) {
+        this.messageErrorColor = true;
+      } else {
+        this.messageErrorColor = false;
+      }
+    },//validate texto
+    isIntegerOrFloat(){
+      var patter = /^[0-9]*(\.?)[0-9]+$/;
+      if(!patter.test(this.vehicle.rental_price)){
+       this.messageErrorRentalPrice = true
+      }else{
+        this.messageErrorRentalPrice = false
+      }
+    },//validate integer or float
+    validateNumber(){
+      var patter = /^[0-9]+$/;
+      if(!patter.test(this.vehicle.stock)){
+       this.messageErrorStock = true
+      }else{
+        this.messageErrorStock = false
+      }
+    }
+  },
+  created() {
+    this.getFuelTypes();
+    this.getBrands();
+    this.getVehicleTypes();
+  }
+};
+</script>
+
+<style scoped>
+.plus {
+  font-size: 30px;
+}
+.active {
+  color: #00ce25;
+  cursor: pointer;
+}
+.inactive {
+  color: #999999;
+}
+.danger {
+  color: brown;
+}
+</style>

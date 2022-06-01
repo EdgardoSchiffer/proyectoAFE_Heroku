@@ -14,7 +14,7 @@ class VehicleTypeController extends Controller
      */
     public function index()
     {
-        //
+        return Vehicle_type::orderBy('id', 'DESC')->get();
     }
 
     /**
@@ -35,7 +35,10 @@ class VehicleTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vehicleType = new Vehicle_type;
+        $vehicleType->vehicle_type_name = $request->vehicle_type["vehicle_type_name"];
+        $vehicleType->save();
+        return $vehicleType;
     }
 
     /**
@@ -67,9 +70,15 @@ class VehicleTypeController extends Controller
      * @param  \App\Models\Vehicle_type  $vehicle_type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vehicle_type $vehicle_type)
+    public function update(Request $request, $id)
     {
-        //
+        $vehicleType = Vehicle_type::find($id);
+        if($vehicleType){
+            $vehicleType->vehicle_type_name = $request->vehicle_type["vehicle_type_name"];
+            $vehicleType->save();
+            return $vehicleType;
+        }
+        return "Tipo de vehiculo no encontrado";
     }
 
     /**
@@ -78,8 +87,13 @@ class VehicleTypeController extends Controller
      * @param  \App\Models\Vehicle_type  $vehicle_type
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vehicle_type $vehicle_type)
+    public function destroy($id)
     {
-        //
+        $vehicleType = Vehicle_type::find($id);
+        if($vehicleType){
+            $vehicleType->delete();
+            return "Tipo de vehiculo eliminado correctamente";
+        }
+        return "Tipo de vehiculo no encontrado";
     }
 }
