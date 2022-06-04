@@ -36,5 +36,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RentalDetailSeeder::class);
         $this->call(VehicleDetailSeeder::class);
         $this->call(RentalUserSeeder::class);
+        $this->call(GalerySeeder::class);
     }
 }

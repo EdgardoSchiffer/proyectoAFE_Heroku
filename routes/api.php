@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\FuelTypeController;
+use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\VehicleDetailController;
 use App\Http\Controllers\VehicleTypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -57,10 +59,37 @@ Route::prefix('/vehicle_type')->group(
 
 Route::get('/vehicles', [VehicleController::class, 'index']);
 
-Route::prefix('/vehicle_type')->group(
+Route::prefix('/vehicle')->group(
     function () {
         Route::post('/store', [VehicleController::class, 'store']);
         Route::put('/{id}', [VehicleController::class, 'update']);
         Route::delete('/{id}', [VehicleController::class, 'destroy']);
+        Route::get('/dashboardVehicle', [VehicleController::class, 'dashboardVehicle']);
+        //Route::get('/listar', [BrandController::class, 'listar']);
+    }
+);
+
+Route::get('/galeries', [GaleryController::class, 'index']);
+
+Route::prefix('/galery')->group(
+    function () {
+        Route::get('/list/{id}', [GaleryController::class, 'list']);
+        Route::post('/store', [GaleryController::class, 'store']);
+        Route::delete('/{id}', [GaleryController::class, 'destroy']);
+    }
+);
+
+//Route::get('/galeries', [GaleryController::class, 'index']);
+
+Route::prefix('/vehicle_detail')->group(
+    function () {
+        Route::post('/store', [VehicleDetailController::class, 'store']);
+        Route::get('/list/{id}', [VehicleDetailController::class, 'list']);
+        Route::put('/updateVehicleDetail', [VehicleDetailController::class, 'updateVehicleDetail']);
+        Route::post('/createDefaultDetailVehicle/{id}', [VehicleDetailController::class, 'createDefaultDetailVehicle']);
+        //Route::delete('/{id}', [GaleryController::class, 'destroy']);
+        Route::get('/listAccessoriesUnAssigned/{id}', [VehicleDetailController::class, 'listAccessoriesUnAssigned']);
+
+        
     }
 );

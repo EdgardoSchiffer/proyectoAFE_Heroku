@@ -24,7 +24,7 @@
           'plus',
         ]"
       />
-      <font-awesome-icon icon="xmark" @click="cancel()" class="danger" />
+      <font-awesome-icon icon="circle-left" @click="cancel()" class="danger" />
     </form>
   </div>
 </template>

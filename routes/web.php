@@ -29,9 +29,12 @@ Route::get('/vehicle_type', function () {
     return view('vue/vehicle_type');
 });
 
-
 Route::get('/vehicle', function () {
     return view('vue/vehicle');
+});
+
+Route::get('/vehicleDashboard', function () {
+    return view('vue/vehicleDashboard');
 });
 
 Auth::routes();

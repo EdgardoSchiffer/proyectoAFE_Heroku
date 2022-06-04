@@ -22,6 +22,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
 </head>
 <body>
     <div id="app">
@@ -46,7 +52,9 @@
                 <a class="navbar-brand" href="{{ url('/vehicle') }}">
                     Vehículos
                 </a>
-
+                <a class="navbar-brand" href="{{ url('/vehicleDashboard') }}">
+                    Vehículos dashboard
+                </a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">

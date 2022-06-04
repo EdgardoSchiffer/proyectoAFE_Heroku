@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('vehicle_id')->reference('id')->on('vehicles');
             $table->foreignId('accessory_id')->reference('id')->on('accessories');
-            $table->boolean("state");
+            $table->boolean("status");
             $table->softDeletes();
             $table->timestamps();
         });

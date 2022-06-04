@@ -36,7 +36,7 @@
           'plus',
         ]"
       />
-      <font-awesome-icon icon="xmark" @click="cancel()" class="danger" />
+      <font-awesome-icon icon="circle-left" @click="cancel()" class="danger" />
     </form>
   </div>
 </template>
@@ -105,7 +105,7 @@ export default {
     },
     validateTextoDescription(){
         
-      if(this.fuel_type.description.search(/^[a-zA-Z0-9.]+$/)){
+      if(this.fuel_type.description.search(/^[a-zA-Z0-9\s]*$/)){
         this.messageErrorDescription = true
       }else{
         this.messageErrorDescription = false

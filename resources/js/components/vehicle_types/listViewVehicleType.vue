@@ -18,6 +18,7 @@
             <button @click="editItem(vehicle_type)" class="pentosquarecan">
               <font-awesome-icon icon="pen-to-square" />
             </button>
+            
           </td>
         </tr>
       </tbody>

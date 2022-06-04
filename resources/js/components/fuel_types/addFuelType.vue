@@ -89,7 +89,7 @@ export default {
     },
     validateTextoDescription(){
         
-      if(this.fuel_type.description.search(/^[a-zA-Z0-9.]+$/)){
+      if(this.fuel_type.description.search(/^[a-zA-Z0-9\s]*$/)){
         this.messageErrorDescription = true
       }else{
         this.messageErrorDescription = false

@@ -27,18 +27,26 @@ window.Vue = require('vue').default;
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
- import { library } from '@fortawesome/fontawesome-svg-core'
- import { faPlusSquare, faTrash, faPenToSquare, faXmark, faFilePen } from '@fortawesome/free-solid-svg-icons'
- import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
- 
- library.add(faPlusSquare, faTrash,faPenToSquare, faXmark, faFilePen)
- 
- Vue.component('font-awesome-icon', FontAwesomeIcon)
+import { library } from '@fortawesome/fontawesome-svg-core'
+import {
+    faPlusSquare, faTrash, faPenToSquare, faXmark, faFilePen,
+    faArrowDownShortWide, faArrowUpShortWide, faPhotoFilm, faCircleLeft,
+    faFileArrowUp, faListCheck, faCar, faFileContract
+} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(faPlusSquare, faTrash, faPenToSquare, faXmark,
+    faFilePen, faArrowDownShortWide, faArrowUpShortWide,
+    faPhotoFilm, faCircleLeft, faFileArrowUp, faListCheck, faCar, faFileContract)
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 import IndexBrand from './components/brands/index.vue'
 import IndexFuelType from './components/fuel_types/index.vue'
 import IndexVehicleType from './components/vehicle_types/index.vue'
 import IndexVehicle from './components/vehicles/index.vue'
+import vehicleDashboard from './components/vehicles/dashboard/vehicleDashboard.vue'
+
 
 const app = new Vue({
     el: '#app',
@@ -47,5 +55,6 @@ const app = new Vue({
         IndexFuelType,
         IndexVehicleType,
         IndexVehicle,
+        vehicleDashboard,
     }
 });

@@ -24,7 +24,7 @@
           'plus',
         ]"
       />
-      <font-awesome-icon icon="xmark" @click="cancel()" class="danger" />
+      <font-awesome-icon icon="circle-left" @click="cancel()" class="danger" />
     </form>
   </div>
 </template>
@@ -84,7 +84,7 @@ export default {
       this.$emit("reloadedit", false);
     },//cancel
     validateTexto(){
-      if(this.vehicle_type.vehicle_type_name.search(/^[a-zA-Z\s]*$/)){
+      if(this.vehicle_type.vehicle_type_name.search(/^[a-zA-Z0-9\s]*$/)){
         this.messageErrorVehicleTypeName= true
       }else{
         this.messageErrorVehicleTypeName= false

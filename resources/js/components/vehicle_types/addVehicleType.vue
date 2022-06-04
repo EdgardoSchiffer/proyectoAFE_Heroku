@@ -64,7 +64,7 @@ export default {
     }, //addItem
 
     validateTexto() {
-      if (this.vehicle_type.vehicle_type_name.search(/^[a-zA-Z\s]*$/)) {
+      if (this.vehicle_type.vehicle_type_name.search(/^[a-zA-Z0-9\s]*$/)) {
         this.messageErrorVehicleTypeName = true;
       } else {
         this.messageErrorVehicleTypeName = false;

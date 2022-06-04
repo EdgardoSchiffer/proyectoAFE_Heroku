@@ -1,20 +1,39 @@
 <template>
   <div class="container">
-    <div v-if="edit">
-      <edit-vehicle
+    <div v-if="addImage">
+      <index-galery
         :vehicle="vehicle"
         v-on:reloadlist="getList()"
-        v-on:reloadedit="loadEdit"
+        v-on:reloadaddimage="loadAddGalery"
       />
     </div>
-    <div v-else>
-      <add-vehicle v-on:reloadlist="getList()" />
+    <div v-if="!addImage">
+      <div v-if="showVehicleDetail">
+        <index-vehicle-detail :vehicle="vehicle" v-on:reloadaddvehicledetail="loadShowVehicleDetail"/>
+      </div>
+      <div v-if="!showVehicleDetail">
+        <div v-if="edit">
+        <edit-vehicle
+          :vehicle="vehicle"
+          v-on:reloadlist="getList()"
+          v-on:reloadedit="loadEdit"
+        />
+      </div>
+      <div v-if="!edit">
+        <add-vehicle v-on:reloadlist="getList()" />
+      </div>
+
+      <list-view-vehicle
+        :vehicles="vehicles"
+        v-on:reloadlist="getList()"
+        v-on:reloadedit="loadEdit"
+        v-on:reloadaddimage="loadAddGalery"
+        v-on:reloadaddvehicledetail="loadShowVehicleDetail"
+      />
+
+      </div>
+      
     </div>
-    <list-view-vehicle
-      :vehicles="vehicles"
-      v-on:reloadlist="getList()"
-      v-on:reloadedit="loadEdit"
-    />
   </div>
 </template>
 
@@ -22,18 +41,24 @@
 import addVehicle from "./addVehicle.vue";
 import editVehicle from "./editVehicle.vue";
 import listViewVehicle from "./listViewVehicle.vue";
+import indexGalery from "../galeries/index.vue";
+import indexVehicleDetail from "../vehicle_details/index.vue";
 
 export default {
   components: {
     addVehicle,
     listViewVehicle,
     editVehicle,
+    indexGalery,
+    indexVehicleDetail,
   },
   data: function () {
     return {
       vehicle: [],
       vehicles: [],
       edit: false,
+      addImage: false,
+      showVehicleDetail: false,
     };
   },
   methods: {
@@ -55,6 +80,26 @@ export default {
         this.edit = false;
       }
     },
+    loadAddGalery(vehicle) {
+      //console.log("data load add galery");
+      if (vehicle.id > 0) {
+        this.addImage = true;
+        this.vehicle = vehicle;
+      } else {
+        this.addImage = false;
+      }
+    },
+    loadShowVehicleDetail(vehicle) {
+      //console.log("data load add galery");
+      if (vehicle.id > 0) {
+        this.showVehicleDetail = true;
+        this.vehicle = vehicle;
+      } else {
+        this.showVehicleDetail = false;
+      }
+    },
+
+    //showVehicleDetail
   },
   created() {
     this.getList();
