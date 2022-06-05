@@ -70,7 +70,7 @@ class AccessoryTypeController extends Controller
      * @param  \App\Models\Accessory_type  $accessory_type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Accessory_type $accessory_type)
+    public function update(Request $request, $id)
     {
         $accessoryType = Accessory_type::find($id);
         if($accessoryType){
@@ -87,7 +87,7 @@ class AccessoryTypeController extends Controller
      * @param  \App\Models\Accessory_type  $accessory_type
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Accessory_type $accessory_type)
+    public function destroy($id)
     {
         $accessoryType = Accessory_type::find($id);
         if($accessoryType){
