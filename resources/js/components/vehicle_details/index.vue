@@ -8,6 +8,11 @@
     <h1>
       Accesorios de
       <b>{{ vehicle.vehicle_name }} {{ vehicle.brand.brand_name }} </b>
+      <font-awesome-icon
+      icon="fa-file-pdf"
+      @click.prevent="generatePDF()"
+      class=" fafilepdf"
+    />
     </h1>
     <div v-if="show">
       <add-vehicle-accessory
@@ -102,4 +107,8 @@ export default {
 </script>
 
 <style>
+.fafilepdf{
+  color: indianred;
+  cursor: pointer;
+}
 </style>
