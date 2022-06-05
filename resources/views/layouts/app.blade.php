@@ -55,6 +55,9 @@
                 <a class="navbar-brand" href="{{ url('/vehicleDashboard') }}">
                     Vehículos dashboard
                 </a>
+                <a class="navbar-brand" href="{{ url('/accessory_type') }}">
+                    tipo de accesorio
+                </a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
