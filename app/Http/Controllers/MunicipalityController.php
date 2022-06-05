@@ -14,7 +14,12 @@ class MunicipalityController extends Controller
      */
     public function index()
     {
-        //
+        return Municipality::with('department')->orderBy('id', 'ASC')->get();
+    }
+
+    public function list()
+    {
+        return Municipality::with('department')->orderBy('id', 'ASC')->get();
     }
 
     /**
@@ -35,7 +40,11 @@ class MunicipalityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $municipality = new Municipality();
+        $municipality->department_id = $request->municipality["department_id"];
+        $municipality->municipality_name = $request->municipality["municipality_name"];
+        $municipality->save();
+        return $municipality;
     }
 
     /**
@@ -67,9 +76,17 @@ class MunicipalityController extends Controller
      * @param  \App\Models\Municipality  $municipality
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Municipality $municipality)
+    public function update(Request $request, $id)
     {
-        //
+        $municipality = Municipality::find($id);
+        if ($municipality) {
+            $municipality->department_id = $request->municipality["department_id"];
+            $municipality->municipality_name = $request->municipality["municipality_name"];
+            $municipality->save();
+
+            return $municipality;
+        }
+        return "Municipio no encontrado";
     }
 
     /**
@@ -78,8 +95,13 @@ class MunicipalityController extends Controller
      * @param  \App\Models\Municipality  $municipality
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Municipality $municipality)
+    public function destroy(Municipality $municipality, $id)
     {
-        //
+        $municipality = Municipality::find($id);
+        if($municipality){
+            $municipality->delete();
+            return "Municipalidad eliminado";
+        }
+        return "Municipalidad no encontrado";
     }
 }

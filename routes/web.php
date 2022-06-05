@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +40,18 @@ Route::get('/vehicleDashboard', function () {
 
 Route::get('/accessory_type', function () {
     return view('vue/accessory_type');
+});
+
+Route::get('/departments', function () {
+    return view('vue/department');
+});
+
+Route::get('/roles', function () {
+    return view('vue/role');
+});
+
+Route::get('/municipalities', function () {
+    return view('vue/municipality');
 });
 
 Auth::routes();

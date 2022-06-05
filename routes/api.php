@@ -2,11 +2,15 @@
 
 use App\Http\Controllers\AccessoryTypeController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\FuelTypeController;
 use App\Http\Controllers\GaleryController;
+use App\Http\Controllers\MunicipalityController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\VehicleDetailController;
 use App\Http\Controllers\VehicleTypeController;
+use App\Models\Municipality;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -100,5 +104,29 @@ Route::prefix('/vehicle_detail')->group(
         Route::get('/listAccessoriesUnAssigned/{id}', [VehicleDetailController::class, 'listAccessoriesUnAssigned']);
 
         
+    }
+);
+
+Route::get('/departments', [DepartmentController::class, 'index']);
+
+Route::prefix('/departments')->group(
+    function () {
+        Route::post('/store', [DepartmentController::class, 'store']);
+        Route::put('/{id}', [DepartmentController::class, 'update']);
+        Route::delete('/{id}', [DepartmentController::class, 'destroy']);
+        Route::get('/listar', [DepartmentController::class, 'listar']);
+    }
+);
+
+Route::get('/roles', [RoleController::class, 'index']);
+
+Route::get('/municipalities', [MunicipalityController::class, 'index']);
+
+Route::prefix('/municipalities')->group(
+    function () {
+        Route::post('/store', [MunicipalityController::class, 'store']);
+        Route::put('/{id}', [MunicipalityController::class, 'update']);
+        Route::delete('/{id}', [MunicipalityController::class, 'destroy']);
+        //Route::get('/listar', [DepartmentController::class, 'listar']);
     }
 );
