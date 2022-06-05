@@ -14,7 +14,24 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Role::OrderBy('id', 'ASC')->paginate(10);
+        return [
+            'pagination' => [
+                'total' => $roles->total(),
+                'current_page' => $roles->currentPage(),
+                'per_page' => $roles->perPage(),
+                'last_page' => $roles->lastPage(),
+                'from' => $roles->firstItem(),
+                'to' => $roles->lastPage(),
+            ],
+            'roles' => $roles
+        ];
+    }
+
+    public function listar()
+    {
+        
+        return Role::orderBy('id', 'ASC')->get();
     }
 
     /**

@@ -56,7 +56,11 @@
                                 Departamentos
                             </a>
                          </li>
-                      <li><a class="dropdown-item" href="#">Municipios</a></li>
+                         <li>
+                            <a class="dropdown-item" href="{{ url('/municipalities') }}">
+                                Municipios
+                            </a>
+                         </li>
                      <li>
                         <a class="dropdown-item" href="{{ url('/brand') }}">
                             Marcas
@@ -75,6 +79,11 @@
                      <li>
                         <a class="dropdown-item" href="{{ url('/accessory_type') }}">
                             Tipo de Accesorio
+                        </a>
+                     </li>
+                     <li>
+                        <a class="dropdown-item" href="{{ url('/roles') }}">
+                            Roles
                         </a>
                      </li>
                     </ul>

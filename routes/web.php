@@ -46,6 +46,14 @@ Route::get('/departments', function () {
     return view('vue/department');
 });
 
+Route::get('/roles', function () {
+    return view('vue/role');
+});
+
+Route::get('/municipalities', function () {
+    return view('vue/municipality');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
