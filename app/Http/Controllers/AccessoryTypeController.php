@@ -14,7 +14,7 @@ class AccessoryTypeController extends Controller
      */
     public function index()
     {
-        //
+        return Accessory_type::orderBy('id', 'DESC')->get();
     }
 
     /**
@@ -35,7 +35,10 @@ class AccessoryTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $accessoryType = new Accessory_type;
+        $accessoryType->accessory_type_name = $request->accessory_type["accessory_type_name"];
+        $accessoryType->save();
+        return $accessoryType;
     }
 
     /**
@@ -69,7 +72,13 @@ class AccessoryTypeController extends Controller
      */
     public function update(Request $request, Accessory_type $accessory_type)
     {
-        //
+        $accessoryType = Accessory_type::find($id);
+        if($accessoryType){
+            $accessoryType->accessory_type_name = $request->accessory_type["accessory_type_name"];
+            $accessoryType->save();
+            return $accessoryType;
+        }
+        return "Tipo de accesorio no encontrado";
     }
 
     /**
@@ -80,6 +89,11 @@ class AccessoryTypeController extends Controller
      */
     public function destroy(Accessory_type $accessory_type)
     {
-        //
+        $accessoryType = Accessory_type::find($id);
+        if($accessoryType){
+            $accessoryType->delete();
+            return "Tipo de accesorio eliminado correctamente";
+        }
+        return "Tipo de accesorio no encontrado";
     }
 }

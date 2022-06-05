@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccessoryTypeController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\FuelTypeController;
 use App\Http\Controllers\GaleryController;
@@ -55,7 +56,15 @@ Route::prefix('/vehicle_type')->group(
     }
 );
 
+Route::get('/accessory_types', [AccessoryTypeController::class, 'index']);
 
+Route::prefix('/accessory_type')->group(
+    function () {
+        Route::post('/store', [AccessoryTypeController::class, 'store']);
+        Route::put('/{id}', [AccessoryTypeController::class, 'update']);
+        Route::delete('/{id}', [AccessoryTypeController::class, 'destroy']);
+    }
+);
 
 Route::get('/vehicles', [VehicleController::class, 'index']);
 

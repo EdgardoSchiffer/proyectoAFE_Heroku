@@ -37,6 +37,10 @@ Route::get('/vehicleDashboard', function () {
     return view('vue/vehicleDashboard');
 });
 
+Route::get('/accessory_type', function () {
+    return view('vue/accessory_type');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
