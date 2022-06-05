@@ -47,6 +47,7 @@ import IndexVehicleType from './components/vehicle_types/index.vue'
 import IndexVehicle from './components/vehicles/index.vue'
 import vehicleDashboard from './components/vehicles/dashboard/vehicleDashboard.vue'
 import IndexAccessoryType from './components/accessory_types/index.vue'
+import IndexDepartment from './components/departments/index.vue'
 
 
 const app = new Vue({
@@ -58,5 +59,6 @@ const app = new Vue({
         IndexVehicle,
         vehicleDashboard,
         IndexAccessoryType,
+        IndexDepartment,
     }
 });

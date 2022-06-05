@@ -40,24 +40,46 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 
-                <a class="navbar-brand" href="{{ url('/brand') }}">
-                    Marcas
-                </a>
-                <a class="navbar-brand" href="{{ url('/fuel_type') }}">
-                    tipo de combustible
-                </a>
-                <a class="navbar-brand" href="{{ url('/vehicle_type') }}">
-                    tipo de vehículo
-                </a>
                 <a class="navbar-brand" href="{{ url('/vehicle') }}">
                     Vehículos
                 </a>
                 <a class="navbar-brand" href="{{ url('/vehicleDashboard') }}">
                     Vehículos dashboard
                 </a>
-                <a class="navbar-brand" href="{{ url('/accessory_type') }}">
-                    tipo de accesorio
-                </a>
+                <div class="dropdown">
+                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Mntto. Catalogos
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li>
+                            <a class="dropdown-item" href="{{ url('/departments') }}">
+                                Departamentos
+                            </a>
+                         </li>
+                      <li><a class="dropdown-item" href="#">Municipios</a></li>
+                     <li>
+                        <a class="dropdown-item" href="{{ url('/brand') }}">
+                            Marcas
+                        </a>
+                     </li>
+                     <li>
+                        <a class="dropdown-item" href="{{ url('/fuel_type') }}">
+                            Tipo de Combustible
+                        </a>
+                     </li>
+                     <li>
+                        <a class="dropdown-item" href="{{ url('/vehicle_type') }}">
+                            Tipo de Vehículo
+                        </a>
+                     </li>
+                     <li>
+                        <a class="dropdown-item" href="{{ url('/accessory_type') }}">
+                            Tipo de Accesorio
+                        </a>
+                     </li>
+                    </ul>
+                </div>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">

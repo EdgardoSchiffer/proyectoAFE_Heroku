@@ -14,7 +14,24 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+        $departments = Department::OrderBy('id', 'ASC')->paginate(10);
+        return [
+            'pagination' => [
+                'total' => $departments->total(),
+                'current_page' => $departments->currentPage(),
+                'per_page' => $departments->perPage(),
+                'last_page' => $departments->lastPage(),
+                'from' => $departments->firstItem(),
+                'to' => $departments->lastPage(),
+            ],
+            'departments' => $departments
+        ];
+    }
+
+    public function listar()
+    {
+        
+        return Department::orderBy('id', 'ASC')->get();
     }
 
     /**
@@ -35,7 +52,10 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newDepartment = new Department();
+        $newDepartment->department_name = $request->department["department_name"];
+        $newDepartment->save();
+        return $newDepartment;
     }
 
     /**
@@ -67,9 +87,15 @@ class DepartmentController extends Controller
      * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Department $department)
+    public function update(Request $request, Department $department, $id)
     {
-        //
+        $department = Department::find($id);
+        if($department){
+        $department->department_name = $request->department["department_name"];
+        $department->save();
+        return $department;
+        }
+        return "Departamento no encontrado";
     }
 
     /**
@@ -78,8 +104,13 @@ class DepartmentController extends Controller
      * @param  \App\Models\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Department $department)
+    public function destroy(Department $department, $id)
     {
-        //
+        $department = Department::find($id);
+        if($department){
+            $department->delete();
+            return "Departamento eliminado";
+        }
+        return "Departamento no encontrado";
     }
 }
