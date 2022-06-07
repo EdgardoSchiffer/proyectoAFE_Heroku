@@ -37,5 +37,6 @@ class DatabaseSeeder extends Seeder
         $this->call(VehicleDetailSeeder::class);
         $this->call(RentalUserSeeder::class);
         $this->call(GalerySeeder::class);
+        $this->call(CommentSeeder::class);
     }
 }

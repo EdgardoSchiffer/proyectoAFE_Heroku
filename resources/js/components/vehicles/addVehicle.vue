@@ -1,11 +1,16 @@
 <template>
-  <div class="container col-sm-4 col-lg-4 col-md-4 col-xl-4">
+  <div class="container col-sm-5 col-lg-5 col-md-5 col-xl-5">
     <div class="show-form">
       <h1>Agregar vehículo</h1>
       <font-awesome-icon
         :icon="icon_name"
         @click.prevent="showAdd()"
         :class="[show ? 'active' : 'inactive', 'plus data-show-icon']"
+      />
+      <font-awesome-icon
+        icon="fa-file-pdf"
+        @click.prevent="createPdf()"
+        class="fafilepdf"
       />
     </div>
 
@@ -403,6 +408,9 @@ export default {
       }
       console.log(this.icon_name);
     },
+    createPdf(){
+      this.$emit("reloadPdf");
+    },
   },
   created() {
     this.getFuelTypes();
@@ -437,5 +445,11 @@ export default {
 .show-form .data-show-icon {
   margin-left: 5px;
   padding-left: 5px;
+}
+.fafilepdf{
+  color: indianred;
+  cursor: pointer;
+  font-size: 30px;
+  margin-left: 5px;
 }
 </style>

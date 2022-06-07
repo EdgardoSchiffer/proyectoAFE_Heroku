@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <div v-for="(vehicle, index) in vehicles" :key="index">
-      
       <div class="row">
         <div class="col-sm-9">
           <div class="container p-2">
@@ -15,6 +14,15 @@
                       alt="..."
                     />
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container p-2">
+            <div v-for="(comment, j) in vehicle.comments" :key="j">
+              <div class="col">
+                <div class="card h-100 animate__animated animate__zoomIn">
+                  <h3>{{ comment.comment }}</h3>
                 </div>
               </div>
             </div>

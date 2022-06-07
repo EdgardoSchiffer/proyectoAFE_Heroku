@@ -20,9 +20,9 @@
         />
       </div>
       <div v-if="!edit">
-        <add-vehicle v-on:reloadlist="getList()" />
+        <add-vehicle v-on:reloadlist="getList()" v-on:reloadPdf="generatePdf()"/>
       </div>
-
+      
       <list-view-vehicle
         :vehicles="vehicles"
         v-on:reloadlist="getList()"
@@ -59,6 +59,7 @@ export default {
       edit: false,
       addImage: false,
       showVehicleDetail: false,
+      dataReport:[],
     };
   },
   methods: {
@@ -98,7 +99,76 @@ export default {
         this.showVehicleDetail = false;
       }
     },
+    generatePdf() {
+      /*
+      gnerate data for report
+      */
+      for (let index = 0; index < this.vehicles.length; index++) {
+        const element = this.vehicles[index];
+        
+        this.dataReport.push({ 
+          id: element.id,
+          name:element.vehicle_name, 
+          status:(element.status?"activo":"inactivo"),
+          color: element.color,
+          year: element.year,
+          doors_number: element.doors_number,
+          fuel: element.fuel_type.fuel_type_name,
+          price: element.rental_price,
+          status: (element.status == 1 ? "Disponible" : element.status == 2 ?"Reservado" : "Fuera de uso" ),
+          registry_number: element.registry_number,
+          brand: element.brand.brand_name,
+          type: element.vehicle_type.vehicle_type_name
+          });
+      }
+      
+      const columns = [
+        { title: "nombre", dataKey: "name" },
+        { title: "Estado", dataKey: "status" },
+        { title: "Color", dataKey: "color" },
+        { title: "Año", dataKey: "year" },
+        { title: "No puertas", dataKey: "doors_number" },
+        { title: "Combustible", dataKey: "fuel" },
+        { title: "Precio $", dataKey: "price" },
+        { title: "Estado", dataKey: "status" },
+        { title: "No registro", dataKey: "registry_number" },
+        { title: "Marca", dataKey: "brand" },
+        { title: "Tipo", dataKey: "type" },
+      ];
+      const doc = new jsPDF({
+        orientation: "landscape",
+        unit: "in",
+        format: "letter",
+      });
+      
+      doc.setFontSize(14).text(new Date().toLocaleDateString(), 9.7, 1);
+      doc.setFontSize(14).setFontStyle("bold").text("Reporte de vehículos", 0.5, 1);
+      doc.setLineWidth(0.01).line(0.5, 1.05, 10.45, 1.05);
+      
+      doc.autoTable({
+        columns,
+        body: this.dataReport,
+        margin: { left: 0.5, top: 1.08 },
+        didDrawPage: function (data){
+          data.settings.margin.top = 0.8
+        }
+      });
 
+      /*doc
+        .setFont("helvetica")
+        .setFontSize(12)
+        .text(this.texto, 0.5, 3.5, { align: "left", maxWidth: "7.5" });*/
+
+    //footer
+      doc
+        .setFont("times")
+        .setFontSize(11)
+        .setFontStyle("italic")
+        .setTextColor(0, 0, 255)
+        .text("", 0.5, doc.internal.pageSize.height - 0.5);
+      doc.save("data.pdf");
+      this.dataReport = [];
+    }//end generate pdf
     //showVehicleDetail
   },
   created() {
@@ -108,4 +178,5 @@ export default {
 </script>
 
 <style>
+
 </style>

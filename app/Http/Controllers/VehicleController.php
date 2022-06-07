@@ -19,7 +19,7 @@ class VehicleController extends Controller
 
     public function dashboardVehicle(Request $request)
     {
-        $vahicles = Vehicle::with('fuel_type')->with('brand')->with('vehicle_type')->with('galeries')->orderBy('id', 'ASC')->paginate(5);
+        $vahicles = Vehicle::with('fuel_type')->with('brand')->with('vehicle_type')->with('comments')->with('galeries')->orderBy('id', 'ASC')->paginate(5);
         //$brands = Brand::OrderBy('id', 'DESC')->paginate(10);
         return [
             'pagination' => [

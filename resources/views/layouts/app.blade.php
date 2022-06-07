@@ -16,6 +16,9 @@
     <!--<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.js"></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
