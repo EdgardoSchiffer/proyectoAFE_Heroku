@@ -54,6 +54,10 @@ Route::get('/municipalities', function () {
     return view('vue/municipality');
 });
 
+Route::get('/accessories', function () {
+    return view('vue/accessory');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

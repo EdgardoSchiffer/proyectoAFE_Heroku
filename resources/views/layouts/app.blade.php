@@ -70,6 +70,11 @@
                         </a>
                      </li>
                      <li>
+                        <a class="dropdown-item" href="{{ url('/accessories') }}">
+                            Accesorios
+                        </a>
+                     </li>
+                     <li>
                         <a class="dropdown-item" href="{{ url('/fuel_type') }}">
                             Tipo de Combustible
                         </a>

@@ -14,7 +14,23 @@ class AccessoryController extends Controller
      */
     public function index()
     {
-        //
+        $accessories = Accessory::with('accessory_type')->OrderBy('id', 'ASC')->paginate(10);
+        return [
+            'pagination' => [
+                'total' => $accessories->total(),
+                'current_page' => $accessories->currentPage(),
+                'per_page' => $accessories->perPage(),
+                'last_page' => $accessories->lastPage(),
+                'from' => $accessories->firstItem(),
+                'to' => $accessories->lastPage(),
+            ],
+            'accessories' => $accessories
+        ];
+    }
+
+    public function list()
+    {
+        return Accessory::with('accessory_type')->orderBy('id', 'ASC')->get();
     }
 
     /**
