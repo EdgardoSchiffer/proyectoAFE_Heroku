@@ -68,6 +68,7 @@ Route::prefix('/accessory_type')->group(
         Route::post('/store', [AccessoryTypeController::class, 'store']);
         Route::put('/{id}', [AccessoryTypeController::class, 'update']);
         Route::delete('/{id}', [AccessoryTypeController::class, 'destroy']);
+        Route::get('/list', [AccessoryTypeController::class, 'list']);
     }
 );
 
@@ -132,11 +133,11 @@ Route::prefix('/municipalities')->group(
 
 Route::get('/accessories', [AccessoryController::class, 'index']);
 
-Route::prefix('/accessories')->group(
+Route::prefix('/accessory')->group(
     function () {
         Route::post('/store', [AccessoryController::class, 'store']);
         Route::put('/{id}', [AccessoryController::class, 'update']);
         Route::delete('/{id}', [AccessoryController::class, 'destroy']);
-        Route::get('/listar', [AccessoryController::class, 'listar']);
+        Route::get('/list', [AccessoryController::class, 'list']);
     }
 );

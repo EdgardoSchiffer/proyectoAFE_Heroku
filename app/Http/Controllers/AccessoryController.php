@@ -51,7 +51,11 @@ class AccessoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $accessory = new Accessory();
+        $accessory->accessory_type_id = $request->accessory["accessory_type_id"];
+        $accessory->accessory_name = $request->accessory["accessory_name"];
+        $accessory->save();
+        return $accessory;
     }
 
     /**
@@ -83,9 +87,17 @@ class AccessoryController extends Controller
      * @param  \App\Models\Accessory  $accessory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Accessory $accessory)
+    public function update(Request $request, $id)
     {
-        //
+        $accessory = Accessory::find($id);
+        if ($accessory) {
+            $accessory->accessory_type_id = $request->accessory["accessory_type_id"];
+            $accessory->accessory_name = $request->accessory["accessory_name"];
+            $accessory->save();
+
+            return $accessory;
+        }
+        return "Accesorio no encontrado";
     }
 
     /**
@@ -94,8 +106,13 @@ class AccessoryController extends Controller
      * @param  \App\Models\Accessory  $accessory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Accessory $accessory)
+    public function destroy(Accessory $accessory, $id)
     {
-        //
+        $accessory = Accessory::find($id);
+        if ($accessory) {
+            $accessory->delete();
+            return "Accesorio eliminado";
+        }
+        return "Accesorio no encontrado";
     }
 }

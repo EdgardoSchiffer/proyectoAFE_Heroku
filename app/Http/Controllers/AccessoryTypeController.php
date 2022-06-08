@@ -17,6 +17,11 @@ class AccessoryTypeController extends Controller
         return Accessory_type::orderBy('id', 'DESC')->get();
     }
 
+    public function list()
+    {
+        return Accessory_type::orderBy('id', 'ASC')->get();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -73,7 +78,7 @@ class AccessoryTypeController extends Controller
     public function update(Request $request, $id)
     {
         $accessoryType = Accessory_type::find($id);
-        if($accessoryType){
+        if ($accessoryType) {
             $accessoryType->accessory_type_name = $request->accessory_type["accessory_type_name"];
             $accessoryType->save();
             return $accessoryType;
@@ -90,7 +95,7 @@ class AccessoryTypeController extends Controller
     public function destroy($id)
     {
         $accessoryType = Accessory_type::find($id);
-        if($accessoryType){
+        if ($accessoryType) {
             $accessoryType->delete();
             return "Tipo de accesorio eliminado correctamente";
         }
