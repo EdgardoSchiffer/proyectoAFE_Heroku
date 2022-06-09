@@ -1,0 +1,90 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\User;
+use Illuminate\Http\Request;
+
+class AccessoryTypeController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return User::with('role')->orderBy('id', 'ASC')->get();
+    }
+
+    public function list()
+    {
+        return User::with('role')->orderBy('id', 'ASC')->get();
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+       //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Accessory_type  $accessory_type
+     * @return \Illuminate\Http\Response
+     */
+    public function show(User $accessory_type)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Accessory_type  $accessory_type
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(User $accessory_type)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Accessory_type  $accessory_type
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Accessory_type  $accessory_type
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+       //
+    }
+}

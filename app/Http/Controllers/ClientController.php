@@ -14,7 +14,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::with('user')->OrderBy('id', 'ASC')->paginate(10);
+        $clients = Client::with('user')->with('municipality')->OrderBy('id', 'ASC')->paginate(10);
         return [
             'pagination' => [
                 'total' => $clients->total(),
@@ -31,7 +31,7 @@ class ClientController extends Controller
 
     public function list()
     {
-        return Client::with('user')->orderBy('id', 'ASC')->get();        
+        return Client::with('user')->with('municipality')->orderBy('id', 'ASC')->get();        
     }
 
     /**
@@ -52,7 +52,15 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $client = new Client();
+        $client->client_name = $request->client["client_name"];
+        $client->dui = $request->client["dui"];
+        $client->email = $request->client["email"];
+        $client->address = $request->client["address"];
+        $client->phone = $request->client["phone"];
+        $client->municipality_id = $request->client["municipality_id"];
+        $client->save();
+        return $client;
     }
 
     /**

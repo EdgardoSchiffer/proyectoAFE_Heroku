@@ -12,7 +12,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\VehicleDetailController;
 use App\Http\Controllers\VehicleTypeController;
-use App\Models\Municipality;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -128,7 +128,7 @@ Route::prefix('/municipalities')->group(
         Route::post('/store', [MunicipalityController::class, 'store']);
         Route::put('/{id}', [MunicipalityController::class, 'update']);
         Route::delete('/{id}', [MunicipalityController::class, 'destroy']);
-        //Route::get('/listar', [DepartmentController::class, 'listar']);
+        Route::get('/list', [MunicipalityController::class, 'list']);
     }
 );
 
@@ -151,5 +151,16 @@ Route::prefix('/client')->group(
         Route::put('/{id}', [ClientController::class, 'update']);
         Route::delete('/{id}', [ClientController::class, 'destroy']);
         Route::get('/list', [ClientController::class, 'list']);
+    }
+);
+
+Route::get('/users', [UserController::class, 'index']);
+
+Route::prefix('/user')->group(
+    function () {
+        Route::post('/store', [UserController::class, 'store']);
+        Route::put('/{id}', [UserController::class, 'update']);
+        Route::delete('/{id}', [UserController::class, 'destroy']);
+        Route::get('/list', [UserController::class, 'list']);
     }
 );

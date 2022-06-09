@@ -62,6 +62,10 @@ Route::get('/clients', function () {
     return view('vue/client');
 });
 
+Route::get('/users', function () {
+    return view('vue/user');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

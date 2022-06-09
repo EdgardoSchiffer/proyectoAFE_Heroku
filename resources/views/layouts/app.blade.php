@@ -111,6 +111,11 @@
                             Clientes
                         </a>
                      </li>
+                     <li>
+                        <a class="dropdown-item" href="{{ url('/users') }}">
+                            Usuarios
+                        </a>
+                     </li>
                     </ul>
                 </div>
                 @endrole
