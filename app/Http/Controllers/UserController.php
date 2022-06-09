@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class AccessoryTypeController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -46,10 +46,10 @@ class AccessoryTypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Accessory_type  $accessory_type
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $accessory_type)
+    public function show(User $user)
     {
         //
     }
@@ -57,10 +57,10 @@ class AccessoryTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Accessory_type  $accessory_type
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $accessory_type)
+    public function edit(User $user)
     {
         //
     }
@@ -69,7 +69,7 @@ class AccessoryTypeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Accessory_type  $accessory_type
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -80,7 +80,7 @@ class AccessoryTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Accessory_type  $accessory_type
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

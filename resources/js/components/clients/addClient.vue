@@ -45,18 +45,18 @@
         </select>
         <div class="danger" v-if="messageErrorClientMunicipality">Verificar datos</div>
       </div>
-      <!--<div class="form-group">
+      <div class="form-group">
         <label>Usuario</label>
 
         <select v-model="client.user_id" class="form-control form-control-sm"
-          v-on:change="validateSelectAccessoryType()">
+          v-on:change="validateSelectClientUser()">
           <option value="0" selected>Seleccione</option>
           <option v-for="user in users" v-bind:key="user.id" :value="user.id">
             {{ user.name }}
           </option>
         </select>
         <div class="danger" v-if="messageErrorClientUser">Verificar datos</div>
-      </div>-->
+      </div>
 
       <font-awesome-icon icon="plus-square" @click.prevent="addItem()" :class="[
         client.client_name &&
@@ -64,8 +64,8 @@
           client.email &&
           client.address &&
           client.phone &&
-          client.municipality_id //&&
-          //client.user_id
+          client.municipality_id &&
+          client.user_id
           ? 'active'
           : 'inactive',
         'plus',
@@ -88,7 +88,7 @@ export default {
         user_id: 0,
       },
       municipalities: [],
-      //users: [],
+      users: [],
       show: false,
       icon_name: "arrow-down-short-wide",
       messageErrorClientName: false,
@@ -109,14 +109,14 @@ export default {
         this.client.address == "" ||
         this.client.phone == "" ||
         this.client.municipality_id == 0 ||
-        //this.client.user_id == 0 ||
+        this.client.user_id == 0 ||
         this.messageErrorClientName ||
         this.messageErrorClientDui ||
         this.messageErrorClientEmail ||
         this.messageErrorClientAddress ||
         this.messageErrorClientPhone ||
-        this.messageErrorClientMunicipality //||
-        //this.messageErrorClientUser
+        this.messageErrorClientMunicipality ||
+        this.messageErrorClientUser
       ) {
         swal("Alerta", "Los campos deben estar completos", "error");
 
@@ -136,7 +136,7 @@ export default {
             (this.client.address = ""),
             (this.client.phone = ""),
             (this.client.municipality_id = 0),
-            //(this.client.user_id = 0),
+            (this.client.user_id = 0),
               (this.show = !this.show);
             this.$emit("reloadlist");
           }
@@ -155,7 +155,7 @@ export default {
           console.log(error);
         });
     },
-    /*getUsers() {
+    getUsers() {
       axios
         .get("api/user/list")
         .then((response) => {
@@ -164,7 +164,7 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-    },*/
+    },
     validateTextNumber() {
       if (this.client.client_name.search(/^[a-zA-Z0-9\s]*$/)) {
         this.messageErrorClientName = true;
@@ -200,7 +200,7 @@ export default {
   },
   created() {
     this.getMunicipalities();
-    //this.getUsers();
+    this.getUsers();
     this.showAdd();
   },
 };

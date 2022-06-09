@@ -59,6 +59,7 @@ class ClientController extends Controller
         $client->address = $request->client["address"];
         $client->phone = $request->client["phone"];
         $client->municipality_id = $request->client["municipality_id"];
+        $client->user_id = $request->client["user_id"];
         $client->save();
         return $client;
     }
@@ -92,9 +93,22 @@ class ClientController extends Controller
      * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, $id)
     {
-        //
+        $client = Client::find($id);
+        if ($client) {
+            $client->client_name = $request->client["client_name"];
+            $client->dui = $request->client["dui"];
+            $client->email = $request->client["email"];
+            $client->address = $request->client["address"];
+            $client->phone = $request->client["phone"];
+            $client->municipality_id = $request->client["municipality_id"];
+            $client->user_id = $request->client["user_id"];
+            $client->save();
+
+            return $client;
+        }
+        return "Cliente no encontrado";
     }
 
     /**
