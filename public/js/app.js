@@ -24960,9 +24960,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -59448,30 +59445,57 @@ var render = function () {
     "div",
     { staticClass: "container" },
     [
-      _c("nav", [
+      _c("list-view-dashboard-vehicle", {
+        attrs: { vehicles: _vm.vehicles },
+        on: {
+          reloadlist: function ($event) {
+            return _vm.getList()
+          },
+        },
+      }),
+      _vm._v(" "),
+      _c("nav", { staticClass: "pt-3" }, [
         _c(
           "ul",
-          { staticClass: "pagination" },
+          { staticClass: "pagination justify-content-center" },
           [
             _vm.pagination.current_page > 1
               ? _c("li", { staticClass: "page-item" }, [
-                  _c("span", { staticClass: "page-link" }, [
-                    _c(
-                      "a",
-                      {
-                        attrs: { href: "#" },
-                        on: {
-                          click: function ($event) {
-                            $event.preventDefault()
-                            return _vm.changePage(
-                              _vm.pagination.current_page - 1
-                            )
-                          },
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(
+                            (_vm.pagination.current_page = 1)
+                          )
                         },
                       },
-                      [_vm._v("\n            Atras\n          ")]
-                    ),
-                  ]),
+                    },
+                    [_vm._v("«")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.pagination.current_page > 1
+              ? _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(_vm.pagination.current_page - 1)
+                        },
+                      },
+                    },
+                    [_vm._v("⟨")]
+                  ),
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -59484,59 +59508,65 @@ var render = function () {
                   class: [page == _vm.isActived ? "active" : ""],
                 },
                 [
-                  _c("span", { staticClass: "page-link" }, [
-                    _c(
-                      "a",
-                      {
-                        attrs: { href: "#" },
-                        on: {
-                          click: function ($event) {
-                            $event.preventDefault()
-                            return _vm.changePage(page)
-                          },
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(page)
                         },
                       },
-                      [_vm._v(_vm._s(page))]
-                    ),
-                  ]),
+                    },
+                    [_vm._v(_vm._s(page))]
+                  ),
                 ]
               )
             }),
             _vm._v(" "),
             _vm.pagination.current_page < _vm.pagination.last_page
               ? _c("li", { staticClass: "page-item" }, [
-                  _c("span", { staticClass: "page-link" }, [
-                    _c(
-                      "a",
-                      {
-                        attrs: { href: "#" },
-                        on: {
-                          click: function ($event) {
-                            $event.preventDefault()
-                            return _vm.changePage(
-                              _vm.pagination.current_page + 1
-                            )
-                          },
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(_vm.pagination.current_page + 1)
                         },
                       },
-                      [_vm._v("Siguiente")]
-                    ),
-                  ]),
+                    },
+                    [_vm._v("⟩")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.pagination.current_page < _vm.pagination.last_page
+              ? _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(_vm.pagination.last_page)
+                        },
+                      },
+                    },
+                    [_vm._v("»")]
+                  ),
                 ])
               : _vm._e(),
           ],
           2
         ),
       ]),
-      _vm._v(" "),
-      _c("list-view-dashboard-vehicle", {
-        attrs: { vehicles: _vm.vehicles },
-        on: {
-          reloadlist: function ($event) {
-            return _vm.getList()
-          },
-        },
-      }),
     ],
     1
   )

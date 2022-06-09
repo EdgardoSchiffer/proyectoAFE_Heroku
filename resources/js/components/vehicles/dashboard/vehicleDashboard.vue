@@ -1,43 +1,40 @@
 <template>
   <div class="container">
-    
-    <nav>
-      <ul class="pagination">
-        <li class="page-item" v-if="pagination.current_page>1">
-          <span class="page-link">
-            <a
-              href="#"
-              @click.prevent="changePage(pagination.current_page - 1)"
-            >
-              Atras
-            </a>
-          </span>
-        </li>
-        <li class="page-item" 
-          v-for="page in pagesNumber" v-bind:key="page"
-          v-bind:class="[page == isActived ? 'active' : '']"
-        >
-          <span class="page-link">
-            <a href="#" @click.prevent="changePage(page)">{{ page }}</a>
-          </span>
-        </li>
-        <li class="page-item"
-          v-if="pagination.current_page < pagination.last_page"
-        >
-          <span class="page-link">
-            <a href="#" @click.prevent="changePage(pagination.current_page + 1)"
-              >Siguiente</a
-            ></span
-          >
-        </li>
-      </ul>
-    </nav>
-    
+    <!-- data -->
     <list-view-dashboard-vehicle
       :vehicles="vehicles"
       v-on:reloadlist="getList()"
     />
 
+<!-- Paginación -->
+    <nav class="pt-3">
+      <ul class="pagination justify-content-center">
+        <!-- primera -->
+        <li class="page-item" v-if="pagination.current_page>1">
+        <a class="page-link" href="#" @click.prevent="changePage(pagination.current_page=1)">&laquo;</a>
+        </li>
+
+        <!-- flechita -->
+        <li class="page-item" v-if="pagination.current_page>1">
+        <a class="page-link" href="#" @click.prevent="changePage(pagination.current_page - 1)">&lang;</a>
+        </li>
+
+        <!-- campos -->
+        <li class="page-item" v-for="page in pagesNumber" v-bind:key="page" v-bind:class="[page == isActived ? 'active' : '']">
+            <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
+        </li>
+
+        <!-- avanzar -->
+        <li class="page-item" v-if="pagination.current_page < pagination.last_page">
+            <a href="#" class="page-link" @click.prevent="changePage(pagination.current_page + 1)">&rang;</a>
+        </li>
+
+        <!-- ultima -->
+        <li class="page-item" v-if="pagination.current_page < pagination.last_page">
+            <a class="page-link" href="#" @click.prevent="changePage(pagination.last_page)">&raquo;</a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </template>
 

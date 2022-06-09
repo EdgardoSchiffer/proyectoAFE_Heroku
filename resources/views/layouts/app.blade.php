@@ -151,27 +151,19 @@
                         @endguest
                     </ul>
                 </div>
-
-
                 {{-- modo oscuro --}}
                 <div class="toggle-container">
-                    <button class="theme-btn light" onclick="setLight()" title="Light mode">
-                      <img src="https://assets.codepen.io/210284/sun.png" alt="sun">
+                    <button class="theme-btn light animate__animated animate__bounceInDown" onclick="setLight()" title="Light mode">
+                      <img src="upload/images/sun.png" alt="sun">
                     </button>
-                    <button class="theme-btn dark" onclick="setDark()" title="Dark mode">
-                      <img src="https://assets.codepen.io/210284/moon.png" alt="moon">
+                    <button class="theme-btn dark animate__animated animate__bounceInDown" onclick="setDark()" title="Dark mode">
+                      <img src="upload/images/moon.png" alt="moon">
                     </button>
-                  </div>
-
-
-
-                 
-
-
+                </div>
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-3">
             @yield('content')
         </main>
     </div>
