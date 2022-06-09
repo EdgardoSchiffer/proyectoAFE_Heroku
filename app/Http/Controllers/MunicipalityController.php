@@ -14,7 +14,18 @@ class MunicipalityController extends Controller
      */
     public function index()
     {
-        return Municipality::with('department')->orderBy('id', 'ASC')->get();
+        $municipalities = Municipality::with('department')->OrderBy('id', 'ASC')->paginate(10);
+        return [
+            'pagination' => [
+                'total' => $municipalities->total(),
+                'current_page' => $municipalities->currentPage(),
+                'per_page' => $municipalities->perPage(),
+                'last_page' => $municipalities->lastPage(),
+                'from' => $municipalities->firstItem(),
+                'to' => $municipalities->lastPage(),
+            ],
+            'municipalities' => $municipalities
+        ];
     }
 
     public function list()
@@ -98,7 +109,7 @@ class MunicipalityController extends Controller
     public function destroy(Municipality $municipality, $id)
     {
         $municipality = Municipality::find($id);
-        if($municipality){
+        if ($municipality) {
             $municipality->delete();
             return "Municipalidad eliminado";
         }

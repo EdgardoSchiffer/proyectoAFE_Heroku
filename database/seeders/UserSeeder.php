@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $users = [
+        $admins = [
             [
                 'name' => 'El mero Don Jeff',
                 'last_name' => 'Pineda',
@@ -25,14 +25,6 @@ class UserSeeder extends Seeder
                 'role_id' => 1
             ],
             [
-                'name' => 'Bryan',
-                'last_name' => 'Gomez',
-                'username' => 'bryan.gomez',
-                'email' => 'bryan.gomez@gmail.com',
-                'password' => bcrypt('g@to123'),
-                'role_id' => 3
-            ],
-            [
                 'name' => 'Don Nico',
                 'last_name' => 'Escobar',
                 'username' => 'nico.escobar',
@@ -40,14 +32,8 @@ class UserSeeder extends Seeder
                 'password' => bcrypt('@dmin123'),
                 'role_id' => 1
             ],
-            [
-                'name' => 'Edgardo',
-                'last_name' => 'Argueta',
-                'username' => 'edgardo.argueta',
-                'email' => 'edgardo.argueta@gmail.com',
-                'password' => bcrypt('@dviser123'),
-                'role_id' => 3
-            ],
+        ];
+        $clients = [
             [
                 'name' => 'Guillermo',
                 'last_name' => 'Hernandez',
@@ -57,8 +43,35 @@ class UserSeeder extends Seeder
                 'role_id' => 2
             ],
         ];
-        foreach ($users as $user) {
-            User::create($user);
+        $advisers = [
+            [
+                'name' => 'Bryan',
+                'last_name' => 'Gomez',
+                'username' => 'bryan.gomez',
+                'email' => 'bryan.gomez@gmail.com',
+                'password' => bcrypt('g@to123'),
+                'role_id' => 3
+            ],
+            [
+                'name' => 'Edgardo',
+                'last_name' => 'Argueta',
+                'username' => 'edgardo.argueta',
+                'email' => 'edgardo.argueta@gmail.com',
+                'password' => bcrypt('@dviser123'),
+                'role_id' => 3
+            ],
+        ];
+        foreach ($admins as $user) {
+            $user = User::create($user);
+            $user->assignRole('Administrator');
+        }
+        foreach ($clients as $user) {
+            $user = User::create($user);
+            $user->assignRole('Client');
+        }
+        foreach ($advisers as $user) {
+            $user = User::create($user);
+            $user->assignRole('Adviser');
         }
     }
 }

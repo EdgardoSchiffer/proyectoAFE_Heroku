@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccessoryController;
 use App\Http\Controllers\AccessoryTypeController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DepartmentController;
@@ -67,6 +68,7 @@ Route::prefix('/accessory_type')->group(
         Route::post('/store', [AccessoryTypeController::class, 'store']);
         Route::put('/{id}', [AccessoryTypeController::class, 'update']);
         Route::delete('/{id}', [AccessoryTypeController::class, 'destroy']);
+        Route::get('/list', [AccessoryTypeController::class, 'list']);
     }
 );
 
@@ -102,8 +104,6 @@ Route::prefix('/vehicle_detail')->group(
         Route::post('/createDefaultDetailVehicle/{id}', [VehicleDetailController::class, 'createDefaultDetailVehicle']);
         //Route::delete('/{id}', [GaleryController::class, 'destroy']);
         Route::get('/listAccessoriesUnAssigned/{id}', [VehicleDetailController::class, 'listAccessoriesUnAssigned']);
-
-        
     }
 );
 
@@ -128,5 +128,16 @@ Route::prefix('/municipalities')->group(
         Route::put('/{id}', [MunicipalityController::class, 'update']);
         Route::delete('/{id}', [MunicipalityController::class, 'destroy']);
         //Route::get('/listar', [DepartmentController::class, 'listar']);
+    }
+);
+
+Route::get('/accessories', [AccessoryController::class, 'index']);
+
+Route::prefix('/accessory')->group(
+    function () {
+        Route::post('/store', [AccessoryController::class, 'store']);
+        Route::put('/{id}', [AccessoryController::class, 'update']);
+        Route::delete('/{id}', [AccessoryController::class, 'destroy']);
+        Route::get('/list', [AccessoryController::class, 'list']);
     }
 );

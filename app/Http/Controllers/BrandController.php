@@ -15,7 +15,7 @@ class BrandController extends Controller
     public function index(Request $request)
     {
         //
-        $brands = Brand::OrderBy('id', 'DESC')->paginate(10);
+        $brands = Brand::OrderBy('id', 'ASC')->paginate(10);
         return [
             'pagination' => [
                 'total' => $brands->total(),
@@ -33,7 +33,6 @@ class BrandController extends Controller
     {
         //
         return  Brand::OrderBy('id', 'DESC')->get();
-        
     }
 
     /**

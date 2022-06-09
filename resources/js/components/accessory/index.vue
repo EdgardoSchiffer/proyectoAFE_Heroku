@@ -1,25 +1,24 @@
 <template>
   <div class="container">
     <div v-if="edit">
-      <edit-municipality
-        :municipality="municipality"
+      <edit-accessory
+        :accessory="accessory"
         v-on:reloadlist="getList()"
         v-on:reloadedit="loadEdit"
       />
     </div>
     <div v-else>
-      <add-municipality v-on:reloadlist="getList()" />
+      <add-accessory v-on:reloadlist="getList()" />
     </div>
 
-<!-- data -->
-    <list-view-municipality
-    class="pt-3"
-      :municipalities="municipalities"
+<!-- Traemos la view de la data -->
+    <list-view-accessory class="pt-3"
+      :accessories="accessories"
       v-on:reloadlist="getList()"
       v-on:reloadedit="loadEdit"
     />
 
-        <!-- Paginación -->
+<!-- Paginación -->
     <nav class="pt-3">
       <ul class="pagination justify-content-center">
         <!-- primera -->
@@ -48,25 +47,26 @@
         </li>
       </ul>
     </nav>
+
     
   </div>
 </template>
 
 <script>
-import addMunicipality from "./addMunicipality.vue";
-import editMunicipality from "./editMunicipality.vue";
-import listViewMunicipality from "./listViewMunicipality.vue";
+import addAccessory from "./addAccessory.vue";
+import editAccessory from "./editAccessory.vue";
+import listViewAccessory from "./listViewAccessory.vue";
 
 export default {
   components: {
-    addMunicipality,
-    listViewMunicipality,
-    editMunicipality,
+    addAccessory,
+    listViewAccessory,
+    editAccessory,
   },
   data: function () {
     return {
-      municipality: [],
-      municipalities: [],
+      accessory: [],
+      accessories: [],
       edit: false,
       offset: 3,
       pagination: {
@@ -79,7 +79,7 @@ export default {
       },
     };
   },
-  computed: {
+computed: {
     isActived: function () {
       return this.pagination.current_page;
     },
@@ -106,23 +106,24 @@ export default {
       return pagesArray;
     },
   },
+
   methods: {
     getList(page) {
-      var urlMunicipalities = "api/municipalities?page=" + page;
+      var urlAccessories = "api/accessories?page=" + page;
       axios
-        .get(urlMunicipalities)
+        .get(urlAccessories)
         .then((response) => {
-          this.municipalities = response.data.municipalities.data;
+          this.accessories = response.data.accessories.data;
           this.pagination = response.data.pagination;
         })
         .catch((error) => {
           console.log(error);
         });
     },
-    loadEdit(municipality) {
-      if (municipality.id > 0) {
+   loadEdit(accessory) {
+      if (accessory.id > 0) {
         this.edit = true;
-        this.municipality = municipality;
+        this.accessory = accessory;
       } else {
         this.edit = false;
       }
@@ -136,7 +137,18 @@ export default {
     this.getList();
   },
 };
+
 </script>
 
-<style>
+<style scoped>
+a{
+  text-decoration: none;
+}
+.active{
+  color: #fff;
+}
+.active a{
+  color: #fff;
+  
+}
 </style>

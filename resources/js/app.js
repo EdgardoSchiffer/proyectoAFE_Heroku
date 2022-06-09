@@ -50,6 +50,7 @@ import IndexAccessoryType from './components/accessory_types/index.vue'
 import IndexDepartment from './components/departments/index.vue'
 import IndexMunicipality from './components/municipalities/index.vue'
 import IndexRole from './components/roles/index.vue'
+import IndexAccessory from './components/accessory/index.vue'
 
 
 const app = new Vue({
@@ -64,5 +65,6 @@ const app = new Vue({
         IndexDepartment,
         IndexMunicipality,
         IndexRole,
+        IndexAccessory
     }
 });

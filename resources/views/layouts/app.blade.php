@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link id="estilos" href="{{Cache::get('tema')}}" rel="stylesheet">
 
     <link
     rel="stylesheet"
@@ -32,23 +32,35 @@
   />
 
 </head>
-<body>
+<body >
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
-            <div class="container">
+            <div class="container ">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
+                <!-- 
+                EJEMPLOS DE COMO VALIDAR ROL:
+                //Multiples roles
+                @hasanyrole('Administrator|Client')
+                @endhasanyrole
+                //Un solo rol
+                @role('Administrator')
+                @endrole
+                https://spatie.be/docs/laravel-permission/v5/basic-usage/blade-directives#content-roles
+                -->
+                @role('Administrator')
                 <a class="navbar-brand" href="{{ url('/vehicle') }}">
                     Vehículos
                 </a>
+                @endrole
                 <a class="navbar-brand" href="{{ url('/vehicleDashboard') }}">
                     Vehículos dashboard
                 </a>
+                @role('Administrator')
                 <div class="dropdown">
                     <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         Mntto. Catalogos
@@ -67,6 +79,11 @@
                      <li>
                         <a class="dropdown-item" href="{{ url('/brand') }}">
                             Marcas
+                        </a>
+                     </li>
+                     <li>
+                        <a class="dropdown-item" href="{{ url('/accessories') }}">
+                            Accesorios
                         </a>
                      </li>
                      <li>
@@ -91,7 +108,7 @@
                      </li>
                     </ul>
                 </div>
-
+                @endrole
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
@@ -134,12 +151,48 @@
                         @endguest
                     </ul>
                 </div>
+                {{-- modo oscuro --}}
+                <div class="toggle-container">
+                    <button class="theme-btn light animate__animated animate__bounceInDown" onclick="setLight()" title="Light mode">
+                      <img src="upload/images/sun.png" alt="sun">
+                    </button>
+                    <button class="theme-btn dark animate__animated animate__bounceInDown" onclick="setDark()" title="Dark mode">
+                      <img src="upload/images/moon.png" alt="moon">
+                    </button>
+                </div>
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-3">
             @yield('content')
         </main>
     </div>
 </body>
 </html>
+
+
+<script>
+    //ejecutar al inicio
+    const inicio = ()=>{
+        if(localStorage.tema){
+            document.getElementById('estilos').href = localStorage.tema;
+        }else{
+            document.getElementById('estilos').href = 'css/light.css';
+        }
+    }
+window.onload = inicio();
+
+//set tema claro
+    const setLight=()=>{
+        document.getElementById('estilos').href = 'css/light.css';
+        localStorage.removeItem("tema");
+        localStorage.setItem("tema", "css/light.css")
+    }
+
+    //set tema oscuro
+    const setDark=()=>{
+        document.getElementById('estilos').href = 'css/dark.css';
+        localStorage.removeItem("tema");
+        localStorage.setItem("tema", "css/dark.css")
+    }
+</script>
