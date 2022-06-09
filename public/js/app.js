@@ -24280,6 +24280,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["vehicles"],
   components: {},
@@ -24847,6 +24848,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _vehicle_details_index_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../vehicle_details/index.vue */ "./resources/js/components/vehicle_details/index.vue");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -57313,48 +57318,51 @@ var render = function () {
               _c(
                 "div",
                 { staticClass: "row row-cols-1 row-cols-md-4 g-4" },
-                [
-                  _vm._l(vehicle.galeries, function (galery, i) {
-                    return _c("div", { key: i }, [
-                      _c("div", { staticClass: "col" }, [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "card h-100 animate__animated animate__zoomIn",
-                          },
-                          [
-                            _c("img", {
-                              staticClass: "card-img-top",
-                              attrs: {
-                                src: _vm.ourImage(galery.image_name),
-                                alt: "...",
-                              },
-                            }),
-                          ]
-                        ),
-                      ]),
-                    ])
-                  }),
-                  _vm._v(" "),
-                  _vm._l(vehicle.comments, function (comment, j) {
-                    return _c("div", { key: j }, [
-                      _c("div", { staticClass: "col" }, [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "card h-100 animate__animated animate__zoomIn",
-                          },
-                          [_c("h3", [_vm._v(_vm._s(comment.comment))])]
-                        ),
-                      ]),
-                    ])
-                  }),
-                ],
-                2
+                _vm._l(vehicle.galeries, function (galery, i) {
+                  return _c("div", { key: i }, [
+                    _c("div", { staticClass: "col" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "card h-100 animate__animated animate__zoomIn",
+                        },
+                        [
+                          _c("img", {
+                            staticClass: "card-img-top",
+                            attrs: {
+                              src: _vm.ourImage(galery.image_name),
+                              alt: "...",
+                            },
+                          }),
+                        ]
+                      ),
+                    ]),
+                  ])
+                }),
+                0
               ),
             ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "container p-2" },
+              _vm._l(vehicle.comments, function (comment, j) {
+                return _c("div", { key: j }, [
+                  _c("div", { staticClass: "col" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "card h-100 animate__animated animate__zoomIn",
+                      },
+                      [_c("h3", [_vm._v(_vm._s(comment.comment))])]
+                    ),
+                  ]),
+                ])
+              }),
+              0
+            ),
           ]),
           _vm._v(" "),
           _c(

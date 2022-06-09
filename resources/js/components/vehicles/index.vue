@@ -9,31 +9,37 @@
     </div>
     <div v-if="!addImage">
       <div v-if="showVehicleDetail">
-        <index-vehicle-detail :vehicle="vehicle" v-on:reloadaddvehicledetail="loadShowVehicleDetail"/>
+        <index-vehicle-detail
+          :vehicle="vehicle"
+          v-on:reloadaddvehicledetail="loadShowVehicleDetail"
+        />
       </div>
       <div v-if="!showVehicleDetail">
         <div v-if="edit">
-        <edit-vehicle
-          :vehicle="vehicle"
+          <edit-vehicle
+            :vehicle="vehicle"
+            v-on:reloadlist="getList()"
+            v-on:reloadedit="loadEdit"
+          />
+        </div>
+        <div v-if="!edit">
+          <add-vehicle
+            v-on:reloadlist="getList()"
+            v-on:reloadPdf="generatePdf()"
+          />
+        </div>
+
+        <list-view-vehicle
+          :vehicles="vehicles"
           v-on:reloadlist="getList()"
           v-on:reloadedit="loadEdit"
+          v-on:reloadaddimage="loadAddGalery"
+          v-on:reloadaddvehicledetail="loadShowVehicleDetail"
         />
       </div>
-      <div v-if="!edit">
-        <add-vehicle v-on:reloadlist="getList()" v-on:reloadPdf="generatePdf()"/>
-      </div>
-      
-      <list-view-vehicle
-        :vehicles="vehicles"
-        v-on:reloadlist="getList()"
-        v-on:reloadedit="loadEdit"
-        v-on:reloadaddimage="loadAddGalery"
-        v-on:reloadaddvehicledetail="loadShowVehicleDetail"
-      />
 
-      </div>
-      
     </div>
+    
   </div>
 </template>
 
@@ -59,7 +65,7 @@ export default {
       edit: false,
       addImage: false,
       showVehicleDetail: false,
-      dataReport:[],
+      dataReport: [],
     };
   },
   methods: {
@@ -105,23 +111,28 @@ export default {
       */
       for (let index = 0; index < this.vehicles.length; index++) {
         const element = this.vehicles[index];
-        
-        this.dataReport.push({ 
+
+        this.dataReport.push({
           id: element.id,
-          name:element.vehicle_name, 
-          status:(element.status?"activo":"inactivo"),
+          name: element.vehicle_name,
+          status: element.status ? "activo" : "inactivo",
           color: element.color,
           year: element.year,
           doors_number: element.doors_number,
           fuel: element.fuel_type.fuel_type_name,
           price: element.rental_price,
-          status: (element.status == 1 ? "Disponible" : element.status == 2 ?"Reservado" : "Fuera de uso" ),
+          status:
+            element.status == 1
+              ? "Disponible"
+              : element.status == 2
+              ? "Reservado"
+              : "Fuera de uso",
           registry_number: element.registry_number,
           brand: element.brand.brand_name,
-          type: element.vehicle_type.vehicle_type_name
-          });
+          type: element.vehicle_type.vehicle_type_name,
+        });
       }
-      
+
       const columns = [
         { title: "nombre", dataKey: "name" },
         { title: "Estado", dataKey: "status" },
@@ -140,18 +151,21 @@ export default {
         unit: "in",
         format: "letter",
       });
-      
+
       doc.setFontSize(14).text(new Date().toLocaleDateString(), 9.7, 1);
-      doc.setFontSize(14).setFontStyle("bold").text("Reporte de vehículos", 0.5, 1);
+      doc
+        .setFontSize(14)
+        .setFontStyle("bold")
+        .text("Reporte de vehículos", 0.5, 1);
       doc.setLineWidth(0.01).line(0.5, 1.05, 10.45, 1.05);
-      
+
       doc.autoTable({
         columns,
         body: this.dataReport,
         margin: { left: 0.5, top: 1.08 },
-        didDrawPage: function (data){
-          data.settings.margin.top = 0.8
-        }
+        didDrawPage: function (data) {
+          data.settings.margin.top = 0.8;
+        },
       });
 
       /*doc
@@ -159,7 +173,7 @@ export default {
         .setFontSize(12)
         .text(this.texto, 0.5, 3.5, { align: "left", maxWidth: "7.5" });*/
 
-    //footer
+      //footer
       doc
         .setFont("times")
         .setFontSize(11)
@@ -168,7 +182,7 @@ export default {
         .text("", 0.5, doc.internal.pageSize.height - 0.5);
       doc.save("data.pdf");
       this.dataReport = [];
-    }//end generate pdf
+    }, //end generate pdf
     //showVehicleDetail
   },
   created() {
@@ -178,5 +192,4 @@ export default {
 </script>
 
 <style>
-
 </style>
