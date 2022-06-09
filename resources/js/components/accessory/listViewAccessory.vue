@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <table class="table">
+    <table class="table table-hover">
       <thead>
         <th scope="col">Id</th>
         <th scope="col">Accesorio</th>
@@ -30,11 +30,6 @@
 
 export default {
   props: ["accessories"],
-  /*data: function () {
-    return {
-      edit: false
-    };
-  },*/
   components: {
     
   },
@@ -55,7 +50,7 @@ export default {
         if (willDelete) {
           //delete action
           axios
-            .delete("api/accessories/" + id)
+            .delete("api/accessory/" + id)
             .then((response) => {
               if (response.status == 200) {
                 swal("Eliminado", "El registro ha sido eliminado", "success");
@@ -71,7 +66,7 @@ export default {
     },
     editItem(accessory) {
       //console.log("edit item");
-      this.$emit("reloadedit", municipality);
+      this.$emit("reloadedit", accessory);
       //this.edit = true;
     },
   },

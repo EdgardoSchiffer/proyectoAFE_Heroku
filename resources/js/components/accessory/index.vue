@@ -11,15 +11,23 @@
       <add-accessory v-on:reloadlist="getList()" />
     </div>
 
-    <nav>
-      <ul class="pagination">
+<!-- Traemos la view de la data -->
+    <list-view-accessory class="pt-3"
+      :accessories="accessories"
+      v-on:reloadlist="getList()"
+      v-on:reloadedit="loadEdit"
+    />
+
+<!-- Paginación -->
+    <nav class="pt-3">
+      <ul class="pagination justify-content-center">
         <li class="page-item" v-if="pagination.current_page>1">
           <span class="page-link">
             <a
               href="#"
               @click.prevent="changePage(pagination.current_page - 1)"
             >
-              Atras
+              <span aria-hidden="true">&laquo;</span>
             </a>
           </span>
         </li>
@@ -36,18 +44,13 @@
         >
           <span class="page-link">
             <a href="#" @click.prevent="changePage(pagination.current_page + 1)"
-              >Siguiente</a
+              ><span aria-hidden="true">&raquo;</span></a
             ></span
           >
         </li>
       </ul>
     </nav>
     
-    <list-view-accessory
-      :accessories="accessories"
-      v-on:reloadlist="getList()"
-      v-on:reloadedit="loadEdit"
-    />
   </div>
 </template>
 
