@@ -106,7 +106,7 @@ class AccessoryController extends Controller
      * @param  \App\Models\Accessory  $accessory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Accessory $accessory, $id)
+    public function destroy($id)
     {
         $accessory = Accessory::find($id);
         if ($accessory) {

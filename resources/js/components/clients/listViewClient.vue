@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <table class="table table-borderless table-sm table-bordered border-light">
+    <table class="table table-hover">
       <thead>
         <th scope="col">Nombre</th>
         <th scope="col">Dui</th>
@@ -12,7 +12,7 @@
         <th scope="col">Acciones</th>
       </thead>
       <tbody>
-        <tr v-for="(client, index) in clients" :key="index" > 
+        <tr v-for="(client, index) in clients" :key="index">
           <td>{{ client.client_name }}</td>
           <td>{{ client.dui }}</td>
           <td>{{ client.email }}</td>
@@ -21,17 +21,11 @@
           <td>{{ client.municipality!=null? client.municipality.municipality_name : 'Municipio eliminado código: '+client.municipality_id }}</td>
           <td>{{ client.user != null ? client.user.name :'Usuario eliminado código '+ client.user_id }}</td>
           <td>
-            <button @click="removeItem(vehicle.id)" class="trashcan">
+            <button @click="removeItem(client.id)" class="trashcan">
               <font-awesome-icon icon="trash" />
             </button>
-            <button @click="editItem(vehicle)" class="pentosquarecan">
+            <button @click="editItem(client)" class="pentosquarecan">
               <font-awesome-icon icon="pen-to-square" />
-            </button>
-            <button @click="addGalery(vehicle)" class="photofilm">
-              <font-awesome-icon icon="photo-film" />
-            </button>
-            <button @click="addVehicleDetail(vehicle)" class="listcheck">
-              <font-awesome-icon icon="list-check" />
             </button>
           </td>
         </tr>
@@ -44,11 +38,6 @@
 
 export default {
   props: ["clients"],
-  /*data: function () {
-    return {
-      edit: false
-    };
-  },*/
   components: {
     
   },
@@ -69,7 +58,7 @@ export default {
         if (willDelete) {
           //delete action
           axios
-            .delete("api/vehicle/" + id)
+            .delete("api/client/" + id)
             .then((response) => {
               if (response.status == 200) {
                 swal("Eliminado", "El registro ha sido eliminado", "success");
@@ -88,15 +77,6 @@ export default {
       this.$emit("reloadedit", client);
       //this.edit = true;
     },
-    addGalery(client) {
-      //console.log("edit item");
-      this.$emit("reloadaddimage", client);
-      //this.edit = true;
-    },
-    addClientDetail(client){
-      this.$emit("reloadaddclientdetail", client);
-    }
-
   },
 };
 </script>
@@ -112,12 +92,6 @@ export default {
   background: transparent;
   border: none;
   color: darkcyan;
-  outline: none;
-}
-.photofilm{
-  background: transparent;
-  border: none;
-  color: mediumslateblue;
   outline: none;
 }
 .listcheck{

@@ -21890,20 +21890,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["clients"],
-
-  /*data: function () {
-    return {
-      edit: false
-    };
-  },*/
   components: {},
   methods: {
     removeItem: function removeItem(id) {
@@ -21923,7 +21911,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (willDelete) {
         if (willDelete) {
           //delete action
-          axios["delete"]("api/vehicle/" + id).then(function (response) {
+          axios["delete"]("api/client/" + id).then(function (response) {
             if (response.status == 200) {
               swal("Eliminado", "El registro ha sido eliminado", "success");
 
@@ -21938,13 +21926,6 @@ __webpack_require__.r(__webpack_exports__);
     editItem: function editItem(client) {
       //console.log("edit item");
       this.$emit("reloadedit", client); //this.edit = true;
-    },
-    addGalery: function addGalery(client) {
-      //console.log("edit item");
-      this.$emit("reloadaddimage", client); //this.edit = true;
-    },
-    addClientDetail: function addClientDetail(client) {
-      this.$emit("reloadaddclientdetail", client);
     }
   }
 });
@@ -25739,6 +25720,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _vehicle_details_index_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../vehicle_details/index.vue */ "./resources/js/components/vehicle_details/index.vue");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
 //
 //
 //
@@ -31501,7 +31484,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-c0d24300] {\r\n  background: transparent;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\n}\n.pentosquarecan[data-v-c0d24300] {\r\n  background: transparent;\r\n  border: none;\r\n  color: darkcyan;\r\n  outline: none;\n}\n.photofilm[data-v-c0d24300]{\r\n  background: transparent;\r\n  border: none;\r\n  color: mediumslateblue;\r\n  outline: none;\n}\n.listcheck[data-v-c0d24300]{\r\n  background: transparent;\r\n  border: none;\r\n  color: dodgerblue;\r\n  outline: none;\n}\n.success[data-v-c0d24300] {\r\n  background-color: #aadbc7;\n}\n.info[data-v-c0d24300] {\r\n  background-color: #92d0eb;\n}\n.dangerstatus[data-v-c0d24300] {\r\n  background-color: #eea1a2;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-c0d24300] {\r\n  background: transparent;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\n}\n.pentosquarecan[data-v-c0d24300] {\r\n  background: transparent;\r\n  border: none;\r\n  color: darkcyan;\r\n  outline: none;\n}\n.listcheck[data-v-c0d24300]{\r\n  background: transparent;\r\n  border: none;\r\n  color: dodgerblue;\r\n  outline: none;\n}\n.success[data-v-c0d24300] {\r\n  background-color: #aadbc7;\n}\n.info[data-v-c0d24300] {\r\n  background-color: #92d0eb;\n}\n.dangerstatus[data-v-c0d24300] {\r\n  background-color: #eea1a2;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -56760,116 +56743,77 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c(
-      "table",
-      {
-        staticClass:
-          "table table-borderless table-sm table-bordered border-light",
-      },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.clients, function (client, index) {
-            return _c("tr", { key: index }, [
-              _c("td", [_vm._v(_vm._s(client.client_name))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(client.dui))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(client.email))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(client.address))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(client.phone))]),
-              _vm._v(" "),
-              _c("td", [
-                _vm._v(
-                  _vm._s(
-                    client.municipality != null
-                      ? client.municipality.municipality_name
-                      : "Municipio eliminado código: " + client.municipality_id
-                  )
-                ),
-              ]),
-              _vm._v(" "),
-              _c("td", [
-                _vm._v(
-                  _vm._s(
-                    client.user != null
-                      ? client.user.name
-                      : "Usuario eliminado código " + client.user_id
-                  )
-                ),
-              ]),
-              _vm._v(" "),
-              _c("td", [
-                _c(
-                  "button",
-                  {
-                    staticClass: "trashcan",
-                    on: {
-                      click: function ($event) {
-                        return _vm.removeItem(_vm.vehicle.id)
-                      },
+    _c("table", { staticClass: "table table-hover" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.clients, function (client, index) {
+          return _c("tr", { key: index }, [
+            _c("td", [_vm._v(_vm._s(client.client_name))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(client.dui))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(client.email))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(client.address))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(client.phone))]),
+            _vm._v(" "),
+            _c("td", [
+              _vm._v(
+                _vm._s(
+                  client.municipality != null
+                    ? client.municipality.municipality_name
+                    : "Municipio eliminado código: " + client.municipality_id
+                )
+              ),
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _vm._v(
+                _vm._s(
+                  client.user != null
+                    ? client.user.name
+                    : "Usuario eliminado código " + client.user_id
+                )
+              ),
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c(
+                "button",
+                {
+                  staticClass: "trashcan",
+                  on: {
+                    click: function ($event) {
+                      return _vm.removeItem(client.id)
                     },
                   },
-                  [_c("font-awesome-icon", { attrs: { icon: "trash" } })],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "pentosquarecan",
-                    on: {
-                      click: function ($event) {
-                        return _vm.editItem(_vm.vehicle)
-                      },
+                },
+                [_c("font-awesome-icon", { attrs: { icon: "trash" } })],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "pentosquarecan",
+                  on: {
+                    click: function ($event) {
+                      return _vm.editItem(client)
                     },
                   },
-                  [
-                    _c("font-awesome-icon", {
-                      attrs: { icon: "pen-to-square" },
-                    }),
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "photofilm",
-                    on: {
-                      click: function ($event) {
-                        return _vm.addGalery(_vm.vehicle)
-                      },
-                    },
-                  },
-                  [_c("font-awesome-icon", { attrs: { icon: "photo-film" } })],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "listcheck",
-                    on: {
-                      click: function ($event) {
-                        return _vm.addVehicleDetail(_vm.vehicle)
-                      },
-                    },
-                  },
-                  [_c("font-awesome-icon", { attrs: { icon: "list-check" } })],
-                  1
-                ),
-              ]),
-            ])
-          }),
-          0
-        ),
-      ]
-    ),
+                },
+                [_c("font-awesome-icon", { attrs: { icon: "pen-to-square" } })],
+                1
+              ),
+            ]),
+          ])
+        }),
+        0
+      ),
+    ]),
   ])
 }
 var staticRenderFns = [
