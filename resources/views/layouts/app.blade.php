@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link id="estilos" href="{{Cache::get('tema')}}" rel="stylesheet">
 
     <link
     rel="stylesheet"
@@ -32,10 +32,10 @@
   />
 
 </head>
-<body>
+<body >
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
-            <div class="container">
+            <div class="container ">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -139,6 +139,23 @@
                         @endguest
                     </ul>
                 </div>
+
+
+                {{-- modo oscuro --}}
+                <div class="toggle-container">
+                    <button class="theme-btn light" onclick="setLight()" title="Light mode">
+                      <img src="https://assets.codepen.io/210284/sun.png" alt="sun">
+                    </button>
+                    <button class="theme-btn dark" onclick="setDark()" title="Dark mode">
+                      <img src="https://assets.codepen.io/210284/moon.png" alt="moon">
+                    </button>
+                  </div>
+
+
+
+                 
+
+
             </div>
         </nav>
 
@@ -148,3 +165,30 @@
     </div>
 </body>
 </html>
+
+
+<script>
+    //ejecutar al inicio
+    const inicio = ()=>{
+        if(localStorage.tema){
+            document.getElementById('estilos').href = localStorage.tema;
+        }else{
+            document.getElementById('estilos').href = 'css/light.css';
+        }
+    }
+window.onload = inicio();
+
+//set tema claro
+    const setLight=()=>{
+        document.getElementById('estilos').href = 'css/light.css';
+        localStorage.removeItem("tema");
+        localStorage.setItem("tema", "css/light.css")
+    }
+
+    //set tema oscuro
+    const setDark=()=>{
+        document.getElementById('estilos').href = 'css/dark.css';
+        localStorage.removeItem("tema");
+        localStorage.setItem("tema", "css/dark.css")
+    }
+</script>
