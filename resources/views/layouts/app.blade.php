@@ -42,13 +42,25 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
+                <!-- 
+                EJEMPLOS DE COMO VALIDAR ROL:
+                //Multiples roles
+                @hasanyrole('Administrator|Client')
+                @endhasanyrole
+                //Un solo rol
+                @role('Administrator')
+                @endrole
+                https://spatie.be/docs/laravel-permission/v5/basic-usage/blade-directives#content-roles
+                -->
+                @role('Administrator')
                 <a class="navbar-brand" href="{{ url('/vehicle') }}">
                     Vehículos
                 </a>
+                @endrole
                 <a class="navbar-brand" href="{{ url('/vehicleDashboard') }}">
                     Vehículos dashboard
                 </a>
+                @role('Administrator')
                 <div class="dropdown">
                     <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         Mntto. Catalogos
@@ -96,7 +108,7 @@
                      </li>
                     </ul>
                 </div>
-
+                @endrole
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">

@@ -82,6 +82,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'role_id' => 2
         ]);
+        $user->assignRole('Client');
         $client = Client::create([
             'client_name' => $data['username']." ".$data['lastname'],
              'dui' => $data['dui'],
