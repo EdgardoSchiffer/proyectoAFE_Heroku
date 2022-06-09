@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccessoryController;
 use App\Http\Controllers\AccessoryTypeController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\FuelTypeController;
 use App\Http\Controllers\GaleryController;
@@ -139,5 +140,16 @@ Route::prefix('/accessory')->group(
         Route::put('/{id}', [AccessoryController::class, 'update']);
         Route::delete('/{id}', [AccessoryController::class, 'destroy']);
         Route::get('/list', [AccessoryController::class, 'list']);
+    }
+);
+
+Route::get('/clients', [ClientController::class, 'index']);
+
+Route::prefix('/client')->group(
+    function () {
+        Route::post('/store', [ClientController::class, 'store']);
+        Route::put('/{id}', [ClientController::class, 'update']);
+        Route::delete('/{id}', [ClientController::class, 'destroy']);
+        Route::get('/list', [ClientController::class, 'list']);
     }
 );

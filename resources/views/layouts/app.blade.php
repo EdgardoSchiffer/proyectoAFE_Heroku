@@ -106,6 +106,11 @@
                             Roles
                         </a>
                      </li>
+                     <li>
+                        <a class="dropdown-item" href="{{ url('/clients') }}">
+                            Clientes
+                        </a>
+                     </li>
                     </ul>
                 </div>
                 @endrole

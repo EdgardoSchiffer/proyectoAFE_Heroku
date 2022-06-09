@@ -58,6 +58,10 @@ Route::get('/accessories', function () {
     return view('vue/accessory');
 });
 
+Route::get('/clients', function () {
+    return view('vue/client');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

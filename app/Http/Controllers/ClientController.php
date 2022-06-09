@@ -14,7 +14,24 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $clients = Client::with('user')->OrderBy('id', 'ASC')->paginate(10);
+        return [
+            'pagination' => [
+                'total' => $clients->total(),
+                'current_page' => $clients->currentPage(),
+                'per_page' => $clients->perPage(),
+                'last_page' => $clients->lastPage(),
+                'from' => $clients->firstItem(),
+                'to' => $clients->lastPage(),
+            ],
+            'clients' => $clients
+        ];
+
+    }
+
+    public function list()
+    {
+        return Client::with('user')->orderBy('id', 'ASC')->get();        
     }
 
     /**

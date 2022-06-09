@@ -22,7 +22,6 @@ class ClientSeeder extends Seeder
                 'email' => 'don.jeff@gmail.com',
                 'address' => 'Residencial La High de Opico',
                 'phone' => 74415209,
-                'role_id' => 2,
                 'municipality_id' => 10,
                 'user_id' => 1
             ],
@@ -32,8 +31,8 @@ class ClientSeeder extends Seeder
                  'email' => 'juan.perez@gmail.com',
                  'address' => 'Residencial Buena vista',
                  'phone' => 22577777,
-                 'role_id' => 2,
-                 'municipality_id' => 5
+                 'municipality_id' => 5,
+                 'user_id' => 2
              ],
              [
                 'client_name' => 'Bryan Gomez',
@@ -41,8 +40,8 @@ class ClientSeeder extends Seeder
                  'email' => 'bryan.gomez@gmail.com',
                  'address' => 'Residencial La vida no vale nada',
                  'phone' => 64410283,
-                 'role_id' => 2,
-                 'municipality_id' => 12
+                 'municipality_id' => 12,
+                 'user_id' => 1
              ],
              [
                 'client_name' => 'Miguel Cervantes',
@@ -50,8 +49,8 @@ class ClientSeeder extends Seeder
                  'email' => 'miguel.cervantes@gmail.com',
                  'address' => 'Colonia España',
                  'phone' => 65520137,
-                 'role_id' => 2,
-                 'municipality_id' => 8
+                 'municipality_id' => 8,
+                 'user_id' => 2
              ],
              [
                 'client_name' => 'Sancho Panza',
@@ -59,8 +58,8 @@ class ClientSeeder extends Seeder
                  'email' => 'sancho.panza@gmail.com',
                  'address' => 'Canton los gorditos',
                  'phone' => 23354710,
-                 'role_id' => 2,
-                 'municipality_id' => 3
+                 'municipality_id' => 3,
+                 'user_id' => 1
              ],
              [
                 'client_name' => 'Cristiano Ronaldo',
@@ -68,8 +67,9 @@ class ClientSeeder extends Seeder
                  'email' => 'the.goat@gmail.com',
                  'address' => 'Altos de madeira',
                  'phone' => 75541038,
-                 'role_id' => 2,
-                 'municipality_id' => 9
+                 'municipality_id' => 9,
+                 'user_id' => 2
+
              ],
              [
                 'client_name' => 'Elon Musk',
@@ -77,8 +77,8 @@ class ClientSeeder extends Seeder
                  'email' => 'elon.musk@gmail.com',
                  'address' => 'Palo Alto',
                  'phone' => 74110090,
-                 'role_id' => 2,
-                 'municipality_id' => 10 
+                 'municipality_id' => 10,
+                 'user_id' => 1
              ],
              [
                 'client_name' => 'Nayik Bukele',
@@ -86,8 +86,8 @@ class ClientSeeder extends Seeder
                  'email' => 'nayik.dictador@gmail.com',
                  'address' => 'Residencial Las Luces',
                  'phone' => 7550118,
-                 'role_id' => 2,
-                 'municipality_id' => 3
+                 'municipality_id' => 3,
+                 'user_id' => 2
              ],
              [
                 'client_name' => 'Yanira Berrios',
@@ -95,8 +95,8 @@ class ClientSeeder extends Seeder
                  'email' => 'mis.corazones.bellos@gmail.com',
                  'address' => 'Urb. Nueva San Salvador',
                  'phone' => 63314701,
-                 'role_id' => 2,
-                 'municipality_id' => 4
+                 'municipality_id' => 4,
+                 'user_id' => 1
              ],
              [
                 'client_name' => 'Lebron James',
@@ -104,8 +104,8 @@ class ClientSeeder extends Seeder
                  'email' => 'lebron.james@gmail.com',
                  'address' => 'Calabazas',
                  'phone' => 70021483,
-                 'role_id' => 2,
-                 'municipality_id' => 6
+                 'municipality_id' => 6,
+                 'user_id' => 2
              ],
         ];
         foreach ($clients as $client) {
