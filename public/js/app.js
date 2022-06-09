@@ -20699,8 +20699,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -23232,6 +23230,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -23245,15 +23276,57 @@ __webpack_require__.r(__webpack_exports__);
     return {
       municipality: [],
       municipalities: [],
-      edit: false
+      edit: false,
+      offset: 3,
+      pagination: {
+        total: 0,
+        current_page: 0,
+        per_page: 0,
+        last_page: 0,
+        from: 0,
+        to: 0
+      }
     };
   },
+  computed: {
+    isActived: function isActived() {
+      return this.pagination.current_page;
+    },
+    pagesNumber: function pagesNumber() {
+      if (!this.pagination.to) {
+        return [];
+      }
+
+      var from = this.pagination.current_page - this.offset;
+
+      if (from < 1) {
+        from = 1;
+      }
+
+      var to = from + this.offset * 2;
+
+      if (to >= this.pagination.last_page) {
+        to = this.pagination.last_page;
+      }
+
+      var pagesArray = [];
+
+      while (from <= to) {
+        pagesArray.push(from);
+        from++;
+      }
+
+      return pagesArray;
+    }
+  },
   methods: {
-    getList: function getList() {
+    getList: function getList(page) {
       var _this = this;
 
-      axios.get("api/municipalities").then(function (response) {
-        _this.municipalities = response.data;
+      var urlMunicipalities = "api/municipalities?page=" + page;
+      axios.get(urlMunicipalities).then(function (response) {
+        _this.municipalities = response.data.municipalities.data;
+        _this.pagination = response.data.pagination;
       })["catch"](function (error) {
         console.log(error);
       });
@@ -23265,7 +23338,13 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         this.edit = false;
       }
-    }
+    },
+    //load Edit
+    changePage: function changePage(page) {
+      this.pagination.current_page = page;
+      this.getList(page);
+    } //change page
+
   },
   created: function created() {
     this.getList();
@@ -54774,27 +54853,41 @@ var render = function () {
           [
             _vm.pagination.current_page > 1
               ? _c("li", { staticClass: "page-item" }, [
-                  _c("span", { staticClass: "page-link" }, [
-                    _c(
-                      "a",
-                      {
-                        attrs: { href: "#" },
-                        on: {
-                          click: function ($event) {
-                            $event.preventDefault()
-                            return _vm.changePage(
-                              _vm.pagination.current_page - 1
-                            )
-                          },
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(
+                            (_vm.pagination.current_page = 1)
+                          )
                         },
                       },
-                      [
-                        _c("span", { attrs: { "aria-hidden": "true" } }, [
-                          _vm._v("«"),
-                        ]),
-                      ]
-                    ),
-                  ]),
+                    },
+                    [_vm._v("«")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.pagination.current_page > 1
+              ? _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(_vm.pagination.current_page - 1)
+                        },
+                      },
+                    },
+                    [_vm._v("⟨")]
+                  ),
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -54807,48 +54900,59 @@ var render = function () {
                   class: [page == _vm.isActived ? "active" : ""],
                 },
                 [
-                  _c("span", { staticClass: "page-link" }, [
-                    _c(
-                      "a",
-                      {
-                        attrs: { href: "#" },
-                        on: {
-                          click: function ($event) {
-                            $event.preventDefault()
-                            return _vm.changePage(page)
-                          },
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(page)
                         },
                       },
-                      [_vm._v(_vm._s(page))]
-                    ),
-                  ]),
+                    },
+                    [_vm._v(_vm._s(page))]
+                  ),
                 ]
               )
             }),
             _vm._v(" "),
             _vm.pagination.current_page < _vm.pagination.last_page
               ? _c("li", { staticClass: "page-item" }, [
-                  _c("span", { staticClass: "page-link" }, [
-                    _c(
-                      "a",
-                      {
-                        attrs: { href: "#" },
-                        on: {
-                          click: function ($event) {
-                            $event.preventDefault()
-                            return _vm.changePage(
-                              _vm.pagination.current_page + 1
-                            )
-                          },
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(_vm.pagination.current_page + 1)
                         },
                       },
-                      [
-                        _c("span", { attrs: { "aria-hidden": "true" } }, [
-                          _vm._v("»"),
-                        ]),
-                      ]
-                    ),
-                  ]),
+                    },
+                    [_vm._v("⟩")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.pagination.current_page < _vm.pagination.last_page
+              ? _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(_vm.pagination.last_page)
+                        },
+                      },
+                    },
+                    [_vm._v("»")]
+                  ),
                 ])
               : _vm._e(),
           ],
@@ -55533,30 +55637,59 @@ var render = function () {
             1
           ),
       _vm._v(" "),
-      _c("nav", [
+      _c("list-view-brand", {
+        staticClass: "pt-3",
+        attrs: { brands: _vm.brands },
+        on: {
+          reloadlist: function ($event) {
+            return _vm.getList()
+          },
+          reloadedit: _vm.loadEdit,
+        },
+      }),
+      _vm._v(" "),
+      _c("nav", { staticClass: "pt-3" }, [
         _c(
           "ul",
-          { staticClass: "pagination" },
+          { staticClass: "pagination justify-content-center" },
           [
             _vm.pagination.current_page > 1
               ? _c("li", { staticClass: "page-item" }, [
-                  _c("span", { staticClass: "page-link" }, [
-                    _c(
-                      "a",
-                      {
-                        attrs: { href: "#" },
-                        on: {
-                          click: function ($event) {
-                            $event.preventDefault()
-                            return _vm.changePage(
-                              _vm.pagination.current_page - 1
-                            )
-                          },
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(
+                            (_vm.pagination.current_page = 1)
+                          )
                         },
                       },
-                      [_vm._v("\n            Atras\n          ")]
-                    ),
-                  ]),
+                    },
+                    [_vm._v("«")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.pagination.current_page > 1
+              ? _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(_vm.pagination.current_page - 1)
+                        },
+                      },
+                    },
+                    [_vm._v("⟨")]
+                  ),
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -55569,60 +55702,65 @@ var render = function () {
                   class: [page == _vm.isActived ? "active" : ""],
                 },
                 [
-                  _c("span", { staticClass: "page-link" }, [
-                    _c(
-                      "a",
-                      {
-                        attrs: { href: "#" },
-                        on: {
-                          click: function ($event) {
-                            $event.preventDefault()
-                            return _vm.changePage(page)
-                          },
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(page)
                         },
                       },
-                      [_vm._v(_vm._s(page))]
-                    ),
-                  ]),
+                    },
+                    [_vm._v(_vm._s(page))]
+                  ),
                 ]
               )
             }),
             _vm._v(" "),
             _vm.pagination.current_page < _vm.pagination.last_page
               ? _c("li", { staticClass: "page-item" }, [
-                  _c("span", { staticClass: "page-link" }, [
-                    _c(
-                      "a",
-                      {
-                        attrs: { href: "#" },
-                        on: {
-                          click: function ($event) {
-                            $event.preventDefault()
-                            return _vm.changePage(
-                              _vm.pagination.current_page + 1
-                            )
-                          },
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(_vm.pagination.current_page + 1)
                         },
                       },
-                      [_vm._v("Siguiente")]
-                    ),
-                  ]),
+                    },
+                    [_vm._v("⟩")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.pagination.current_page < _vm.pagination.last_page
+              ? _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(_vm.pagination.last_page)
+                        },
+                      },
+                    },
+                    [_vm._v("»")]
+                  ),
                 ])
               : _vm._e(),
           ],
           2
         ),
       ]),
-      _vm._v(" "),
-      _c("list-view-brand", {
-        attrs: { brands: _vm.brands },
-        on: {
-          reloadlist: function ($event) {
-            return _vm.getList()
-          },
-          reloadedit: _vm.loadEdit,
-        },
-      }),
     ],
     1
   )
@@ -55958,30 +56096,59 @@ var render = function () {
             1
           ),
       _vm._v(" "),
-      _c("nav", [
+      _c("list-view-departments", {
+        staticClass: "pt-3",
+        attrs: { departments: _vm.departments },
+        on: {
+          reloadlist: function ($event) {
+            return _vm.getList()
+          },
+          reloadedit: _vm.loadEdit,
+        },
+      }),
+      _vm._v(" "),
+      _c("nav", { staticClass: "pt-3" }, [
         _c(
           "ul",
-          { staticClass: "pagination" },
+          { staticClass: "pagination justify-content-center" },
           [
             _vm.pagination.current_page > 1
               ? _c("li", { staticClass: "page-item" }, [
-                  _c("span", { staticClass: "page-link" }, [
-                    _c(
-                      "a",
-                      {
-                        attrs: { href: "#" },
-                        on: {
-                          click: function ($event) {
-                            $event.preventDefault()
-                            return _vm.changePage(
-                              _vm.pagination.current_page - 1
-                            )
-                          },
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(
+                            (_vm.pagination.current_page = 1)
+                          )
                         },
                       },
-                      [_vm._v("\n            Atras\n          ")]
-                    ),
-                  ]),
+                    },
+                    [_vm._v("«")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.pagination.current_page > 1
+              ? _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(_vm.pagination.current_page - 1)
+                        },
+                      },
+                    },
+                    [_vm._v("⟨")]
+                  ),
                 ])
               : _vm._e(),
             _vm._v(" "),
@@ -55994,60 +56161,65 @@ var render = function () {
                   class: [page == _vm.isActived ? "active" : ""],
                 },
                 [
-                  _c("span", { staticClass: "page-link" }, [
-                    _c(
-                      "a",
-                      {
-                        attrs: { href: "#" },
-                        on: {
-                          click: function ($event) {
-                            $event.preventDefault()
-                            return _vm.changePage(page)
-                          },
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(page)
                         },
                       },
-                      [_vm._v(_vm._s(page))]
-                    ),
-                  ]),
+                    },
+                    [_vm._v(_vm._s(page))]
+                  ),
                 ]
               )
             }),
             _vm._v(" "),
             _vm.pagination.current_page < _vm.pagination.last_page
               ? _c("li", { staticClass: "page-item" }, [
-                  _c("span", { staticClass: "page-link" }, [
-                    _c(
-                      "a",
-                      {
-                        attrs: { href: "#" },
-                        on: {
-                          click: function ($event) {
-                            $event.preventDefault()
-                            return _vm.changePage(
-                              _vm.pagination.current_page + 1
-                            )
-                          },
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(_vm.pagination.current_page + 1)
                         },
                       },
-                      [_vm._v("Siguiente")]
-                    ),
-                  ]),
+                    },
+                    [_vm._v("⟩")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.pagination.current_page < _vm.pagination.last_page
+              ? _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(_vm.pagination.last_page)
+                        },
+                      },
+                    },
+                    [_vm._v("»")]
+                  ),
                 ])
               : _vm._e(),
           ],
           2
         ),
       ]),
-      _vm._v(" "),
-      _c("list-view-departments", {
-        attrs: { departments: _vm.departments },
-        on: {
-          reloadlist: function ($event) {
-            return _vm.getList()
-          },
-          reloadedit: _vm.loadEdit,
-        },
-      }),
     ],
     1
   )
@@ -57335,10 +57507,7 @@ var render = function () {
             ],
             1
           )
-        : _vm._e(),
-      _vm._v(" "),
-      !_vm.edit
-        ? _c(
+        : _c(
             "div",
             [
               _c("add-municipality", {
@@ -57350,10 +57519,10 @@ var render = function () {
               }),
             ],
             1
-          )
-        : _vm._e(),
+          ),
       _vm._v(" "),
       _c("list-view-municipality", {
+        staticClass: "pt-3",
         attrs: { municipalities: _vm.municipalities },
         on: {
           reloadlist: function ($event) {
@@ -57362,6 +57531,120 @@ var render = function () {
           reloadedit: _vm.loadEdit,
         },
       }),
+      _vm._v(" "),
+      _c("nav", { staticClass: "pt-3" }, [
+        _c(
+          "ul",
+          { staticClass: "pagination justify-content-center" },
+          [
+            _vm.pagination.current_page > 1
+              ? _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(
+                            (_vm.pagination.current_page = 1)
+                          )
+                        },
+                      },
+                    },
+                    [_vm._v("«")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.pagination.current_page > 1
+              ? _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(_vm.pagination.current_page - 1)
+                        },
+                      },
+                    },
+                    [_vm._v("⟨")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._l(_vm.pagesNumber, function (page) {
+              return _c(
+                "li",
+                {
+                  key: page,
+                  staticClass: "page-item",
+                  class: [page == _vm.isActived ? "active" : ""],
+                },
+                [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(page)
+                        },
+                      },
+                    },
+                    [_vm._v(_vm._s(page))]
+                  ),
+                ]
+              )
+            }),
+            _vm._v(" "),
+            _vm.pagination.current_page < _vm.pagination.last_page
+              ? _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(_vm.pagination.current_page + 1)
+                        },
+                      },
+                    },
+                    [_vm._v("⟩")]
+                  ),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.pagination.current_page < _vm.pagination.last_page
+              ? _c("li", { staticClass: "page-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function ($event) {
+                          $event.preventDefault()
+                          return _vm.changePage(_vm.pagination.last_page)
+                        },
+                      },
+                    },
+                    [_vm._v("»")]
+                  ),
+                ])
+              : _vm._e(),
+          ],
+          2
+        ),
+      ]),
     ],
     1
   )

@@ -21,35 +21,33 @@
 <!-- Paginación -->
     <nav class="pt-3">
       <ul class="pagination justify-content-center">
+        <!-- primera -->
         <li class="page-item" v-if="pagination.current_page>1">
-          <span class="page-link">
-            <a
-              href="#"
-              @click.prevent="changePage(pagination.current_page - 1)"
-            >
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </span>
+        <a class="page-link" href="#" @click.prevent="changePage(pagination.current_page=1)">&laquo;</a>
         </li>
-        <li class="page-item" 
-          v-for="page in pagesNumber" v-bind:key="page"
-          v-bind:class="[page == isActived ? 'active' : '']"
-        >
-          <span class="page-link">
-            <a href="#" @click.prevent="changePage(page)">{{ page }}</a>
-          </span>
+
+        <!-- flechita -->
+        <li class="page-item" v-if="pagination.current_page>1">
+        <a class="page-link" href="#" @click.prevent="changePage(pagination.current_page - 1)">&lang;</a>
         </li>
-        <li class="page-item"
-          v-if="pagination.current_page < pagination.last_page"
-        >
-          <span class="page-link">
-            <a href="#" @click.prevent="changePage(pagination.current_page + 1)"
-              ><span aria-hidden="true">&raquo;</span></a
-            ></span
-          >
+
+        <!-- campos -->
+        <li class="page-item" v-for="page in pagesNumber" v-bind:key="page" v-bind:class="[page == isActived ? 'active' : '']">
+            <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
+        </li>
+
+        <!-- avanzar -->
+        <li class="page-item" v-if="pagination.current_page < pagination.last_page">
+            <a href="#" class="page-link" @click.prevent="changePage(pagination.current_page + 1)">&rang;</a>
+        </li>
+
+        <!-- ultima -->
+        <li class="page-item" v-if="pagination.current_page < pagination.last_page">
+            <a class="page-link" href="#" @click.prevent="changePage(pagination.last_page)">&raquo;</a>
         </li>
       </ul>
     </nav>
+
     
   </div>
 </template>

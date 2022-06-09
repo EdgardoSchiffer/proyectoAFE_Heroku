@@ -6,36 +6,6 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-
- .theme-btn {
-  width: 3em;
-  height: 3em;
-  padding: 0.5em;
-  border-radius: 50%;
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-}
- 
-.theme-btn img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.theme-btn.light {
-  display: none;
-}
- 
-.dark .theme-btn.light {
-  display: block;
-  background-color: #fff;
-}
- 
-.dark .theme-btn.dark {
-  display: none;
-}
-
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
