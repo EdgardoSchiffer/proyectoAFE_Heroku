@@ -15,8 +15,7 @@
       </div>
       <div class="form-group">
         <label>Apellido</label>
-        <input class="form-control form-control-sm" type="text" v-model="user.last_name"
-        v-on:keyup="validateTextNumber()"/>
+        <input class="form-control form-control-sm" type="text" v-model="user.last_name" />
         <div class="danger" v-if="messageErrorUserLastName">Verificar datos</div>
       </div>
       <div class="form-group">
@@ -127,8 +126,8 @@ export default {
           console.log(error);
         });
     }, //addItem
-    async getRoles() {
-      await axios
+    getRoles() {
+      axios
         .get("api/role/listar")
         .then((response) => {
           this.roles = response.data;
@@ -138,18 +137,18 @@ export default {
         });
     },    
     validateTextNumber() {
-      if (this.client.client_name.search(/^[a-zA-Z0-9\s]*$/)) {
-        this.messageErrorClientName = true;
+      if (this.user.name.search(/^[a-zA-Z0-9\s]*$/)) {
+        this.messageErrorUserName = true;
       } else {
-        this.messageErrorClientName = false;
+        this.messageErrorUserName = false;
       }
     },
     validateSelectUserRol() {
-      console.log(this.client.municipality_id);
-      if (this.client.municipality_id == 0) {
-        this.messageErrorClientMunicipality = true;
+      console.log(this.user.role_id);
+      if (this.user.role_id == 0) {
+        this.messageErrorUserRol = true;
       } else {
-        this.messageErrorClientMunicipality = false;
+        this.messageErrorUserRol = false;
       }
     },
     showAdd() {

@@ -51,7 +51,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-       //
+        $user = new User();
+        $user->name = $request->user["name"];
+        $user->last_name = $request->user["last_name"];
+        $user->username = $request->user["username"];
+        $user->email = $request->user["email"];
+        $user->password = $request->user["password"];
+        $user->role_id = $request->user["role_id"];
+        $user->save();
+        return $user;
     }
 
     /**
@@ -85,7 +93,19 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        if ($user) {
+            $user->name = $request->user["name"];
+            $user->last_name = $request->user["last_name"];
+            $user->username = $request->user["username"];
+            $user->email = $request->user["email"];
+            $user->password = $request->user["password"];
+            $user->role_id = $request->user["role_id"];
+            $user->save();
+
+            return $user;
+        }
+        return "Usuario no encontrado";
     }
 
     /**
@@ -96,6 +116,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-       //
+        $users = User::find($id);
+        if ($users) {
+            $users->delete();
+            return "Accesorio eliminado";
+        }
+        return "Accesorio no encontrado";
     }
 }
