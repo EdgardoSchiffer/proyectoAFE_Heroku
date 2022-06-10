@@ -120,6 +120,14 @@ Route::prefix('/departments')->group(
 );
 
 Route::get('/roles', [RoleController::class, 'index']);
+Route::prefix('/role')->group(
+    function () {
+        //Route::post('/store', [RoleController::class, 'store']);
+        //Route::put('/{id}', [RoleController::class, 'update']);
+        //Route::delete('/{id}', [RoleController::class, 'destroy']);
+        Route::get('/listar', [RoleController::class, 'listar']);
+    }
+);
 
 Route::get('/municipalities', [MunicipalityController::class, 'index']);
 

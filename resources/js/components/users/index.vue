@@ -1,72 +1,70 @@
 <template>
-  <div class="container mb-4">
-    <!--<div v-if="edit">
-      <edit-role
-        :role="role"
+  <div class="container">
+    <div v-if="edit">
+      <edit-user
+        :user="user"
         v-on:reloadlist="getList()"
         v-on:reloadedit="loadEdit"
       />
     </div>
-    
     <div v-else>
-      <add-role v-on:reloadlist="getList()" />
-    </div>-->
+      <add-user v-on:reloadlist="getList()" />
+    </div>
 
-    <nav>
-      <ul class="pagination">
+<!-- Traemos la view de la data -->
+    <list-view-user class="pt-3"
+      :users="users"
+      v-on:reloadlist="getList()"
+      v-on:reloadedit="loadEdit"
+    />
+
+<!-- Paginación -->
+    <nav class="pt-3">
+      <ul class="pagination justify-content-center">
+        <!-- primera -->
         <li class="page-item" v-if="pagination.current_page>1">
-          <span class="page-link">
-            <a
-              href="#"
-              @click.prevent="changePage(pagination.current_page - 1)"
-            >
-              Atras
-            </a>
-          </span>
+        <a class="page-link" href="#" @click.prevent="changePage(pagination.current_page=1)">&laquo;</a>
         </li>
-        <li class="page-item" 
-          v-for="page in pagesNumber" v-bind:key="page"
-          v-bind:class="[page == isActived ? 'active' : '']"
-        >
-          <span class="page-link">
-            <a href="#" @click.prevent="changePage(page)">{{ page }}</a>
-          </span>
+
+        <!-- flechita -->
+        <li class="page-item" v-if="pagination.current_page>1">
+        <a class="page-link" href="#" @click.prevent="changePage(pagination.current_page - 1)">&lang;</a>
         </li>
-        <li class="page-item"
-          v-if="pagination.current_page < pagination.last_page"
-        >
-          <span class="page-link">
-            <a href="#" @click.prevent="changePage(pagination.current_page + 1)"
-              >Siguiente</a
-            ></span
-          >
+
+        <!-- campos -->
+        <li class="page-item" v-for="page in pagesNumber" v-bind:key="page" v-bind:class="[page == isActived ? 'active' : '']">
+            <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
+        </li>
+
+        <!-- avanzar -->
+        <li class="page-item" v-if="pagination.current_page < pagination.last_page">
+            <a href="#" class="page-link" @click.prevent="changePage(pagination.current_page + 1)">&rang;</a>
+        </li>
+
+        <!-- ultima -->
+        <li class="page-item" v-if="pagination.current_page < pagination.last_page">
+            <a class="page-link" href="#" @click.prevent="changePage(pagination.last_page)">&raquo;</a>
         </li>
       </ul>
     </nav>
-    
-    <list-view-roles
-      :roles="roles"
-      v-on:reloadlist="getList()"
-    />
-    <!--v-on:reloadedit="loadEdit"-->
   </div>
 </template>
 
 <script>
-//import addRole from "./addRole.vue";
-//import editRole from "./editRole.vue";
-import listViewRoles from "./listViewUser.vue";
+import addUser from "./addUsers.vue";
+import editUser from "./editUsers.vue";
+import listViewUser from "./listViewUsers.vue";
 
 export default {
   components: {
-    //addRole,
-    listViewRoles,
-    //editRole,
+    addUser,
+    listViewUser,
+    editUser,
   },
   data: function () {
     return {
-      role: [],
-      roles: [],
+      user: [],
+      users: [],
       edit: false,
       offset: 3,
       pagination: {
@@ -109,21 +107,21 @@ computed: {
 
   methods: {
     getList(page) {
-      var urlRoles = "api/roles?page=" + page;
+      var urlUsers = "api/users?page=" + page;
       axios
-        .get(urlRoles)
+        .get(urlUsers)
         .then((response) => {
-          this.roles = response.data.roles.data;
+          this.users = response.data.users.data;
           this.pagination = response.data.pagination;
         })
         .catch((error) => {
           console.log(error);
         });
     },
-   loadEdit(role) {
-      if (role.id > 0) {
+   loadEdit(user) {
+      if (user.id > 0) {
         this.edit = true;
-        this.role = role;
+        this.user = user;
       } else {
         this.edit = false;
       }

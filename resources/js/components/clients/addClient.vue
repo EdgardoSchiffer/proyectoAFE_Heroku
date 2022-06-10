@@ -1,7 +1,7 @@
 <template>
   <div class="container col-sm-4 col-lg-4 col-md-4 col-xl-4">
     <div class="show-form">
-      <h1>Agregar Usuarios</h1>
+      <h1>Agregar Clientes</h1>
       <font-awesome-icon :icon="icon_name" @click.prevent="showAdd()"
         :class="[show ? 'active' : 'inactive', 'plus data-show-icon']" />
     </div>
@@ -15,7 +15,8 @@
       </div>
       <div class="form-group">
         <label>DUI</label>
-        <input class="form-control form-control-sm" type="text" v-model="client.dui"/>
+        <input class="form-control form-control-sm" type="text" v-model="client.dui" maxlength="9"
+        v-on:keyup="validateDuiNumber()"/>
         <div class="danger" v-if="messageErrorClientDui">Verificar datos</div>
       </div>
       <div class="form-group">
@@ -25,12 +26,14 @@
       </div>
       <div class="form-group">
         <label>Dirección</label>
-        <input class="form-control form-control-sm" type="text" v-model="client.address"/>
+        <input class="form-control form-control-sm" type="text" v-model="client.address"
+        v-on:keyup="validateTextNumber()" />
         <div class="danger" v-if="messageErrorClientAddress">Verificar datos</div>
       </div>
       <div class="form-group">
         <label>Teléfono</label>
-        <input class="form-control form-control-sm" type="text" v-model="client.phone"/>
+        <input class="form-control form-control-sm" type="text" v-model="client.phone" maxlength="8"
+        v-on:keyup="validatePhoneNumber()"/>
         <div class="danger" v-if="messageErrorClientPhone">Verificar datos</div>
       </div>
       <div class="form-group">
@@ -170,6 +173,20 @@ export default {
         this.messageErrorClientName = true;
       } else {
         this.messageErrorClientName = false;
+      }
+    },
+    validateDuiNumber() {
+      if (this.client.dui.search(/^\d{9}$/)) {
+        this.messageErrorClientDui = true;
+      } else {
+        this.messageErrorClientDui = false;
+      }
+    },
+    validatePhoneNumber() {
+      if (this.client.phone.search(/^\d{8}$/)) {
+        this.messageErrorClientPhone = true;
+      } else {
+        this.messageErrorClientPhone = false;
       }
     },
     validateSelectClientMunicipality() {

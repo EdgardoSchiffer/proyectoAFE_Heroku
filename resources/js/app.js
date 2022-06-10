@@ -52,6 +52,7 @@ import IndexMunicipality from './components/municipalities/index.vue'
 import IndexRole from './components/roles/index.vue'
 import IndexAccessory from './components/accessory/index.vue'
 import IndexClient from './components/clients/index.vue'
+import IndexUser from './components/users/index.vue'
 
 
 const app = new Vue({
@@ -68,5 +69,6 @@ const app = new Vue({
         IndexRole,
         IndexAccessory,
         IndexClient,
+        IndexUser,
     }
 });

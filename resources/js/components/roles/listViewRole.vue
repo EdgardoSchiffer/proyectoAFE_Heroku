@@ -10,7 +10,7 @@
       <tbody>
         <tr v-for="(role, index) in roles" :key="index">
           <td>{{ role.id }}</td>
-          <td>{{ role.role_name }}</td>
+          <td>{{ role.name }}</td>
           <td>{{ role.description }}</td>
 
           <!--

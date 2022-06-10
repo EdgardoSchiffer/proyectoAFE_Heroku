@@ -14,7 +14,18 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::with('role')->orderBy('id', 'ASC')->get();
+        $users = User::with('role')->orderBy('id', 'ASC')->paginate(10);
+        return [
+            'pagination' => [
+                'total' => $users->total(),
+                'current_page' => $users->currentPage(),
+                'per_page' => $users->perPage(),
+                'last_page' => $users->lastPage(),
+                'from' => $users->firstItem(),
+                'to' => $users->lastPage(),
+            ],
+            'users' => $users
+        ];
     }
 
     public function list()
