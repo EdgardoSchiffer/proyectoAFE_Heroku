@@ -56,7 +56,7 @@ class UserController extends Controller
         $user->last_name = $request->user["last_name"];
         $user->username = $request->user["username"];
         $user->email = $request->user["email"];
-        $user->password = $request->user["password"];
+        $user->password = bcrypt($request->user["password"]);
         $user->role_id = $request->user["role_id"];
         $user->save();
         return $user;
@@ -99,7 +99,7 @@ class UserController extends Controller
             $user->last_name = $request->user["last_name"];
             $user->username = $request->user["username"];
             $user->email = $request->user["email"];
-            $user->password = $request->user["password"];
+            $user->password = bcrypt($request->user["password"]);
             $user->role_id = $request->user["role_id"];
             $user->save();
 
