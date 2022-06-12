@@ -25497,6 +25497,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -30925,7 +30927,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-1d1ac059] {\n  font-size: 30px;\n}\n.active[data-v-1d1ac059] {\n  color: #00ce25;\n  cursor: pointer;\n}\n.inactive[data-v-1d1ac059] {\n  color: #999999;\n}\n.danger[data-v-1d1ac059] {\n  color: brown;\n}\n.show-form[data-v-1d1ac059] {\n  display: flex;\n}\n.show-form .h1[data-v-1d1ac059] {\n  margin-right: 5px;\n  padding-right: 5px;\n}\n.show-form .data-show-icon[data-v-1d1ac059] {\n  margin-left: 5px;\n  padding-left: 5px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-1d1ac059] {\r\n  font-size: 30px;\n}\n.active[data-v-1d1ac059] {\r\n  color: #00ce25;\r\n  cursor: pointer;\n}\n.inactive[data-v-1d1ac059] {\r\n  color: #999999;\n}\n.danger[data-v-1d1ac059] {\r\n  color: brown;\n}\n.show-form[data-v-1d1ac059] {\r\n  display: flex;\n}\n.show-form .h1[data-v-1d1ac059] {\r\n  margin-right: 5px;\r\n  padding-right: 5px;\n}\n.show-form .data-show-icon[data-v-1d1ac059] {\r\n  margin-left: 5px;\r\n  padding-left: 5px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30949,7 +30951,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-4f08d1f0] {\n  font-size: 30px;\n}\n.active[data-v-4f08d1f0] {\n  color: dodgerblue;\n  cursor: pointer;\n}\n.inactive[data-v-4f08d1f0] {\n  color: #999999;\n}\n.danger[data-v-4f08d1f0] {\n  font-size: 30px;\n  color: firebrick;\n}\n.show-form[data-v-4f08d1f0] {\n  display: flex;\n}\n.show-form .h1[data-v-4f08d1f0] {\n  margin-right: 5px;\n  padding-right: 5px;\n}\n.show-form .data-show-icon[data-v-4f08d1f0] {\n  margin-left: 5px;\n  padding-left: 5px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-4f08d1f0] {\r\n  font-size: 30px;\n}\n.active[data-v-4f08d1f0] {\r\n  color: dodgerblue;\r\n  cursor: pointer;\n}\n.inactive[data-v-4f08d1f0] {\r\n  color: #999999;\n}\n.danger[data-v-4f08d1f0] {\r\n  font-size: 30px;\r\n  color: firebrick;\n}\n.show-form[data-v-4f08d1f0] {\r\n  display: flex;\n}\n.show-form .h1[data-v-4f08d1f0] {\r\n  margin-right: 5px;\r\n  padding-right: 5px;\n}\n.show-form .data-show-icon[data-v-4f08d1f0] {\r\n  margin-left: 5px;\r\n  padding-left: 5px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30973,7 +30975,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\na[data-v-3c87999a]{\n  text-decoration: none;\n}\n.active[data-v-3c87999a]{\n  color: #fff;\n}\n.active a[data-v-3c87999a]{\n  color: #fff;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\na[data-v-3c87999a]{\r\n  text-decoration: none;\n}\n.active[data-v-3c87999a]{\r\n  color: #fff;\n}\n.active a[data-v-3c87999a]{\r\n  color: #fff;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30997,7 +30999,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-19cfa037] {\n  background: transparent;\n  border: none;\n  color: #ff0000;\n  outline: none;\n}\n.pentosquarecan[data-v-19cfa037] {\n  background: transparent;\n  border: none;\n  color: darkcyan;\n  outline: none;\n}\n.listcheck[data-v-19cfa037]{\n  background: transparent;\n  border: none;\n  color: dodgerblue;\n  outline: none;\n}\n.success[data-v-19cfa037] {\n  background-color: #aadbc7;\n}\n.info[data-v-19cfa037] {\n  background-color: #92d0eb;\n}\n.dangerstatus[data-v-19cfa037] {\n  background-color: #eea1a2;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-19cfa037] {\r\n  background: transparent;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\n}\n.pentosquarecan[data-v-19cfa037] {\r\n  background: transparent;\r\n  border: none;\r\n  color: darkcyan;\r\n  outline: none;\n}\n.listcheck[data-v-19cfa037]{\r\n  background: transparent;\r\n  border: none;\r\n  color: dodgerblue;\r\n  outline: none;\n}\n.success[data-v-19cfa037] {\r\n  background-color: #aadbc7;\n}\n.info[data-v-19cfa037] {\r\n  background-color: #92d0eb;\n}\n.dangerstatus[data-v-19cfa037] {\r\n  background-color: #eea1a2;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31021,7 +31023,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-91ff138e] {\n  font-size: 30px;\n}\n.active[data-v-91ff138e] {\n  color: #00ce25;\n  cursor: pointer;\n}\n.inactive[data-v-91ff138e] {\n  color: #999999;\n}\n.danger[data-v-91ff138e] {\n  color: brown;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-91ff138e] {\r\n  font-size: 30px;\n}\n.active[data-v-91ff138e] {\r\n  color: #00ce25;\r\n  cursor: pointer;\n}\n.inactive[data-v-91ff138e] {\r\n  color: #999999;\n}\n.danger[data-v-91ff138e] {\r\n  color: brown;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31045,7 +31047,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-5abd15f8] {\n  margin-top: 3px;\n  font-size: 30px;\n}\n.active[data-v-5abd15f8] {\n  color: dodgerblue;\n  cursor: pointer;\n}\n.inactive[data-v-5abd15f8] {\n  color: #999999;\n}\n.danger[data-v-5abd15f8] {\n  font-size: 30px;\n  color: firebrick;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-5abd15f8] {\r\n  margin-top: 3px;\r\n  font-size: 30px;\n}\n.active[data-v-5abd15f8] {\r\n  color: dodgerblue;\r\n  cursor: pointer;\n}\n.inactive[data-v-5abd15f8] {\r\n  color: #999999;\n}\n.danger[data-v-5abd15f8] {\r\n  font-size: 30px;\r\n  color: firebrick;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31069,7 +31071,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-48da4a6a] {\n  background: #e6e6e6;\n  border: none;\n  color: #ff0000;\n  outline: none;\n}\n.pentosquarecan[data-v-48da4a6a] {\n  background: #e6e6e6;\n  border: none;\n  color: darkcyan;\n  outline: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-48da4a6a] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\n}\n.pentosquarecan[data-v-48da4a6a] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: darkcyan;\r\n  outline: none;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31093,7 +31095,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-493b184e] {\n  font-size: 30px;\n}\n.active[data-v-493b184e] {\n  color: #00ce25;\n  cursor: pointer;\n}\n.inactive[data-v-493b184e] {\n  color: #999999;\n}\n.danger[data-v-493b184e] {\n  color: brown;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-493b184e] {\r\n  font-size: 30px;\n}\n.active[data-v-493b184e] {\r\n  color: #00ce25;\r\n  cursor: pointer;\n}\n.inactive[data-v-493b184e] {\r\n  color: #999999;\n}\n.danger[data-v-493b184e] {\r\n  color: brown;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31117,7 +31119,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-974aff36] {\n  margin-top: 3px;\n  font-size: 30px;\n}\n.active[data-v-974aff36] {\n  color: dodgerblue;\n  cursor: pointer;\n}\n.inactive[data-v-974aff36] {\n  color: #999999;\n}\n.danger[data-v-974aff36] {\n  font-size: 30px;\n  color: firebrick;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-974aff36] {\r\n  margin-top: 3px;\r\n  font-size: 30px;\n}\n.active[data-v-974aff36] {\r\n  color: dodgerblue;\r\n  cursor: pointer;\n}\n.inactive[data-v-974aff36] {\r\n  color: #999999;\n}\n.danger[data-v-974aff36] {\r\n  font-size: 30px;\r\n  color: firebrick;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31141,7 +31143,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\na[data-v-cd3689cc]{\n  text-decoration: none;\n}\n.active[data-v-cd3689cc]{\n  color: #fff;\n}\n.active a[data-v-cd3689cc]{\n  color: #fff;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\na[data-v-cd3689cc]{\r\n  text-decoration: none;\n}\n.active[data-v-cd3689cc]{\r\n  color: #fff;\n}\n.active a[data-v-cd3689cc]{\r\n  color: #fff;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31165,7 +31167,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-1a666ba8] {\n  background: #e6e6e6;\n  border: none;\n  color: #ff0000;\n  outline: none;\n}\n.pentosquarecan[data-v-1a666ba8] {\n  background: #e6e6e6;\n  border: none;\n  color: darkcyan;\n  outline: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-1a666ba8] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\n}\n.pentosquarecan[data-v-1a666ba8] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: darkcyan;\r\n  outline: none;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31189,7 +31191,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-a3ba532c] {\n  font-size: 30px;\n}\n.active[data-v-a3ba532c] {\n  color: #00ce25;\n  cursor: pointer;\n}\n.inactive[data-v-a3ba532c] {\n  color: #999999;\n}\n.danger[data-v-a3ba532c] {\n  color: brown;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-a3ba532c] {\r\n  font-size: 30px;\n}\n.active[data-v-a3ba532c] {\r\n  color: #00ce25;\r\n  cursor: pointer;\n}\n.inactive[data-v-a3ba532c] {\r\n  color: #999999;\n}\n.danger[data-v-a3ba532c] {\r\n  color: brown;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31213,7 +31215,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-1e376af5] {\n  margin-top: 3px;\n  font-size: 30px;\n}\n.active[data-v-1e376af5] {\n  color: dodgerblue;\n  cursor: pointer;\n}\n.inactive[data-v-1e376af5] {\n  color: #999999;\n}\n.danger[data-v-1e376af5] {\n  font-size: 30px;\n  color: firebrick;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-1e376af5] {\r\n  margin-top: 3px;\r\n  font-size: 30px;\n}\n.active[data-v-1e376af5] {\r\n  color: dodgerblue;\r\n  cursor: pointer;\n}\n.inactive[data-v-1e376af5] {\r\n  color: #999999;\n}\n.danger[data-v-1e376af5] {\r\n  font-size: 30px;\r\n  color: firebrick;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31237,7 +31239,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\na[data-v-409ad3e9]{\n  text-decoration: none;\n}\n.active[data-v-409ad3e9]{\n  color: #fff;\n}\n.active a[data-v-409ad3e9]{\n  color: #fff;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\na[data-v-409ad3e9]{\r\n  text-decoration: none;\n}\n.active[data-v-409ad3e9]{\r\n  color: #fff;\n}\n.active a[data-v-409ad3e9]{\r\n  color: #fff;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31261,7 +31263,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-2a9eb50e] {\n  background: #e6e6e6;\n  border: none;\n  color: #ff0000;\n  outline: none;\n}\n.pentosquarecan[data-v-2a9eb50e] {\n  background: #e6e6e6;\n  border: none;\n  color: darkcyan;\n  outline: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-2a9eb50e] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\n}\n.pentosquarecan[data-v-2a9eb50e] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: darkcyan;\r\n  outline: none;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31285,7 +31287,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-0120d9fd] {\n  font-size: 30px;\n}\n.active[data-v-0120d9fd] {\n  color: #00ce25;\n  cursor: pointer;\n}\n.inactive[data-v-0120d9fd] {\n  color: #999999;\n}\n.danger[data-v-0120d9fd] {\n  color: brown;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-0120d9fd] {\r\n  font-size: 30px;\n}\n.active[data-v-0120d9fd] {\r\n  color: #00ce25;\r\n  cursor: pointer;\n}\n.inactive[data-v-0120d9fd] {\r\n  color: #999999;\n}\n.danger[data-v-0120d9fd] {\r\n  color: brown;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31309,7 +31311,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-0d1f4f84] {\n  margin-top: 3px;\n  font-size: 30px;\n}\n.active[data-v-0d1f4f84] {\n  color: dodgerblue;\n  cursor: pointer;\n}\n.inactive[data-v-0d1f4f84] {\n  color: #999999;\n}\n.danger[data-v-0d1f4f84] {\n  font-size: 30px;\n  color: firebrick;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-0d1f4f84] {\r\n  margin-top: 3px;\r\n  font-size: 30px;\n}\n.active[data-v-0d1f4f84] {\r\n  color: dodgerblue;\r\n  cursor: pointer;\n}\n.inactive[data-v-0d1f4f84] {\r\n  color: #999999;\n}\n.danger[data-v-0d1f4f84] {\r\n  font-size: 30px;\r\n  color: firebrick;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31333,7 +31335,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-d01a11d2] {\n  background: #e6e6e6;\n  border: none;\n  color: #ff0000;\n  outline: none;\n}\n.pentosquarecan[data-v-d01a11d2] {\n  background: #e6e6e6;\n  border: none;\n  color: darkcyan;\n  outline: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-d01a11d2] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\n}\n.pentosquarecan[data-v-d01a11d2] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: darkcyan;\r\n  outline: none;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31357,7 +31359,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.show[data-v-ef30d1e2] {\n  display: none;\n}\n.plus[data-v-ef30d1e2] {\n  font-size: 35px;\n  margin: 2px;\n  cursor: pointer;\n}\n.active[data-v-ef30d1e2] {\n  color: darkslategrey;\n  cursor: pointer;\n}\n.inactive[data-v-ef30d1e2] {\n  color: #999999;\n}\n.danger[data-v-ef30d1e2] {\n  color: brown;\n}\n.file[data-v-ef30d1e2] {\n  font-size: 35px;\n  color: blueviolet;\n  margin-top: 5px;\n  margin-left: 5px;\n  cursor: pointer;\n}\n.btnUpload[data-v-ef30d1e2] {\n  position: relative;\n  padding: 10px 10px;\n  overflow: hidden;\n  margin: 0px;\n  cursor: pointer;\n  border-radius: 3px;\n}\n.btnUpload input[type=\"file\"][data-v-ef30d1e2] {\n  cursor: pointer;\n  width: 20px;\n  height: 100%;\n  margin-left: -20px;\n  transform: scale(5);\n  padding: 0px;\n  opacity: 0;\n}\n.images-list[data-v-ef30d1e2] {\n  display: flex;\n  display: inline-block;\n}\n.animate__animated.animate__fadeInDown[data-v-ef30d1e2] {\n  -webkit-animation-duration: 2s;\n          animation-duration: 2s;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.show[data-v-ef30d1e2] {\r\n  display: none;\n}\n.plus[data-v-ef30d1e2] {\r\n  font-size: 35px;\r\n  margin: 2px;\r\n  cursor: pointer;\n}\n.active[data-v-ef30d1e2] {\r\n  color: darkslategrey;\r\n  cursor: pointer;\n}\n.inactive[data-v-ef30d1e2] {\r\n  color: #999999;\n}\n.danger[data-v-ef30d1e2] {\r\n  color: brown;\n}\n.file[data-v-ef30d1e2] {\r\n  font-size: 35px;\r\n  color: blueviolet;\r\n  margin-top: 5px;\r\n  margin-left: 5px;\r\n  cursor: pointer;\n}\n.btnUpload[data-v-ef30d1e2] {\r\n  position: relative;\r\n  padding: 10px 10px;\r\n  overflow: hidden;\r\n  margin: 0px;\r\n  cursor: pointer;\r\n  border-radius: 3px;\n}\n.btnUpload input[type=\"file\"][data-v-ef30d1e2] {\r\n  cursor: pointer;\r\n  width: 20px;\r\n  height: 100%;\r\n  margin-left: -20px;\r\n  transform: scale(5);\r\n  padding: 0px;\r\n  opacity: 0;\n}\n.images-list[data-v-ef30d1e2] {\r\n  display: flex;\r\n  display: inline-block;\n}\n.animate__animated.animate__fadeInDown[data-v-ef30d1e2] {\r\n  -webkit-animation-duration: 2s;\r\n          animation-duration: 2s;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31381,7 +31383,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.danger{\n  color: brown;\n  font-size: 30px;\n}\n/*\n.animate__animated.animate__zoomIn {\n  --animate-delay: 0.9s;\n}*/\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.danger{\r\n  color: brown;\r\n  font-size: 30px;\n}\r\n/*\r\n.animate__animated.animate__zoomIn {\r\n  --animate-delay: 0.9s;\r\n}*/\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31405,7 +31407,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-725d6914] {\n  background: #e6e6e6;\n  border: none;\n  color: #ff0000;\n  outline: none;\n  position: absolute;\n  margin-top: -28px;\n}\n.animate__animated.animate__zoomIn[data-v-725d6914] {\n  --animate-duration: 5s;\n}\n.animate__animated.animate__bounceInUp[data-v-725d6914]{\n  --animate-duration: 2s;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-725d6914] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\r\n  position: absolute;\r\n  margin-top: -28px;\n}\n.animate__animated.animate__zoomIn[data-v-725d6914] {\r\n  --animate-duration: 5s;\n}\n.animate__animated.animate__bounceInUp[data-v-725d6914]{\r\n  --animate-duration: 2s;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31429,7 +31431,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-275eca5a] {\n  font-size: 30px;\n}\n.active[data-v-275eca5a] {\n  color: #00ce25;\n  cursor: pointer;\n}\n.inactive[data-v-275eca5a] {\n  color: #999999;\n}\n.danger[data-v-275eca5a] {\n  color: brown;\n}\n.show-form[data-v-275eca5a] {\n  display: flex;\n}\n.show-form .h1[data-v-275eca5a] {\n  margin-right: 5px;\n  padding-right: 5px;\n}\n.show-form .data-show-icon[data-v-275eca5a] {\n  margin-left: 5px;\n  padding-left: 5px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-275eca5a] {\r\n  font-size: 30px;\n}\n.active[data-v-275eca5a] {\r\n  color: #00ce25;\r\n  cursor: pointer;\n}\n.inactive[data-v-275eca5a] {\r\n  color: #999999;\n}\n.danger[data-v-275eca5a] {\r\n  color: brown;\n}\n.show-form[data-v-275eca5a] {\r\n  display: flex;\n}\n.show-form .h1[data-v-275eca5a] {\r\n  margin-right: 5px;\r\n  padding-right: 5px;\n}\n.show-form .data-show-icon[data-v-275eca5a] {\r\n  margin-left: 5px;\r\n  padding-left: 5px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31453,7 +31455,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-31c9b000] {\n  font-size: 30px;\n}\n.active[data-v-31c9b000] {\n  color: dodgerblue;\n  cursor: pointer;\n}\n.inactive[data-v-31c9b000] {\n  color: #999999;\n}\n.danger[data-v-31c9b000] {\n  font-size: 30px;\n  color: firebrick;\n}\n.show-form[data-v-31c9b000]{\n  display: flex;\n}\n.show-form .h1[data-v-31c9b000]{\n  margin-right: 5px;\n  padding-right: 5px;\n}\n.show-form .data-show-icon[data-v-31c9b000]{\n  margin-left: 5px;\n  padding-left: 5px;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-31c9b000] {\r\n  font-size: 30px;\n}\n.active[data-v-31c9b000] {\r\n  color: dodgerblue;\r\n  cursor: pointer;\n}\n.inactive[data-v-31c9b000] {\r\n  color: #999999;\n}\n.danger[data-v-31c9b000] {\r\n  font-size: 30px;\r\n  color: firebrick;\n}\n.show-form[data-v-31c9b000]{\r\n  display: flex;\n}\n.show-form .h1[data-v-31c9b000]{\r\n  margin-right: 5px;\r\n  padding-right: 5px;\n}\n.show-form .data-show-icon[data-v-31c9b000]{\r\n  margin-left: 5px;\r\n  padding-left: 5px;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31477,7 +31479,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-6e2c1f59] {\n  background: transparent;\n  border: none;\n  color: #ff0000;\n  outline: none;\n}\n.pentosquarecan[data-v-6e2c1f59] {\n  background: transparent;\n  border: none;\n  color: darkcyan;\n  outline: none;\n}\n.listcheck[data-v-6e2c1f59]{\n  background: transparent;\n  border: none;\n  color: dodgerblue;\n  outline: none;\n}\n.success[data-v-6e2c1f59] {\n  background-color: #aadbc7;\n}\n.info[data-v-6e2c1f59] {\n  background-color: #92d0eb;\n}\n.dangerstatus[data-v-6e2c1f59] {\n  background-color: #eea1a2;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-6e2c1f59] {\r\n  background: transparent;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\n}\n.pentosquarecan[data-v-6e2c1f59] {\r\n  background: transparent;\r\n  border: none;\r\n  color: darkcyan;\r\n  outline: none;\n}\n.listcheck[data-v-6e2c1f59]{\r\n  background: transparent;\r\n  border: none;\r\n  color: dodgerblue;\r\n  outline: none;\n}\n.success[data-v-6e2c1f59] {\r\n  background-color: #aadbc7;\n}\n.info[data-v-6e2c1f59] {\r\n  background-color: #92d0eb;\n}\n.dangerstatus[data-v-6e2c1f59] {\r\n  background-color: #eea1a2;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31501,7 +31503,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\na[data-v-4d5b7e05]{\n  text-decoration: none;\n}\n.active[data-v-4d5b7e05]{\n  color: #fff;\n}\n.active a[data-v-4d5b7e05]{\n  color: #fff;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\na[data-v-4d5b7e05]{\r\n  text-decoration: none;\n}\n.active[data-v-4d5b7e05]{\r\n  color: #fff;\n}\n.active a[data-v-4d5b7e05]{\r\n  color: #fff;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31525,7 +31527,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-2dada996] {\n  background: #e6e6e6;\n  border: none;\n  color: #ff0000;\n  outline: none;\n}\n.pentosquarecan[data-v-2dada996] {\n  background: #e6e6e6;\n  border: none;\n  color: darkcyan;\n  outline: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-2dada996] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\n}\n.pentosquarecan[data-v-2dada996] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: darkcyan;\r\n  outline: none;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31549,7 +31551,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-e4940706] {\n  font-size: 30px;\n}\n.active[data-v-e4940706] {\n  color: #00ce25;\n  cursor: pointer;\n}\n.inactive[data-v-e4940706] {\n  color: #999999;\n}\n.danger[data-v-e4940706] {\n  color: brown;\n}\n.show-form[data-v-e4940706] {\n  display: flex;\n}\n.show-form .h1[data-v-e4940706] {\n  margin-right: 5px;\n  padding-right: 5px;\n}\n.show-form .data-show-icon[data-v-e4940706] {\n  margin-left: 5px;\n  padding-left: 5px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-e4940706] {\r\n  font-size: 30px;\n}\n.active[data-v-e4940706] {\r\n  color: #00ce25;\r\n  cursor: pointer;\n}\n.inactive[data-v-e4940706] {\r\n  color: #999999;\n}\n.danger[data-v-e4940706] {\r\n  color: brown;\n}\n.show-form[data-v-e4940706] {\r\n  display: flex;\n}\n.show-form .h1[data-v-e4940706] {\r\n  margin-right: 5px;\r\n  padding-right: 5px;\n}\n.show-form .data-show-icon[data-v-e4940706] {\r\n  margin-left: 5px;\r\n  padding-left: 5px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31573,7 +31575,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.fafilepdf{\n  color: indianred;\n  cursor: pointer;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.fafilepdf{\r\n  color: indianred;\r\n  cursor: pointer;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31597,7 +31599,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-0d4bb4df] {\n  margin-top: 3px;\n  font-size: 50px;\n}\n.fafilepen[data-v-0d4bb4df]{\n  font-size: 50px;\n  color: dodgerblue;\n  cursor: pointer;\n}\n.active[data-v-0d4bb4df] {\n  color: lawngreen;\n  cursor: pointer;\n}\n.inactive[data-v-0d4bb4df] {\n  color: #999999;\n}\n.danger[data-v-0d4bb4df] {\n  font-size: 30px;\n  color: firebrick;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-0d4bb4df] {\r\n  margin-top: 3px;\r\n  font-size: 50px;\n}\n.fafilepen[data-v-0d4bb4df]{\r\n  font-size: 50px;\r\n  color: dodgerblue;\r\n  cursor: pointer;\n}\n.active[data-v-0d4bb4df] {\r\n  color: lawngreen;\r\n  cursor: pointer;\n}\n.inactive[data-v-0d4bb4df] {\r\n  color: #999999;\n}\n.danger[data-v-0d4bb4df] {\r\n  font-size: 30px;\r\n  color: firebrick;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31621,7 +31623,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.success {\n  background-color: #aadbc7;\n}\n.info {\n  background-color: #92d0eb;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.success {\r\n  background-color: #aadbc7;\n}\n.info {\r\n  background-color: #92d0eb;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31645,7 +31647,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-1cd3b779] {\n  font-size: 30px;\n}\n.active[data-v-1cd3b779] {\n  color: #00ce25;\n  cursor: pointer;\n}\n.inactive[data-v-1cd3b779] {\n  color: #999999;\n}\n.danger[data-v-1cd3b779] {\n  color: brown;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-1cd3b779] {\r\n  font-size: 30px;\n}\n.active[data-v-1cd3b779] {\r\n  color: #00ce25;\r\n  cursor: pointer;\n}\n.inactive[data-v-1cd3b779] {\r\n  color: #999999;\n}\n.danger[data-v-1cd3b779] {\r\n  color: brown;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31669,7 +31671,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-45a3c5f8] {\n  margin-top: 3px;\n  font-size: 30px;\n}\n.active[data-v-45a3c5f8] {\n  color: dodgerblue;\n  cursor: pointer;\n}\n.inactive[data-v-45a3c5f8] {\n  color: #999999;\n}\n.danger[data-v-45a3c5f8] {\n  font-size: 30px;\n  color: firebrick;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-45a3c5f8] {\r\n  margin-top: 3px;\r\n  font-size: 30px;\n}\n.active[data-v-45a3c5f8] {\r\n  color: dodgerblue;\r\n  cursor: pointer;\n}\n.inactive[data-v-45a3c5f8] {\r\n  color: #999999;\n}\n.danger[data-v-45a3c5f8] {\r\n  font-size: 30px;\r\n  color: firebrick;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31693,7 +31695,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-52dcf47f] {\n  background: #e6e6e6;\n  border: none;\n  color: #ff0000;\n  outline: none;\n}\n.pentosquarecan[data-v-52dcf47f] {\n  background: #e6e6e6;\n  border: none;\n  color: darkcyan;\n  outline: none;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-52dcf47f] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\n}\n.pentosquarecan[data-v-52dcf47f] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: darkcyan;\r\n  outline: none;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31717,7 +31719,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-50a0b418] {\n  font-size: 30px;\n}\n.active[data-v-50a0b418] {\n  color: #00ce25;\n  cursor: pointer;\n}\n.inactive[data-v-50a0b418] {\n  color: #999999;\n}\n.danger[data-v-50a0b418] {\n  color: brown;\n}\n.show-form[data-v-50a0b418] {\n  display: flex;\n}\n.show-form .h1[data-v-50a0b418] {\n  margin-right: 5px;\n  padding-right: 5px;\n}\n.show-form .data-show-icon[data-v-50a0b418] {\n  margin-left: 5px;\n  padding-left: 5px;\n}\n.fafilepdf[data-v-50a0b418]{\n  color: indianred;\n  cursor: pointer;\n  font-size: 30px;\n  margin-left: 5px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-50a0b418] {\r\n  font-size: 30px;\n}\n.active[data-v-50a0b418] {\r\n  color: #00ce25;\r\n  cursor: pointer;\n}\n.inactive[data-v-50a0b418] {\r\n  color: #999999;\n}\n.danger[data-v-50a0b418] {\r\n  color: brown;\n}\n.show-form[data-v-50a0b418] {\r\n  display: flex;\n}\n.show-form .h1[data-v-50a0b418] {\r\n  margin-right: 5px;\r\n  padding-right: 5px;\n}\n.show-form .data-show-icon[data-v-50a0b418] {\r\n  margin-left: 5px;\r\n  padding-left: 5px;\n}\n.fafilepdf[data-v-50a0b418]{\r\n  color: indianred;\r\n  cursor: pointer;\r\n  font-size: 30px;\r\n  margin-left: 5px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31741,7 +31743,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-1c64d83a] {\n  background: #e6e6e6;\n  border: none;\n  color: #ff0000;\n  outline: none;\n}\n.pentosquarecan[data-v-1c64d83a] {\n  background: #e6e6e6;\n  border: none;\n  color: darkcyan;\n  outline: none;\n}\n.plus[data-v-1c64d83a] {\n  font-size: 80px;\n}\n.active[data-v-1c64d83a] {\n  color: dodgerblue;\n  cursor: pointer;\n}\n.inactive[data-v-1c64d83a] {\n  color: #999999;\n}\n.carousel-item[data-v-1c64d83a] {\n  transition: transform 2s; /*ease opacity, .2s ease-out;*/\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-1c64d83a] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\n}\n.pentosquarecan[data-v-1c64d83a] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: darkcyan;\r\n  outline: none;\n}\n.plus[data-v-1c64d83a] {\r\n  font-size: 80px;\n}\n.active[data-v-1c64d83a] {\r\n  color: dodgerblue;\r\n  cursor: pointer;\n}\n.inactive[data-v-1c64d83a] {\r\n  color: #999999;\n}\n.carousel-item[data-v-1c64d83a] {\r\n  transition: transform 2s; /*ease opacity, .2s ease-out;*/\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31765,7 +31767,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\na[data-v-0ca654a0]{\n  text-decoration: none;\n}\n.active[data-v-0ca654a0]{\n  color: #fff;\n}\n.active a[data-v-0ca654a0]{\n  color: #fff;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\na[data-v-0ca654a0]{\r\n  text-decoration: none;\n}\n.active[data-v-0ca654a0]{\r\n  color: #fff;\n}\n.active a[data-v-0ca654a0]{\r\n  color: #fff;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31789,7 +31791,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-31c3fa45] {\n  font-size: 30px;\n}\n.active[data-v-31c3fa45] {\n  color: dodgerblue;\n  cursor: pointer;\n}\n.inactive[data-v-31c3fa45] {\n  color: #999999;\n}\n.danger[data-v-31c3fa45] {\n  font-size: 30px;\n  color: firebrick;\n}\n.show-form[data-v-31c3fa45]{\n  display: flex;\n}\n.show-form .h1[data-v-31c3fa45]{\n  margin-right: 5px;\n  padding-right: 5px;\n}\n.show-form .data-show-icon[data-v-31c3fa45]{\n  margin-left: 5px;\n  padding-left: 5px;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.plus[data-v-31c3fa45] {\r\n  font-size: 30px;\n}\n.active[data-v-31c3fa45] {\r\n  color: dodgerblue;\r\n  cursor: pointer;\n}\n.inactive[data-v-31c3fa45] {\r\n  color: #999999;\n}\n.danger[data-v-31c3fa45] {\r\n  font-size: 30px;\r\n  color: firebrick;\n}\n.show-form[data-v-31c3fa45]{\r\n  display: flex;\n}\n.show-form .h1[data-v-31c3fa45]{\r\n  margin-right: 5px;\r\n  padding-right: 5px;\n}\n.show-form .data-show-icon[data-v-31c3fa45]{\r\n  margin-left: 5px;\r\n  padding-left: 5px;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31813,7 +31815,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-d0f54e68] {\n  background: transparent;\n  border: none;\n  color: #ff0000;\n  outline: none;\n}\n.pentosquarecan[data-v-d0f54e68] {\n  background: transparent;\n  border: none;\n  color: darkcyan;\n  outline: none;\n}\n.photofilm[data-v-d0f54e68]{\n  background: transparent;\n  border: none;\n  color: mediumslateblue;\n  outline: none;\n}\n.listcheck[data-v-d0f54e68]{\n  background: transparent;\n  border: none;\n  color: dodgerblue;\n  outline: none;\n}\n.success[data-v-d0f54e68] {\n  background-color: #aadbc7;\n}\n.info[data-v-d0f54e68] {\n  background-color: #92d0eb;\n}\n.dangerstatus[data-v-d0f54e68] {\n  background-color: #eea1a2;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-d0f54e68] {\r\n  background: transparent;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\n}\n.pentosquarecan[data-v-d0f54e68] {\r\n  background: transparent;\r\n  border: none;\r\n  color: darkcyan;\r\n  outline: none;\n}\n.photofilm[data-v-d0f54e68]{\r\n  background: transparent;\r\n  border: none;\r\n  color: mediumslateblue;\r\n  outline: none;\n}\n.listcheck[data-v-d0f54e68]{\r\n  background: transparent;\r\n  border: none;\r\n  color: dodgerblue;\r\n  outline: none;\n}\n.success[data-v-d0f54e68] {\r\n  background-color: #aadbc7;\n}\n.info[data-v-d0f54e68] {\r\n  background-color: #92d0eb;\n}\n.dangerstatus[data-v-d0f54e68] {\r\n  background-color: #eea1a2;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
