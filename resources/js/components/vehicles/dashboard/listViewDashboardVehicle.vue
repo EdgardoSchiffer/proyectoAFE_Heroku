@@ -18,11 +18,49 @@
               </div>
             </div>
           </div>
+          <div v-if="data_user !== null">
+            <div v-if="[data_user.id > 0]">
+              <font-awesome-icon
+                icon="plus-square"
+                @click.prevent="newComment()"
+                class="new-comment"
+                v-if="[data_user.id > 0]"
+              />
+            </div>
+          </div>
+
+          <div class="container p-2" v-if="showComment && [data_user != null]">
+            <div class="col">
+              <div class="card h-100 animate__animated animate__zoomIn">
+                <div class="form-group">
+                  <label>Comentar</label>
+                  <input
+                    class="form-control form-control-sm"
+                    type="text"
+                    v-model="comment.comment"
+                    v-on:keyup="validarTexto()"
+                  />
+                  <div class="danger" v-if="messageErrorComment">
+                    Verificar datos
+                  </div>
+                  <font-awesome-icon
+                    icon="plus-square"
+                    @click.prevent="addItem(vehicle.id)"
+                    :class="[
+                      comment.comment ? 'active' : 'inactive',
+                      'new-comment',
+                    ]"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="container p-2">
             <div v-for="(comment, j) in vehicle.comments" :key="j">
               <div class="col">
                 <div class="card h-100 animate__animated animate__zoomIn">
-                  <h3>{{ comment.comment }}</h3>
+                  <h5>{{ comment.comment }}</h5>
                 </div>
               </div>
             </div>
@@ -48,8 +86,19 @@
 
 <script>
 export default {
-  props: ["vehicles"],
+  props: ["vehicles", "data_user"],
   components: {},
+  data: function () {
+    return {
+      comment: {
+        comment: "",
+        vehicle_id: 0,
+        user_id: 0,
+      },
+      messageErrorComment: false,
+      showComment: false,
+    };
+  },
   methods: {
     ourImage(image) {
       //console.log(this.edit);
@@ -58,6 +107,40 @@ export default {
       if (long <= 100) {
         return image;
       }
+    },
+    addItem(id) {
+      if (this.comment.comment == "") {
+        swal("Alerta", "Los campos deben estar completos", "error");
+
+        return;
+      }
+      this.comment.vehicle_id = id;
+      this.comment.user_id = this.data_user.id;
+      axios
+        .post("api/comment/store", {
+          comment: this.comment,
+        })
+        .then((response) => {
+          if (response.status == 201) {
+            swal("Guardado", "Registro guardado exitosamente", "success");
+            this.comment.comment = "";
+            this.$emit("reloadlist");
+            this.showComment = !this.showComment;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, //addItem
+    validarTexto() {
+      if (this.comment.comment.search(/^[a-zA-Z\s]*$/)) {
+        this.messageErrorComment = true;
+      } else {
+        this.messageErrorComment = false;
+      }
+    },
+    newComment() {
+      this.showComment = !this.showComment;
     },
   },
 };
@@ -75,6 +158,10 @@ export default {
   border: none;
   color: darkcyan;
   outline: none;
+}
+.new-comment {
+  font-size: 20px;
+  color: dodgerblue;
 }
 .plus {
   font-size: 80px;

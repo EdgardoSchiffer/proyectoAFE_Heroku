@@ -3,6 +3,7 @@
     <!-- data -->
     <list-view-dashboard-vehicle
       :vehicles="vehicles"
+      :data_user="data_user"
       v-on:reloadlist="getList()"
     />
 
@@ -42,6 +43,7 @@
 import ListViewDashboardVehicle from './listViewDashboardVehicle.vue';
 
 export default {
+  props: ["data_user"],
   components: {
     ListViewDashboardVehicle
 

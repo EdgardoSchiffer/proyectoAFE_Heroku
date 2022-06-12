@@ -4,6 +4,7 @@ use App\Http\Controllers\AccessoryController;
 use App\Http\Controllers\AccessoryTypeController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\FuelTypeController;
 use App\Http\Controllers\GaleryController;
@@ -170,5 +171,11 @@ Route::prefix('/user')->group(
         Route::put('/{id}', [UserController::class, 'update']);
         Route::delete('/{id}', [UserController::class, 'destroy']);
         Route::get('/list', [UserController::class, 'list']);
+    }
+);
+
+Route::prefix('/comment')->group(
+    function () {
+        Route::post('/store', [CommentController::class, 'store']);
     }
 );

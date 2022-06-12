@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -36,6 +37,13 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         //
+        $comment = new Comment();
+        $comment->comment = $request->comment["comment"];
+        $comment->user_id = $request->comment["user_id"];
+        $comment->vehicle_id = $request->comment["vehicle_id"];
+        $comment->save();
+        return $comment;
+
     }
 
     /**

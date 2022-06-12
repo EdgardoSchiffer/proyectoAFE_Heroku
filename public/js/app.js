@@ -26194,9 +26194,58 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["vehicles"],
+  props: ["vehicles", "data_user"],
   components: {},
+  data: function data() {
+    return {
+      comment: {
+        comment: "",
+        vehicle_id: 0,
+        user_id: 0
+      },
+      messageErrorComment: false,
+      showComment: false
+    };
+  },
   methods: {
     ourImage: function ourImage(image) {
       //console.log(this.edit);
@@ -26206,6 +26255,42 @@ __webpack_require__.r(__webpack_exports__);
       if (_long <= 100) {
         return image;
       }
+    },
+    addItem: function addItem(id) {
+      var _this = this;
+
+      if (this.comment.comment == "") {
+        swal("Alerta", "Los campos deben estar completos", "error");
+        return;
+      }
+
+      this.comment.vehicle_id = id;
+      this.comment.user_id = this.data_user.id;
+      axios.post("api/comment/store", {
+        comment: this.comment
+      }).then(function (response) {
+        if (response.status == 201) {
+          swal("Guardado", "Registro guardado exitosamente", "success");
+          _this.comment.comment = "";
+
+          _this.$emit("reloadlist");
+
+          _this.showComment = !_this.showComment;
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    //addItem
+    validarTexto: function validarTexto() {
+      if (this.comment.comment.search(/^[a-zA-Z\s]*$/)) {
+        this.messageErrorComment = true;
+      } else {
+        this.messageErrorComment = false;
+      }
+    },
+    newComment: function newComment() {
+      this.showComment = !this.showComment;
     }
   }
 });
@@ -26264,8 +26349,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["data_user"],
   components: {
     ListViewDashboardVehicle: _listViewDashboardVehicle_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -32478,8 +32565,6 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-1a666ba8] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\n}\n.pentosquarecan[data-v-1a666ba8] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: darkcyan;\r\n  outline: none;\n}\r\n", ""]);
-<<<<<<< HEAD
-=======
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -32576,7 +32661,6 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-c0d24300] {\r\n  background: transparent;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\n}\n.pentosquarecan[data-v-c0d24300] {\r\n  background: transparent;\r\n  border: none;\r\n  color: darkcyan;\r\n  outline: none;\n}\n.listcheck[data-v-c0d24300]{\r\n  background: transparent;\r\n  border: none;\r\n  color: dodgerblue;\r\n  outline: none;\n}\n.success[data-v-c0d24300] {\r\n  background-color: #aadbc7;\n}\n.info[data-v-c0d24300] {\r\n  background-color: #92d0eb;\n}\n.dangerstatus[data-v-c0d24300] {\r\n  background-color: #eea1a2;\n}\r\n", ""]);
->>>>>>> 30012ce227d256c026b41519b0082bd7566fc9ff
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -32937,8 +33021,6 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-2dada996] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\n}\n.pentosquarecan[data-v-2dada996] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: darkcyan;\r\n  outline: none;\n}\r\n", ""]);
-<<<<<<< HEAD
-=======
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -33035,7 +33117,6 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-20c522ba] {\r\n  background: transparent;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\n}\n.pentosquarecan[data-v-20c522ba] {\r\n  background: transparent;\r\n  border: none;\r\n  color: darkcyan;\r\n  outline: none;\n}\n.listcheck[data-v-20c522ba]{\r\n  background: transparent;\r\n  border: none;\r\n  color: dodgerblue;\r\n  outline: none;\n}\n.success[data-v-20c522ba] {\r\n  background-color: #aadbc7;\n}\n.info[data-v-20c522ba] {\r\n  background-color: #92d0eb;\n}\n.dangerstatus[data-v-20c522ba] {\r\n  background-color: #eea1a2;\n}\r\n", ""]);
->>>>>>> 30012ce227d256c026b41519b0082bd7566fc9ff
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -33251,7 +33332,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-1c64d83a] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\n}\n.pentosquarecan[data-v-1c64d83a] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: darkcyan;\r\n  outline: none;\n}\n.plus[data-v-1c64d83a] {\r\n  font-size: 80px;\n}\n.active[data-v-1c64d83a] {\r\n  color: dodgerblue;\r\n  cursor: pointer;\n}\n.inactive[data-v-1c64d83a] {\r\n  color: #999999;\n}\n.carousel-item[data-v-1c64d83a] {\r\n  transition: transform 2s; /*ease opacity, .2s ease-out;*/\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.trashcan[data-v-1c64d83a] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: #ff0000;\r\n  outline: none;\n}\n.pentosquarecan[data-v-1c64d83a] {\r\n  background: #e6e6e6;\r\n  border: none;\r\n  color: darkcyan;\r\n  outline: none;\n}\n.new-comment[data-v-1c64d83a] {\r\n  font-size: 20px;\r\n  color: dodgerblue;\n}\n.plus[data-v-1c64d83a] {\r\n  font-size: 80px;\n}\n.active[data-v-1c64d83a] {\r\n  color: dodgerblue;\r\n  cursor: pointer;\n}\n.inactive[data-v-1c64d83a] {\r\n  color: #999999;\n}\n.carousel-item[data-v-1c64d83a] {\r\n  transition: transform 2s; /*ease opacity, .2s ease-out;*/\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -63830,6 +63911,106 @@ var render = function () {
               ),
             ]),
             _vm._v(" "),
+            _vm.data_user !== null
+              ? _c("div", [
+                  [_vm.data_user.id > 0]
+                    ? _c(
+                        "div",
+                        [
+                          [_vm.data_user.id > 0]
+                            ? _c("font-awesome-icon", {
+                                staticClass: "new-comment",
+                                attrs: { icon: "plus-square" },
+                                on: {
+                                  click: function ($event) {
+                                    $event.preventDefault()
+                                    return _vm.newComment()
+                                  },
+                                },
+                              })
+                            : 0,
+                        ],
+                        1
+                      )
+                    : 0,
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.showComment && [_vm.data_user != null]
+              ? _c("div", { staticClass: "container p-2" }, [
+                  _c("div", { staticClass: "col" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "card h-100 animate__animated animate__zoomIn",
+                      },
+                      [
+                        _c(
+                          "div",
+                          { staticClass: "form-group" },
+                          [
+                            _c("label", [_vm._v("Comentar")]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.comment.comment,
+                                  expression: "comment.comment",
+                                },
+                              ],
+                              staticClass: "form-control form-control-sm",
+                              attrs: { type: "text" },
+                              domProps: { value: _vm.comment.comment },
+                              on: {
+                                keyup: function ($event) {
+                                  return _vm.validarTexto()
+                                },
+                                input: function ($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.comment,
+                                    "comment",
+                                    $event.target.value
+                                  )
+                                },
+                              },
+                            }),
+                            _vm._v(" "),
+                            _vm.messageErrorComment
+                              ? _c("div", { staticClass: "danger" }, [
+                                  _vm._v(
+                                    "\n                  Verificar datos\n                "
+                                  ),
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("font-awesome-icon", {
+                              class: [
+                                _vm.comment.comment ? "active" : "inactive",
+                                "new-comment",
+                              ],
+                              attrs: { icon: "plus-square" },
+                              on: {
+                                click: function ($event) {
+                                  $event.preventDefault()
+                                  return _vm.addItem(vehicle.id)
+                                },
+                              },
+                            }),
+                          ],
+                          1
+                        ),
+                      ]
+                    ),
+                  ]),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
             _c(
               "div",
               { staticClass: "container p-2" },
@@ -63842,7 +64023,7 @@ var render = function () {
                         staticClass:
                           "card h-100 animate__animated animate__zoomIn",
                       },
-                      [_c("h3", [_vm._v(_vm._s(comment.comment))])]
+                      [_c("h5", [_vm._v(_vm._s(comment.comment))])]
                     ),
                   ]),
                 ])
@@ -63913,7 +64094,7 @@ var render = function () {
     { staticClass: "container" },
     [
       _c("list-view-dashboard-vehicle", {
-        attrs: { vehicles: _vm.vehicles },
+        attrs: { vehicles: _vm.vehicles, data_user: _vm.data_user },
         on: {
           reloadlist: function ($event) {
             return _vm.getList()
