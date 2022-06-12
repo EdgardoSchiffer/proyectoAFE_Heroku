@@ -1,27 +1,29 @@
 <template>
   <div class="container">
-    <table class="table">
+    <table class="table table-hover">
       <thead>
-        <th scope="col">Id</th>
         <th scope="col">Nombre</th>
-        <th scope="col">Descripcion</th>
-        <!--<th scope="col">Acciones</th>-->
+        <th scope="col">Apellido</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Email</th>
+        <th scope="col">Role</th>
+        <th scope="col">Acciones</th>
       </thead>
       <tbody>
-        <tr v-for="(role, index) in roles" :key="index">
-          <td>{{ role.id }}</td>
-          <td>{{ role.name }}</td>
-          <td>{{ role.description }}</td>
-
-          <!--
+        <tr v-for="(user, index) in users" :key="index">
+          <td>{{ user.name }}</td>
+          <td>{{ user.last_name }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role!=null? user.role.name : 'Usuario eliminado código: '+user.role_id }}</td>
           <td>
-            <button @click="removeItem(role.id)" class="trashcan">
+            <button @click="removeItem(user.id)" class="trashcan">
               <font-awesome-icon icon="trash" />
             </button>
-            <button @click="editItem(role)" class="pentosquarecan">
+            <button @click="editItem(user)" class="pentosquarecan">
               <font-awesome-icon icon="pen-to-square" />
             </button>
-          </td> -->
+          </td>
         </tr>
       </tbody>
     </table>
@@ -31,12 +33,7 @@
 <script>
 
 export default {
-  props: ["roles"],
-  /*data: function () {
-    return {
-      edit: false
-    };
-  },*/
+  props: ["users"],
   components: {
     
   },
@@ -57,7 +54,7 @@ export default {
         if (willDelete) {
           //delete action
           axios
-            .delete("api/roles/" + id)
+            .delete("api/user/" + id)
             .then((response) => {
               if (response.status == 200) {
                 swal("Eliminado", "El registro ha sido eliminado", "success");
@@ -71,26 +68,41 @@ export default {
         }
       });
     },
-    editItem(role) {
+    editItem(user) {
       //console.log("edit item");
-      this.$emit("reloadedit", role);
+      this.$emit("reloadedit", user);
       //this.edit = true;
-    }
+    },
   },
 };
 </script>
 
 <style scoped>
 .trashcan {
-  background: #e6e6e6;
+  background: transparent;
   border: none;
   color: #ff0000;
   outline: none;
 }
 .pentosquarecan {
-  background: #e6e6e6;
+  background: transparent;
   border: none;
   color: darkcyan;
   outline: none;
+}
+.listcheck{
+  background: transparent;
+  border: none;
+  color: dodgerblue;
+  outline: none;
+}
+.success {
+  background-color: #aadbc7;
+}
+.info {
+  background-color: #92d0eb;
+}
+.dangerstatus {
+  background-color: #eea1a2;
 }
 </style>

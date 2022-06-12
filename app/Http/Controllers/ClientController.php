@@ -14,7 +14,24 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $clients = Client::with('user')->with('municipality')->OrderBy('id', 'ASC')->paginate(10);
+        return [
+            'pagination' => [
+                'total' => $clients->total(),
+                'current_page' => $clients->currentPage(),
+                'per_page' => $clients->perPage(),
+                'last_page' => $clients->lastPage(),
+                'from' => $clients->firstItem(),
+                'to' => $clients->lastPage(),
+            ],
+            'clients' => $clients
+        ];
+
+    }
+
+    public function list()
+    {
+        return Client::with('user')->with('municipality')->orderBy('id', 'ASC')->get();        
     }
 
     /**
@@ -35,7 +52,16 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $client = new Client();
+        $client->client_name = $request->client["client_name"];
+        $client->dui = $request->client["dui"];
+        $client->email = $request->client["email"];
+        $client->address = $request->client["address"];
+        $client->phone = $request->client["phone"];
+        $client->municipality_id = $request->client["municipality_id"];
+        $client->user_id = $request->client["user_id"];
+        $client->save();
+        return $client;
     }
 
     /**
@@ -67,9 +93,22 @@ class ClientController extends Controller
      * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, $id)
     {
-        //
+        $client = Client::find($id);
+        if ($client) {
+            $client->client_name = $request->client["client_name"];
+            $client->dui = $request->client["dui"];
+            $client->email = $request->client["email"];
+            $client->address = $request->client["address"];
+            $client->phone = $request->client["phone"];
+            $client->municipality_id = $request->client["municipality_id"];
+            $client->user_id = $request->client["user_id"];
+            $client->save();
+
+            return $client;
+        }
+        return "Cliente no encontrado";
     }
 
     /**
@@ -78,8 +117,13 @@ class ClientController extends Controller
      * @param  \App\Models\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy($id)
     {
-        //
+        $clients = Client::find($id);
+        if ($clients) {
+            $clients->delete();
+            return "Accesorio eliminado";
+        }
+        return "Accesorio no encontrado";
     }
 }

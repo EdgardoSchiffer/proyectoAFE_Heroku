@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccessoryController;
 use App\Http\Controllers\AccessoryTypeController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\FuelTypeController;
 use App\Http\Controllers\GaleryController;
@@ -11,7 +12,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\VehicleDetailController;
 use App\Http\Controllers\VehicleTypeController;
-use App\Models\Municipality;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -119,6 +120,14 @@ Route::prefix('/departments')->group(
 );
 
 Route::get('/roles', [RoleController::class, 'index']);
+Route::prefix('/role')->group(
+    function () {
+        //Route::post('/store', [RoleController::class, 'store']);
+        //Route::put('/{id}', [RoleController::class, 'update']);
+        //Route::delete('/{id}', [RoleController::class, 'destroy']);
+        Route::get('/listar', [RoleController::class, 'listar']);
+    }
+);
 
 Route::get('/municipalities', [MunicipalityController::class, 'index']);
 
@@ -127,7 +136,7 @@ Route::prefix('/municipalities')->group(
         Route::post('/store', [MunicipalityController::class, 'store']);
         Route::put('/{id}', [MunicipalityController::class, 'update']);
         Route::delete('/{id}', [MunicipalityController::class, 'destroy']);
-        //Route::get('/listar', [DepartmentController::class, 'listar']);
+        Route::get('/list', [MunicipalityController::class, 'list']);
     }
 );
 
@@ -139,5 +148,27 @@ Route::prefix('/accessory')->group(
         Route::put('/{id}', [AccessoryController::class, 'update']);
         Route::delete('/{id}', [AccessoryController::class, 'destroy']);
         Route::get('/list', [AccessoryController::class, 'list']);
+    }
+);
+
+Route::get('/clients', [ClientController::class, 'index']);
+
+Route::prefix('/client')->group(
+    function () {
+        Route::post('/store', [ClientController::class, 'store']);
+        Route::put('/{id}', [ClientController::class, 'update']);
+        Route::delete('/{id}', [ClientController::class, 'destroy']);
+        Route::get('/list', [ClientController::class, 'list']);
+    }
+);
+
+Route::get('/users', [UserController::class, 'index']);
+
+Route::prefix('/user')->group(
+    function () {
+        Route::post('/store', [UserController::class, 'store']);
+        Route::put('/{id}', [UserController::class, 'update']);
+        Route::delete('/{id}', [UserController::class, 'destroy']);
+        Route::get('/list', [UserController::class, 'list']);
     }
 );

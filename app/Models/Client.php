@@ -13,7 +13,6 @@ class Client extends Model
         'email',
         'address',
         'phone',
-        'role_id',
         'municipality_id',
         'user_id'
     ];
