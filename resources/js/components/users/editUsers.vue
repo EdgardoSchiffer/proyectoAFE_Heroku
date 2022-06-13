@@ -9,8 +9,7 @@
     <form v-show="!show">
       <div class="form-group">
         <label>Nombre</label>
-        <input class="form-control form-control-sm" type="text" v-model="user.name"
-          v-on:keyup="validateTextNumber()" />
+        <input class="form-control form-control-sm" type="text" v-model="user.name" />
         <div class="danger" v-if="messageErrorUserName">Verificar datos</div>
       </div>
       <div class="form-group">
@@ -25,7 +24,8 @@
       </div>
       <div class="form-group">
         <label>Email</label>
-        <input class="form-control form-control-sm" type="text" v-model="user.email" />
+        <input class="form-control form-control-sm" type="text" v-model="user.email" 
+        v-on:keyup="validateEmail()" />
         <div class="danger" v-if="messageErrorUserEmail">Verificar datos</div>
       </div>
       <div class="form-group">
@@ -143,11 +143,11 @@ export default {
           console.log(error);
         });
     }, 
-    validateTextNumber() {
-      if (this.user.name.search(/^[a-zA-Z0-9\s]*$/)) {
-        this.messageErrorUserName = true;
+    validateEmail() {
+      if (this.user.email.search(/[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}/)) {
+        this.messageErrorUserEmail = true;
       } else {
-        this.messageErrorUserName = false;
+        this.messageErrorUserEmail = false;
       }
     },
     validateSelectUserRol() {

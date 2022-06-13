@@ -27,6 +27,8 @@ window.Vue = require('vue').default;
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+ import VueMask from "v-mask";
+ Vue.use(VueMask);
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
     faPlusSquare, faTrash, faPenToSquare, faXmark, faFilePen,
