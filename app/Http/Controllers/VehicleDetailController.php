@@ -121,7 +121,7 @@ class VehicleDetailController extends Controller
                         $vehicle_detail_update->save();
                     }
                 }
-                return "datos guardados con exitos";
+                return "datos guardados con exito";
             }
         /*
         } catch (\Throwable $th) {

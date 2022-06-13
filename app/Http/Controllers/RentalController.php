@@ -15,6 +15,18 @@ class RentalController extends Controller
     public function index()
     {
         //
+        $rentals = Rental::with('client')->with('vehicle')->orderBy('id', 'ASC')->paginate(10);
+        return [
+            'pagination' => [
+                'total' => $rentals->total(),
+                'current_page' => $rentals->currentPage(),
+                'per_page' => $rentals->perPage(),
+                'last_page' => $rentals->lastPage(),
+                'from' => $rentals->firstItem(),
+                'to' => $rentals->lastPage(),
+            ],
+            'rentals' => $rentals
+        ];
     }
 
     /**
@@ -35,7 +47,17 @@ class RentalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rental = new Rental;
+        $rental->rental_date = now();
+        $rental->vehicle_id = $request->rental["vehicle_id"];
+        $rental->client_id = $request->rental["client_id"];
+        $rental->advance = 0.0;
+        $rental->late_delivery_charge = 0.0;
+        $rental->comment = $request->rental["comment"];
+        $rental->damage_charge = $request->rental["damage_charge"];
+        $rental->rental_time = $request->rental["rental_time"];
+        $rental->save();
+        return $rental;
     }
 
     /**
@@ -67,9 +89,22 @@ class RentalController extends Controller
      * @param  \App\Models\Rental  $rental
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rental $rental)
+    public function update(Request $request, $id)
     {
-        //
+        $rental = Rental::find($id);
+        if ($rental) {
+            //$rental->rental_date = now();
+            $rental->vehicle_id = $request->rental["vehicle_id"];
+            $rental->client_id = $request->rental["client_id"];
+            $rental->advance = 0.0;
+            $rental->late_delivery_charge = $request->rental["late_delivery_charge"];
+            $rental->comment = $request->rental["comment"];
+            $rental->damage_charge = $request->rental["damage_charge"];
+            $rental->rental_time = $request->rental["rental_time"];
+            $rental->save();
+            return $rental;
+        }
+        return "Reserva no encontrada";
     }
 
     /**
@@ -78,8 +113,14 @@ class RentalController extends Controller
      * @param  \App\Models\Rental  $rental
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rental $rental)
+    public function destroy( $id)
     {
-        //
+        $rental = Rental::find($id);
+        if ($rental) {
+            
+            $rental->delete();
+            return "Reserva eliminada";
+        }
+        return "Reserva no encontrada";
     }
 }

@@ -53,6 +53,7 @@ import IndexRole from './components/roles/index.vue'
 import IndexAccessory from './components/accessory/index.vue'
 import IndexClient from './components/clients/index.vue'
 import IndexUser from './components/users/index.vue'
+import IndexRental from './components/rental/index.vue'
 
 
 const app = new Vue({
@@ -70,5 +71,6 @@ const app = new Vue({
         IndexAccessory,
         IndexClient,
         IndexUser,
+        IndexRental,
     }
 });

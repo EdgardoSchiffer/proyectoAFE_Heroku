@@ -8,7 +8,7 @@
         <th scope="col">Año</th>
         <th scope="col">No Puertas</th>
         <th scope="col">Combustible</th>
-        <th scope="col">Precio alquiler</th>
+        <th scope="col">Precio alquiler x dia</th>
         <th scope="col">Estado</th>
         <th scope="col">No Registro</th>
         <th scope="col">Marca</th>

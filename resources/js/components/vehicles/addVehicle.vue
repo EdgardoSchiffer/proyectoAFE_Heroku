@@ -97,7 +97,7 @@
         <div class="danger" v-if="messageErrorFuelType">Verificar datos</div>
       </div>
       <div class="form-group">
-        <label>Precio de alquiler</label>
+        <label>Precio de alquiler x dia</label>
         <input
           class="form-control form-control-sm"
           type="text"

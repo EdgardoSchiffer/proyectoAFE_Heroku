@@ -56,6 +56,9 @@
                 <a class="navbar-brand" href="{{ url('/vehicle') }}">
                     Vehículos
                 </a>
+                <a class="navbar-brand" href="{{ url('/rental') }}">
+                    Reservas
+                </a>
                 @endrole
                 <a class="navbar-brand" href="{{ url('/vehicleDashboard') }}">
                     Vehículos dashboard

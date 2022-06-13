@@ -34,6 +34,11 @@ class ClientController extends Controller
         return Client::with('user')->with('municipality')->orderBy('id', 'ASC')->get();        
     }
 
+    public function listClients()
+    {
+        return Client::orderBy('id', 'DESC')->get();
+    }
+
     /**
      * Show the form for creating a new resource.
      *

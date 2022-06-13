@@ -9,6 +9,8 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\FuelTypeController;
 use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\MunicipalityController;
+use App\Http\Controllers\RentalController;
+use App\Http\Controllers\RentalDetailController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\VehicleDetailController;
@@ -160,6 +162,7 @@ Route::prefix('/client')->group(
         Route::put('/{id}', [ClientController::class, 'update']);
         Route::delete('/{id}', [ClientController::class, 'destroy']);
         Route::get('/list', [ClientController::class, 'list']);
+        Route::get('/listClients', [ClientController::class, 'listClients']);
     }
 );
 
@@ -177,5 +180,28 @@ Route::prefix('/user')->group(
 Route::prefix('/comment')->group(
     function () {
         Route::post('/store', [CommentController::class, 'store']);
+    }
+);
+
+Route::get('/rentals', [RentalController::class, 'index']);
+
+Route::prefix('/rental')->group(
+    function () {
+        Route::post('/store', [RentalController::class, 'store']);
+        Route::put('/{id}', [RentalController::class, 'update']);
+        Route::delete('/{id}', [RentalController::class, 'destroy']);
+        //Route::get('/dashboardVehicle', [VehicleController::class, 'dashboardVehicle']);
+        //Route::get('/listar', [BrandController::class, 'listar']);
+    }
+);
+
+Route::prefix('/rental_detail')->group(
+    function () {
+        Route::post('/store', [RentalDetailController::class, 'store']);
+        Route::get('/list/{id}', [RentalDetailController::class, 'list']);
+        Route::put('/updateRentalDetail', [RentalDetailController::class, 'updateRentalDetail']);
+        Route::post('/createDefaultRentalDetail/{id}', [RentalDetailController::class, 'createDefaultRentalDetail']);
+        //Route::delete('/{id}', [GaleryController::class, 'destroy']);
+        Route::get('/listAccessoriesUnAssigned/{id}', [RentalDetailController::class, 'listAccessoriesUnAssigned']);
     }
 );

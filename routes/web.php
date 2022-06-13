@@ -22,6 +22,10 @@ Route::get('/brand', function () {
     return view('vue/brand');
 });
 
+Route::get('/rental', function () {
+    return view('vue/rental');
+});
+
 Route::get('/fuel_type', function () {
     return view('vue/fuel_type');
 });
