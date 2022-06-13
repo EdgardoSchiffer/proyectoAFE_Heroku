@@ -24,25 +24,31 @@ class RentalUserSeeder extends Seeder
                     [
                         'rental_id' => 1,
                         'user_id' => 1,
-                        'option' => 'entregar',
+                        'option' => 'entregado',
                         'date' => now()->addDays(5),
                     ],
                     [
                         'rental_id' => 1,
-                        'user_id' => 2,
-                        'option' => 'recibir',
+                        'user_id' => 3,
+                        'option' => 'reservado',
+                        'date' => now()->addDays(10),
+                    ],
+                    [
+                        'rental_id' => 1,
+                        'user_id' => 3,
+                        'option' => 'recibido',
                         'date' => now()->addDays(10),
                     ],
                     [
                         'rental_id' => 2,
-                        'user_id' => 2,
-                        'option' => 'entregar',
+                        'user_id' => 4,
+                        'option' => 'entregado',
                         'date' => now()->addDays(5),
                     ],
                     [
                         'rental_id' => 2,
-                        'user_id' => 2,
-                        'option' => 'recibir',
+                        'user_id' => 5,
+                        'option' => 'recibido',
                         'date' => now()->addDays(15),
                     ],
                ];

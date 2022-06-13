@@ -11,6 +11,7 @@ use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\MunicipalityController;
 use App\Http\Controllers\RentalController;
 use App\Http\Controllers\RentalDetailController;
+use App\Http\Controllers\RentalUserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\VehicleDetailController;
@@ -203,5 +204,17 @@ Route::prefix('/rental_detail')->group(
         Route::post('/createDefaultRentalDetail/{id}', [RentalDetailController::class, 'createDefaultRentalDetail']);
         //Route::delete('/{id}', [GaleryController::class, 'destroy']);
         Route::get('/listAccessoriesUnAssigned/{id}', [RentalDetailController::class, 'listAccessoriesUnAssigned']);
+    }
+);
+
+Route::get('/rental_users', [RentalUserController::class, 'index']);
+
+Route::prefix('/rental_user')->group(
+    function () {
+        Route::post('/store', [RentalUserController::class, 'store']);
+        Route::put('/{id}', [RentalUserController::class, 'update']);
+        //Route::delete('/{id}', [RentalController::class, 'destroy']);
+        //Route::get('/dashboardVehicle', [VehicleController::class, 'dashboardVehicle']);
+        //Route::get('/listar', [BrandController::class, 'listar']);
     }
 );

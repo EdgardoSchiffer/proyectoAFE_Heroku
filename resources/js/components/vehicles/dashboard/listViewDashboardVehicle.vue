@@ -67,12 +67,17 @@
           </div>
         </div>
         <div class="col-sm-3">
-          <font-awesome-icon
-            icon="fa-file-contract"
-            @click.prevent=""
-            :class="[vehicle.vehicle_name ? 'active' : 'inactive', 'plus']"
-          />
-          <h3>reservar</h3>
+          <div v-if="data_user !== null">
+            <div v-if="[data_user.id > 0]">
+              <font-awesome-icon
+                icon="fa-file-contract"
+                @click.prevent="addRentalClient(vehicle)"
+                :class="[vehicle.vehicle_name ? 'active' : 'inactive', 'plus']"
+              />
+              <h3>reservar</h3>
+            </div>
+          </div>
+
           <h3>{{ vehicle.vehicle_name }}</h3>
           <h3>{{ vehicle.brand.brand_name }}</h3>
           <h3>{{ vehicle.fuel_type.fuel_type_name }}</h3>
@@ -132,6 +137,9 @@ export default {
           console.log(error);
         });
     }, //addItem
+    addRentalClient(vehicle) {
+      this.$emit("reloadrentalclient", vehicle);
+    },
     validarTexto() {
       if (this.comment.comment.search(/^[a-zA-Z\s]*$/)) {
         this.messageErrorComment = true;

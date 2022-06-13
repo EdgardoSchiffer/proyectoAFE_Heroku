@@ -70,6 +70,10 @@ Route::get('/users', function () {
     return view('vue/user');
 });
 
+Route::get('/rental_users', function () {
+    return view('vue/rental_user');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

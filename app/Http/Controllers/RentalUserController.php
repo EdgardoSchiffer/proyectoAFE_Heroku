@@ -15,6 +15,18 @@ class RentalUserController extends Controller
     public function index()
     {
         //
+        $rental_users = Rental_user::with('user')->with('rental')-> OrderBy('id', 'DESC')->paginate(10);
+        return [
+            'pagination' => [
+                'total' => $rental_users->total(),
+                'current_page' => $rental_users->currentPage(),
+                'per_page' => $rental_users->perPage(),
+                'last_page' => $rental_users->lastPage(),
+                'from' => $rental_users->firstItem(),
+                'to' => $rental_users->lastPage(),
+            ],
+            'rental_users' => $rental_users
+        ];
     }
 
     /**
@@ -36,6 +48,13 @@ class RentalUserController extends Controller
     public function store(Request $request)
     {
         //
+        $rental_user = new Rental_user();
+        $rental_user->rental_id = $request->rental_user["rental_id"];
+        $rental_user->user_id = $request->rental_user["user_id"];
+        $rental_user->option = $request->rental_user["option"];
+        $rental_user->date = now();
+        $rental_user->save();
+        return $rental_user;
     }
 
     /**
@@ -67,9 +86,17 @@ class RentalUserController extends Controller
      * @param  \App\Models\Rental_user  $rental_user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rental_user $rental_user)
+    public function update(Request $request, $id)
     {
-        //
+        $rental_user = Rental_user::find($id);
+        if ($rental_user) {
+            $rental_user->user_id = $request->rental_user["user_id"];
+            $rental_user->option = $request->rental_user["option"];
+            $rental_user->date = now();
+            $rental_user->save();
+            return $rental_user;
+        }
+        return "Reservación no encontrado";
     }
 
     /**
@@ -78,8 +105,14 @@ class RentalUserController extends Controller
      * @param  \App\Models\Rental_user  $rental_user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rental_user $rental_user)
+    public function destroy( $id)
     {
-        //
+        /*
+        $rental_user = Rental_user::find($id);
+        if ($rental_user) {
+            $rental_user->delete();
+            return "Reservacion elimnada";
+        }
+        return "Reservación no encontrado";*/
     }
 }

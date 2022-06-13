@@ -54,7 +54,7 @@ import IndexAccessory from './components/accessory/index.vue'
 import IndexClient from './components/clients/index.vue'
 import IndexUser from './components/users/index.vue'
 import IndexRental from './components/rental/index.vue'
-
+import IndexRentalUser from './components/rental_users/index.vue'
 
 const app = new Vue({
     el: '#app',
@@ -72,5 +72,6 @@ const app = new Vue({
         IndexClient,
         IndexUser,
         IndexRental,
+        IndexRentalUser,
     }
 });
