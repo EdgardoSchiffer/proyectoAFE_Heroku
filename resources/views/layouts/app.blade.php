@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,32 +25,32 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link id="estilos" href="{{Cache::get('tema')}}" rel="stylesheet">
+    <link id="estilos" href="{{ Cache::get('tema') }}" rel="stylesheet">
 
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 </head>
-<body >
+
+<body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container ">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <!-- 
+                <!--
                 EJEMPLOS DE COMO VALIDAR ROL:
                 //Multiples roles
                 @hasanyrole('Administrator|Client')
-                @endhasanyrole
+@endhasanyrole
                 //Un solo rol
                 @role('Administrator')
-                @endrole
+@endrole
                 https://spatie.be/docs/laravel-permission/v5/basic-usage/blade-directives#content-roles
                 -->
                 <a class="navbar-brand" href="{{ url('/vehicleDashboard') }}">
@@ -67,75 +68,101 @@
                 </a>
                 @endrole --}}
                 @hasanyrole('Administrator|Adviser')
-                <a class="navbar-brand" href="{{ url('/vehicle') }}">
-                    Vehículos
-                </a>
-                <a class="navbar-brand" href="{{ url('/rental') }}">
-                    Reservas
-                </a>
-                <a class="navbar-brand" href="{{ url('/rental_users') }}">
-                    Gestionar Reservas
-                </a>
+                    <a class="navbar-brand" href="{{ url('/vehicle') }}">
+                        Vehículos
+                    </a>
+                    <div class="dropdown">
+                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Mntto. Reservas
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                            <li>
+
+                                <a class="dropdown-item" href="{{ url('/rental') }}">
+                                    Reservas
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ url('/rental_users') }}">
+                                    Gestionar Reservas
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
                 @endhasanyrole
-                
+
                 @role('Administrator')
-                <div class="dropdown">
-                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Mntto. Catalogos
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li>
-                            <a class="dropdown-item" href="{{ url('/departments') }}">
-                                Departamentos
-                            </a>
-                         </li>
-                         <li>
-                            <a class="dropdown-item" href="{{ url('/municipalities') }}">
-                                Municipios
-                            </a>
-                         </li>
-                     <li>
-                        <a class="dropdown-item" href="{{ url('/brand') }}">
-                            Marcas
-                        </a>
-                     </li>
-                     <li>
-                        <a class="dropdown-item" href="{{ url('/accessories') }}">
-                            Accesorios
-                        </a>
-                     </li>
-                     <li>
-                        <a class="dropdown-item" href="{{ url('/fuel_type') }}">
-                            Tipo de Combustible
-                        </a>
-                     </li>
-                     <li>
-                        <a class="dropdown-item" href="{{ url('/vehicle_type') }}">
-                            Tipo de Vehículo
-                        </a>
-                     </li>
-                     <li>
-                        <a class="dropdown-item" href="{{ url('/accessory_type') }}">
-                            Tipo de Accesorio
-                        </a>
-                     </li>
-                     <li>
-                        <a class="dropdown-item" href="{{ url('/roles') }}">
-                            Roles
-                        </a>
-                     </li>
-                     <li>
-                        <a class="dropdown-item" href="{{ url('/clients') }}">
-                            Clientes
-                        </a>
-                     </li>
-                     <li>
-                        <a class="dropdown-item" href="{{ url('/users') }}">
-                            Usuarios
-                        </a>
-                     </li>
-                    </ul>
-                </div>
+                    <div class="dropdown">
+                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Mntto. Catalogos
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                            <li>
+                                <a class="dropdown-item" href="{{ url('/brand') }}">
+                                    Marcas
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ url('/accessories') }}">
+                                    Accesorios
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ url('/fuel_type') }}">
+                                    Tipo de Combustible
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ url('/vehicle_type') }}">
+                                    Tipo de Vehículo
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ url('/accessory_type') }}">
+                                    Tipo de Accesorio
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Mntto. Usuarios
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li>
+                                <a class="dropdown-item" href="{{ url('/departments') }}">
+                                    Departamentos
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ url('/municipalities') }}">
+                                    Municipios
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="{{ url('/roles') }}">
+                                    Roles
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ url('/clients') }}">
+                                    Clientes
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ url('/users') }}">
+                                    Usuarios
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 @endrole
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -160,18 +187,19 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
                                         @csrf
                                     </form>
                                 </div>
@@ -181,11 +209,13 @@
                 </div>
                 {{-- modo oscuro --}}
                 <div class="toggle-container">
-                    <button class="theme-btn light animate__animated animate__bounceInDown" onclick="setLight()" title="Light mode">
-                      <img src="upload/images/sun.png" alt="sun">
+                    <button class="theme-btn light animate__animated animate__bounceInDown" onclick="setLight()"
+                        title="Light mode">
+                        <img src="upload/images/sun.png" alt="sun">
                     </button>
-                    <button class="theme-btn dark animate__animated animate__bounceInDown" onclick="setDark()" title="Dark mode">
-                      <img src="upload/images/moon.png" alt="moon">
+                    <button class="theme-btn dark animate__animated animate__bounceInDown" onclick="setDark()"
+                        title="Dark mode">
+                        <img src="upload/images/moon.png" alt="moon">
                     </button>
                 </div>
             </div>
@@ -196,29 +226,30 @@
         </main>
     </div>
 </body>
+
 </html>
 
 
 <script>
     //ejecutar al inicio
-    const inicio = ()=>{
-        if(localStorage.tema){
+    const inicio = () => {
+        if (localStorage.tema) {
             document.getElementById('estilos').href = localStorage.tema;
-        }else{
+        } else {
             document.getElementById('estilos').href = 'css/light.css';
         }
     }
-window.onload = inicio();
+    window.onload = inicio();
 
-//set tema claro
-    const setLight=()=>{
+    //set tema claro
+    const setLight = () => {
         document.getElementById('estilos').href = 'css/light.css';
         localStorage.removeItem("tema");
         localStorage.setItem("tema", "css/light.css")
     }
 
     //set tema oscuro
-    const setDark=()=>{
+    const setDark = () => {
         document.getElementById('estilos').href = 'css/dark.css';
         localStorage.removeItem("tema");
         localStorage.setItem("tema", "css/dark.css")
