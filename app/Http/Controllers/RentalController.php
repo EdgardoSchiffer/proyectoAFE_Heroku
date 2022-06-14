@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use App\Models\Rental;
+use App\Models\Rental_user;
 use Illuminate\Http\Request;
 
 class RentalController extends Controller
@@ -27,6 +29,21 @@ class RentalController extends Controller
             ],
             'rentals' => $rentals
         ];
+    }
+
+    public function listRentalByClient($id)
+    {
+        $users = Client::where('user_id', '=', $id)->get();
+        if (count($users) > 0) {
+            $rentals = Rental::with('client')->with('vehicle')->with('rental_users')->where('client_id', '=', $users[0]->id)->get();
+            if (count($rentals) > 0) {
+                return $rentals;
+            }else{
+                return "No hay registros";    
+            }
+        } else {
+            return "El usuario no es cliente";
+        }
     }
 
     /**
@@ -60,6 +77,23 @@ class RentalController extends Controller
         return $rental;
     }
 
+    //store new rental 
+    public function storeRentalClient(Request $request)
+    {
+        $users = Client::where('user_id', '=', $request->rental["user_id"])->get()->first();
+        $rental = new Rental;
+        $rental->rental_date = now();
+        $rental->vehicle_id = $request->rental["vehicle_id"];
+        $rental->client_id = $users->id;
+        $rental->advance = 0.0;
+        $rental->late_delivery_charge = 0.0;
+        $rental->comment = $request->rental["comment"];
+        $rental->damage_charge = 0.0;
+        $rental->rental_time = $request->rental["rental_time"];
+        $rental->save();
+        return $rental;
+    }
+    
     /**
      * Display the specified resource.
      *
@@ -82,6 +116,14 @@ class RentalController extends Controller
         //
     }
 
+    public function list()
+    {
+        $renta_users = Rental_user::where('option','=','Completado')->get('rental_id');
+        $rentals = Rental::with('rental_users')->whereNotIn('id', $renta_users)->get();
+        //return Rental::with(['rental_users'=>function ($query){$query->where('option','!=','Comletado');}])->orderBy('id', 'ASC')->get();        
+        //return Rental::select('*', 'rentals.id as id')->join('rental_users as ru','rentals.id','=','ru.id');
+        return $rentals;
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -101,6 +143,17 @@ class RentalController extends Controller
             $rental->comment = $request->rental["comment"];
             $rental->damage_charge = $request->rental["damage_charge"];
             $rental->rental_time = $request->rental["rental_time"];
+            $rental->save();
+            return $rental;
+        }
+        return "Reserva no encontrada";
+    }
+
+    public function updateAdvance(Request $request, $id)
+    {
+        $rental = Rental::find($id);
+        if ($rental) {
+            $rental->advance = $request->rental_deposit["advance"];
             $rental->save();
             return $rental;
         }

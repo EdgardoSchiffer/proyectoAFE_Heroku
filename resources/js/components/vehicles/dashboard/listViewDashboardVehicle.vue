@@ -67,16 +67,21 @@
           </div>
         </div>
         <div class="col-sm-3">
-          <div v-if="data_user !== null">
-            <div v-if="[data_user.id > 0]">
-              <font-awesome-icon
-                icon="fa-file-contract"
-                @click.prevent="addRentalClient(vehicle)"
-                :class="[vehicle.vehicle_name ? 'active' : 'inactive', 'plus']"
-              />
-              <h3>reservar</h3>
+          
+            <div v-if="data_user !== null">
+              <div v-if="[data_user.id > 0]">
+                <font-awesome-icon
+                  icon="fa-file-contract"
+                  @click.prevent="addRentalClient(vehicle)"
+                  :class="[
+                    vehicle.vehicle_name ? 'active' : 'inactive',
+                    'plus',
+                  ]"
+                />
+                <h3>reservar</h3>
+              </div>
             </div>
-          </div>
+          
 
           <h3>{{ vehicle.vehicle_name }}</h3>
           <h3>{{ vehicle.brand.brand_name }}</h3>
@@ -91,7 +96,7 @@
 
 <script>
 export default {
-  props: ["vehicles", "data_user"],
+  props: ["vehicles", "data_user", "showRentalButton"],
   components: {},
   data: function () {
     return {

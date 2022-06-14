@@ -190,9 +190,15 @@ Route::prefix('/rental')->group(
     function () {
         Route::post('/store', [RentalController::class, 'store']);
         Route::put('/{id}', [RentalController::class, 'update']);
+        
         Route::delete('/{id}', [RentalController::class, 'destroy']);
+        
         //Route::get('/dashboardVehicle', [VehicleController::class, 'dashboardVehicle']);
         //Route::get('/listar', [BrandController::class, 'listar']);
+        Route::get('/list', [RentalController::class, 'list']);
+        Route::post('/storeRentalClient', [RentalController::class, 'storeRentalClient']);
+        Route::get('/listRentalByClient/{id}', [RentalController::class, 'listRentalByClient']);
+        Route::put('/updateAdvance/{id}', [RentalController::class, 'updateAdvance']);
     }
 );
 
@@ -215,6 +221,6 @@ Route::prefix('/rental_user')->group(
         Route::put('/{id}', [RentalUserController::class, 'update']);
         //Route::delete('/{id}', [RentalController::class, 'destroy']);
         //Route::get('/dashboardVehicle', [VehicleController::class, 'dashboardVehicle']);
-        //Route::get('/listar', [BrandController::class, 'listar']);
+        Route::get('/showRental/{id}', [RentalUserController::class, 'showRental']);
     }
 );

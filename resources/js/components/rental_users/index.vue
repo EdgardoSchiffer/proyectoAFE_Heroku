@@ -8,7 +8,7 @@
       />
     </div>
     <div v-else>
-      <add-rental-user v-on:reloadlist="getList()" />
+      <add-rental-user :data_user="data_user" v-on:reloadlist="getList()" />
     </div>
 
 <!-- Traemos la view de la data -->
@@ -58,6 +58,7 @@ import editRentalUser from "./editRentalUser.vue";
 import listViewRentalUser from "./listViewRentalUser.vue";
 
 export default {
+  props: ["data_user"],
   components: {
     addRentalUser,
     listViewRentalUser,

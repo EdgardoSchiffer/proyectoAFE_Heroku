@@ -4,7 +4,9 @@
       <rental-client-index
         :vehicle="vehicle"
         :data_user="data_user"
+        :showRentalButton="showRentalButton"
         v-on:reloadrentalclient="showRentalClientView()"
+        v-on:reloadShowAddRental="getShowRentalButton"
       />
     </div>
     <div v-else>
@@ -12,6 +14,7 @@
       <list-view-dashboard-vehicle
         :vehicles="vehicles"
         :data_user="data_user"
+        :showRentalButton="showRentalButton"
         v-on:reloadlist="getList()"
         v-on:reloadrentalclient="showRentalClientView"
       />
@@ -106,6 +109,7 @@ export default {
         to: 0,
       },
       showRentalClient: false,
+      showRentalButton: 0,
     };
   },
   computed: {
@@ -148,6 +152,19 @@ export default {
           console.log(error);
         });
     }, //get list
+    getShowRentalButton() {
+      var url = "api/rental_user/showRental/" + this.data_user.id;
+      axios
+        .get(url)
+        .then((response) => {
+          console.log(response.data);
+          this.showRentalButton = response.data;
+          console.log(this.showRentalButton);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     changePage(page) {
       this.pagination.current_page = page;
       this.getList(page);
@@ -168,6 +185,7 @@ export default {
   },
   created() {
     this.getList();
+    this.getShowRentalButton();
   },
 };
 </script>
