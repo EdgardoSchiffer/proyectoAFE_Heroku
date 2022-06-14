@@ -128,7 +128,7 @@ export default {
       doc.setFontSize(14).text("Marca: "+this.vehicle.brand.brand_name, 0.5, 1.50);
       doc.setFontSize(14).text("Combustible: "+this.vehicle.fuel_type.fuel_type_name, 0.5, 1.75);
       doc.setFontSize(14).text("Estado: "+ (this.vehicle.status == 1 ? "Disponible" : this.vehicle.status == 2 ?"Reservado" : "Fuera de uso" ), 0.5, 2);
-      doc.setFontSize(14).text("No Regristro: "+this.vehicle.registry_number, 0.5, 2.25);
+      doc.setFontSize(14).text("No Registro: "+this.vehicle.registry_number, 0.5, 2.25);
 
       doc.setFontSize(14).text("Tipo: "+this.vehicle.vehicle_type.vehicle_type_name, 4, 1.25);
       doc.setFontSize(14).text("Precio renta: $"+this.vehicle.rental_price, 4, 1.50);

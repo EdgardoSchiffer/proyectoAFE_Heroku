@@ -31,6 +31,10 @@ class RentalController extends Controller
         ];
     }
 
+    public function listAllRental(){
+        return Rental::with('client')->with('vehicle')->orderBy('id', 'DESC')->get();
+    }    
+
     public function listRentalByClient($id)
     {
         $users = Client::where('user_id', '=', $id)->get();

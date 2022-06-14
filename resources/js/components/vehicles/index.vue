@@ -24,6 +24,7 @@
         </div>
         <div v-if="!edit">
           <add-vehicle
+          v-if="data_user.role_id==1"
             v-on:reloadlist="getList()"
             v-on:reloadPdf="generatePdf()"
           />
@@ -31,10 +32,12 @@
 
         <list-view-vehicle
           :vehicles="vehicles"
+          :data_user="data_user"
           v-on:reloadlist="getList()"
           v-on:reloadedit="loadEdit"
           v-on:reloadaddimage="loadAddGalery"
           v-on:reloadaddvehicledetail="loadShowVehicleDetail"
+
         />
       </div>
 
@@ -51,6 +54,7 @@ import indexGalery from "../galeries/index.vue";
 import indexVehicleDetail from "../vehicle_details/index.vue";
 
 export default {
+  props: ["data_user"],
   components: {
     addVehicle,
     listViewVehicle,

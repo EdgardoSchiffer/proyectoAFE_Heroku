@@ -94,6 +94,7 @@ export default {
         this.messageErrorRentalTime = false;
         this.messageErrorComment = false;
             this.$emit("reloadShowAddRental");
+            this.$emit("reloadList");
           }
         })
         .catch((error) => {

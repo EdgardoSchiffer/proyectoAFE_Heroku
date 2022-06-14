@@ -8,7 +8,8 @@
       />
     </div>
     <div v-else>
-      <add-user v-on:reloadlist="getList()" />
+      <add-user v-on:reloadlist="getList()" 
+      v-on:reloadPdf="generatePdf()"/>
     </div>
 
 <!-- Traemos la view de la data -->
@@ -75,6 +76,8 @@ export default {
         from: 0,
         to: 0,
       },
+      allUsers: [],
+      dataReport: [],
     };
   },
 computed: {
@@ -118,6 +121,17 @@ computed: {
           console.log(error);
         });
     },
+    getAllUser() {
+      var urlUsers = "api/user/list";
+      axios
+        .get(urlUsers)
+        .then((response) => {
+          this.allUsers = response.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
    loadEdit(user) {
       if (user.id > 0) {
         this.edit = true;
@@ -130,9 +144,71 @@ computed: {
       this.pagination.current_page = page;
       this.getList(page);
     }, //change page
+    generatePdf() {
+      /*
+      gnerate data for report
+      */
+     
+      for (let index = 0; index < this.allUsers.length; index++) {
+        const element = this.allUsers[index];
+
+        this.dataReport.push({
+          id: element.id,
+          name: element.name,
+          last_name: element.last_name,
+          email: element.email,
+          role: element.role.name,
+        });
+      }
+
+      const columns = [
+        { title: "Código", dataKey: "id" },
+        { title: "Nombre", dataKey: "name" },
+        { title: "Apellido", dataKey: "last_name" },
+        { title: "email", dataKey: "email" },
+        { title: "role", dataKey: "role" }
+      ];
+      const doc = new jsPDF({
+        orientation: "portrait",
+        unit: "in",
+        format: "letter",
+      });
+
+      doc.setFontSize(14).text(new Date().toLocaleDateString(), 9.7, 1);
+      doc
+        .setFontSize(14)
+        .setFontStyle("bold")
+        .text("Reporte de usuarios", 0.5, 1);
+      doc.setLineWidth(0.01).line(0.5, 1.05, 10.45, 1.05);
+
+      doc.autoTable({
+        columns,
+        body: this.dataReport,
+        margin: { left: 0.5, top: 1.08 },
+        didDrawPage: function (data) {
+          data.settings.margin.top = 0.8;
+        },
+      });
+
+      /*doc
+        .setFont("helvetica")
+        .setFontSize(12)
+        .text(this.texto, 0.5, 3.5, { align: "left", maxWidth: "7.5" });*/
+
+      //footer
+      doc
+        .setFont("times")
+        .setFontSize(11)
+        .setFontStyle("italic")
+        .setTextColor(0, 0, 255)
+        .text("", 0.5, doc.internal.pageSize.height - 0.5);
+      doc.save("reporteUsurios.pdf");
+      this.dataReport = [];
+    },
   },
   created() {
     this.getList();
+    this.getAllUser();
   },
 };
 

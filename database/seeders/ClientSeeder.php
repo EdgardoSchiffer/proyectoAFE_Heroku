@@ -41,7 +41,7 @@ class ClientSeeder extends Seeder
                  'address' => 'Residencial La vida no vale nada',
                  'phone' => 64410283,
                  'municipality_id' => 12,
-                 'user_id' => 1
+                 'user_id' => 3
              ],
              [
                 'client_name' => 'Miguel Cervantes',
@@ -50,7 +50,7 @@ class ClientSeeder extends Seeder
                  'address' => 'Colonia España',
                  'phone' => 65520137,
                  'municipality_id' => 8,
-                 'user_id' => 2
+                 'user_id' => 4
              ],
              [
                 'client_name' => 'Sancho Panza',
@@ -59,9 +59,9 @@ class ClientSeeder extends Seeder
                  'address' => 'Canton los gorditos',
                  'phone' => 23354710,
                  'municipality_id' => 3,
-                 'user_id' => 1
+                 'user_id' => 5
              ],
-             [
+             /*[
                 'client_name' => 'Cristiano Ronaldo',
                  'dui' => '011244478-9',
                  'email' => 'the.goat@gmail.com',
@@ -106,7 +106,7 @@ class ClientSeeder extends Seeder
                  'phone' => 70021483,
                  'municipality_id' => 6,
                  'user_id' => 2
-             ],
+             ],*/
         ];
         foreach ($clients as $client) {
             Client::create($client);

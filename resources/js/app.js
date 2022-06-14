@@ -33,13 +33,15 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import {
     faPlusSquare, faTrash, faPenToSquare, faXmark, faFilePen,
     faArrowDownShortWide, faArrowUpShortWide, faPhotoFilm, faCircleLeft,
-    faFileArrowUp, faListCheck, faCar, faFileContract, faFilePdf, faCreditCard
+    faFileArrowUp, faListCheck, faCar, faFileContract, faFilePdf, faCreditCard,
+    faMagnifyingGlass
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(faPlusSquare, faTrash, faPenToSquare, faXmark,
     faFilePen, faArrowDownShortWide, faArrowUpShortWide,
-    faPhotoFilm, faCircleLeft, faFileArrowUp, faListCheck, faCar, faFileContract, faFilePdf, faCreditCard)
+    faPhotoFilm, faCircleLeft, faFileArrowUp, faListCheck, faCar, faFileContract, faFilePdf, 
+    faCreditCard,faMagnifyingGlass)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

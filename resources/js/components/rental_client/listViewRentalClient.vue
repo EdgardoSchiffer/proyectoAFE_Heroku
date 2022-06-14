@@ -37,9 +37,17 @@
             </ul>
           </td>
           <td>
-            <div v-if="rental_client.advance===0">
-              <button @click="addAdvance(rental_client)" class="deposit">
+            <div v-if="rental_client.advance === 0">
+              <button @click="addAdvance(rental_client)" class="card">
                 <font-awesome-icon icon="fa-credit-card" />
+              </button>
+            </div>
+            <div>
+              <button
+                @click.prevent="createPdf(rental_client)"
+                class="fafilepdf"
+              >
+                <font-awesome-icon icon="fa-file-pdf" />
               </button>
             </div>
           </td>
@@ -57,17 +65,27 @@ export default {
     addAdvance(rental_client) {
       this.$emit("reloadadddeposit", rental_client);
     },
+    createPdf(rental_client) {
+      this.$emit("reloadRentalPdf", rental_client);
+    },
   },
 };
 </script>
 
 <style scoped>
-.trashcan {
+.card {
   background: #e6e6e6;
   border: none;
-  color: #ff0000;
+  color: teal;
   outline: none;
 }
+.fafilepdf{
+  background: #e6e6e6;
+  border: none;
+  color: indianred;
+  outline: none;
+}
+
 .pentosquarecan {
   background: #e6e6e6;
   border: none;

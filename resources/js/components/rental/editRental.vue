@@ -43,7 +43,7 @@
             v-bind:key="client.id"
             :value="client.id"
           >
-            {{ client.client_name + client.dui }}
+            {{ client.client_name +" / "+ client.dui }}
           </option>
         </select>
         <div class="danger" v-if="messageErrorClient">Verificar datos</div>

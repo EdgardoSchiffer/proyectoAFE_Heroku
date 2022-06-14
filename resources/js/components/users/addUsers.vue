@@ -4,6 +4,12 @@
       <h1>Agregar Usuarios</h1>
       <font-awesome-icon :icon="icon_name" @click.prevent="showAdd()"
         :class="[show ? 'active' : 'inactive', 'plus data-show-icon']" />
+        
+        <font-awesome-icon
+        icon="fa-file-pdf"
+        @click.prevent="createPdf()"
+        class="fafilepdf"
+      />
     </div>
 
     <form v-show="!show">
@@ -160,6 +166,9 @@ export default {
       }
       console.log(this.icon_name);
     },
+    createPdf(){
+      this.$emit("reloadPdf");
+    },
   },
   created() {
     this.getRoles();
@@ -198,5 +207,11 @@ export default {
 .show-form .data-show-icon {
   margin-left: 5px;
   padding-left: 5px;
+}
+.fafilepdf{
+  color: indianred;
+  cursor: pointer;
+  font-size: 30px;
+  margin-left: 5px;
 }
 </style>

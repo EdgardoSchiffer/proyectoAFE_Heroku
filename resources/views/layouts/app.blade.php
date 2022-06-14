@@ -52,7 +52,10 @@
                 @endrole
                 https://spatie.be/docs/laravel-permission/v5/basic-usage/blade-directives#content-roles
                 -->
-                @role('Administrator')
+                <a class="navbar-brand" href="{{ url('/vehicleDashboard') }}">
+                    Vehículos dashboard
+                </a>
+                {{-- @role('Adviser')
                 <a class="navbar-brand" href="{{ url('/vehicle') }}">
                     Vehículos
                 </a>
@@ -62,10 +65,19 @@
                 <a class="navbar-brand" href="{{ url('/rental_users') }}">
                     Gestionar Reservas
                 </a>
-                @endrole
-                <a class="navbar-brand" href="{{ url('/vehicleDashboard') }}">
-                    Vehículos dashboard
+                @endrole --}}
+                @hasanyrole('Administrator|Adviser')
+                <a class="navbar-brand" href="{{ url('/vehicle') }}">
+                    Vehículos
                 </a>
+                <a class="navbar-brand" href="{{ url('/rental') }}">
+                    Reservas
+                </a>
+                <a class="navbar-brand" href="{{ url('/rental_users') }}">
+                    Gestionar Reservas
+                </a>
+                @endhasanyrole
+                
                 @role('Administrator')
                 <div class="dropdown">
                     <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">

@@ -2,7 +2,6 @@
   <div class="container">
     <table class="table table-borderless table-sm table-bordered border-light">
       <thead>
-        
         <th scope="col">Nombre</th>
         <th scope="col">Color</th>
         <th scope="col">Año</th>
@@ -17,26 +16,63 @@
         <th scope="col">Acciones</th>
       </thead>
       <tbody>
-        <tr v-for="(vehicle, index) in vehicles" :key="index" :class="[vehicle.status==1?'success' : vehicle.status==2? 'info' : 'dangerstatus' ]">
+        <tr
+          v-for="(vehicle, index) in vehicles"
+          :key="index"
+          :class="[
+            vehicle.status == 1
+              ? 'success'
+              : vehicle.status == 2
+              ? 'info'
+              : 'dangerstatus',
+          ]"
+        >
           <td>{{ vehicle.vehicle_name }}</td>
           <td>{{ vehicle.color }}</td>
           <td>{{ vehicle.year }}</td>
           <td>{{ vehicle.doors_number }}</td>
-          <td>{{ vehicle.fuel_type!=null ? vehicle.fuel_type.fuel_type_name : 'Tipo de combustible eliminado código ' + vehicle.fuel_type_id }}</td>
+          <td>
+            {{
+              vehicle.fuel_type != null
+                ? vehicle.fuel_type.fuel_type_name
+                : "Tipo de combustible eliminado código " + vehicle.fuel_type_id
+            }}
+          </td>
           <td>{{ vehicle.rental_price }}</td>
-          <td>{{ vehicle.status == 1 ? 'Disponible' : vehicle.status == 2 ?'Reservado' : 'Fuera de uso' }}</td>
+          <td>
+            {{
+              vehicle.status == 1
+                ? "Disponible"
+                : vehicle.status == 2
+                ? "Reservado"
+                : "Fuera de uso"
+            }}
+          </td>
           <td>{{ vehicle.registry_number }}</td>
-          <td>{{ vehicle.brand!=null? vehicle.brand.brand_name : 'Marca eliminada código: '+vehicle.brand_id }}</td>
-          <td>{{ vehicle.vehicle_type != null ? vehicle.vehicle_type.vehicle_type_name :'Tipo eliminado código '+ vehicle.vehicle_type_id }}</td>
+          <td>
+            {{
+              vehicle.brand != null
+                ? vehicle.brand.brand_name
+                : "Marca eliminada código: " + vehicle.brand_id
+            }}
+          </td>
+          <td>
+            {{
+              vehicle.vehicle_type != null
+                ? vehicle.vehicle_type.vehicle_type_name
+                : "Tipo eliminado código " + vehicle.vehicle_type_id
+            }}
+          </td>
           <td>{{ vehicle.stock }}</td>
           <td>
-            <button @click="removeItem(vehicle.id)" class="trashcan">
+            
+            <button v-if="data_user.role_id==1" @click="removeItem(vehicle.id)" class="trashcan">
               <font-awesome-icon icon="trash" />
             </button>
-            <button @click="editItem(vehicle)" class="pentosquarecan">
+            <button v-if="data_user.role_id==1" @click="editItem(vehicle)" class="pentosquarecan">
               <font-awesome-icon icon="pen-to-square" />
             </button>
-            <button @click="addGalery(vehicle)" class="photofilm">
+            <button v-if="data_user.role_id==1" @click="addGalery(vehicle)" class="photofilm">
               <font-awesome-icon icon="photo-film" />
             </button>
             <button @click="addVehicleDetail(vehicle)" class="listcheck">
@@ -50,17 +86,15 @@
 </template>
 
 <script>
-
 export default {
-  props: ["vehicles"],
+  props: ["vehicles", "data_user"],
+
   /*data: function () {
     return {
       edit: false
     };
   },*/
-  components: {
-    
-  },
+  components: {},
   methods: {
     removeItem(id) {
       swal({
@@ -102,10 +136,9 @@ export default {
       this.$emit("reloadaddimage", vehicle);
       //this.edit = true;
     },
-    addVehicleDetail(vehicle){
+    addVehicleDetail(vehicle) {
       this.$emit("reloadaddvehicledetail", vehicle);
-    }
-
+    },
   },
 };
 </script>
@@ -123,13 +156,13 @@ export default {
   color: darkcyan;
   outline: none;
 }
-.photofilm{
+.photofilm {
   background: transparent;
   border: none;
   color: mediumslateblue;
   outline: none;
 }
-.listcheck{
+.listcheck {
   background: transparent;
   border: none;
   color: dodgerblue;

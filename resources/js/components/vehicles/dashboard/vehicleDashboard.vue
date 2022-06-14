@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    
     <div v-if="showRentalClient">
       <rental-client-index
         :vehicle="vehicle"
@@ -10,6 +11,29 @@
       />
     </div>
     <div v-else>
+      <div class="row justify-content-end">
+      <div class="col-4 input-group mb-3">
+        
+        <input
+          class="form-control form-control-sm"
+          type="text"
+          v-model="vehicleFilter.vehicle_name"
+          v-on:keyup="validateTextNumber()"
+        />
+          <font-awesome-icon
+            icon="fa-magnifying-glass"
+            @click.prevent="getList()"
+            :class="[
+              vehicleFilter.vehicle_name ? 'active' : 'inactive',
+              'plus',
+            ]"
+          />
+        
+        <div class="danger" v-if="messageErrorVehicleName">
+          Verificar campo de busqueda
+        </div>
+      </div>
+    </div>
       <!-- data -->
       <list-view-dashboard-vehicle
         :vehicles="vehicles"
@@ -110,6 +134,10 @@ export default {
       },
       showRentalClient: false,
       showRentalButton: 0,
+      vehicleFilter: {
+        vehicle_name: "",
+      },
+      messageErrorVehicleName: false,
     };
   },
   computed: {
@@ -143,7 +171,9 @@ export default {
     getList(page) {
       var urlVehicles = "api/vehicle/dashboardVehicle?page=" + page;
       axios
-        .get(urlVehicles)
+        .post(urlVehicles, {
+          vehicle: this.vehicleFilter,
+        })
         .then((response) => {
           this.vehicles = response.data.vehicles.data;
           this.pagination = response.data.pagination;
@@ -170,9 +200,16 @@ export default {
       this.getList(page);
     }, //change page
     showRentalClientView(vehicle) {
-      
       this.vehicle = vehicle;
       this.showRentalClient = !this.showRentalClient;
+    },
+    validateTextNumber() {
+      if (this.vehicleFilter.vehicle_name.search(/^[a-zA-Z0-9\s]*$/)) {
+        this.messageErrorVehicleName = true;
+      } else {
+        this.messageErrorVehicleName = false;
+        this.getList();
+      }
     },
     /*
     if (vehicle.id > 0) {
@@ -194,10 +231,23 @@ export default {
 a {
   text-decoration: none;
 }
+/*
 .active {
   color: #fff;
 }
 .active a {
   color: #fff;
+}*/
+.plus {
+  font-size: 30px;
+}
+
+.active {
+  color: #00ce25;
+  cursor: pointer;
+}
+
+.inactive {
+  color: #999999;
 }
 </style>

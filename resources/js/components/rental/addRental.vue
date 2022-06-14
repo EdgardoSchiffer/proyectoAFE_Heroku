@@ -7,6 +7,11 @@
         @click.prevent="showAdd()"
         :class="[show ? 'active' : 'inactive', 'plus data-show-icon']"
       />
+      <font-awesome-icon
+        icon="fa-file-pdf"
+        @click.prevent="createPdf()"
+        class="fafilepdf"
+      />
     </div>
 
     <form v-show="!show">
@@ -43,7 +48,7 @@
             v-bind:key="client.id"
             :value="client.id"
           >
-            {{ client.client_name + client.dui }}
+            {{ client.client_name +" / "+ client.dui }}
           </option>
         </select>
         <div class="danger" v-if="messageErrorClient">Verificar datos</div>
@@ -253,6 +258,9 @@ this.messageErrorDamageCharge = false;
       }
       console.log(this.icon_name);
     },
+    createPdf(){
+      this.$emit("reloadPdf");
+    },
   },
   created() {
     this.getVehicles();
@@ -292,5 +300,12 @@ this.messageErrorDamageCharge = false;
 .show-form .data-show-icon {
   margin-left: 5px;
   padding-left: 5px;
+}
+
+.fafilepdf{
+  color: indianred;
+  cursor: pointer;
+  font-size: 30px;
+  margin-left: 5px;
 }
 </style>

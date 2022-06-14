@@ -24,15 +24,16 @@
           <td>{{ rental.damage_charge }}</td>
           <td>{{ rental.rental_time }}</td>
           <td>
-            <button @click="removeItem(rental.id)" class="trashcan">
+            <button v-if="data_user.role_id==1" @click="removeItem(rental.id)" class="trashcan">
               <font-awesome-icon icon="trash" />
             </button>
-            <button @click="editItem(rental)" class="pentosquarecan">
+            <button v-if="data_user.role_id==1" @click="editItem(rental)" class="pentosquarecan">
               <font-awesome-icon icon="pen-to-square" />
             </button>
             <button @click="addReservaDetail(rental)" class="listcheck">
               <font-awesome-icon icon="list-check" />
             </button>
+            
           </td>
         </tr>
       </tbody>
@@ -43,7 +44,7 @@
 <script>
 
 export default {
-  props: ["rentals"],
+  props: ["rentals","data_user"],
   /*data: function () {
     return {
       edit: false
@@ -90,7 +91,7 @@ export default {
     },
     addReservaDetail(rental){
       this.$emit("reloadaddrentaldetail", rental);
-    }
+    },
 
   },
 };

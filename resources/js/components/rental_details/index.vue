@@ -8,11 +8,11 @@
     <h1>
       Accesorios reserva de
       <b>{{ rental.client.client_name }} </b>
-      <!-- <font-awesome-icon
+       <font-awesome-icon
       icon="fa-file-pdf"
       @click.prevent="generatePdf()"
       class=" fafilepdf"
-    /> -->
+    /> 
     </h1>
     <div v-if="show">
       <add-rental-detail
@@ -39,7 +39,8 @@ export default {
       rental_details: [],
       accessoryUnAssigned: [],
       show:false,
-      //dataReport: [],
+      dataReport: [],
+      vehicles: [],
     };
   },
   components: {
@@ -99,61 +100,122 @@ export default {
           console.log(error);
         });
     }, //get accessoriesUnAssigned
-    /*generatePdf() {
-      
-      
-      //gnerate data for report
-      
-      for (let index = 0; index < this.vehicle_details.length; index++) {
-        const element = this.vehicle_details[index];
-        this.dataReport.push({id:element.id, name:element.accessory.accessory_name, status:element.status?"activo":"inactivo"});
+    getListVehicle() {
+      console.log(this.rental.vehicle.vehicle_name);
+      var urlVehicles = "api/vehicle/dashboardVehicle?page=1";
+      axios
+        .post(urlVehicles,{
+          vehicle: this.rental.vehicle,
+        })
+        .then((response) => {
+          this.vehicles = response.data.vehicles.data;
+          //this.pagination = response.data.pagination;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    generatePdf() {
+      //*aca */
+      const rental_client = this.rental;
+      for (let index = 0; index < this.rental_details.length; index++) {
+        const element = this.rental_details[index];
+        this.dataReport.push({
+          name: element.accessory.accessory_name,
+          previous_state: element.previous_state,
+          later_state: element.later_state,
+        });
       }
-      
+
       const columns = [
-        { title: "Código", dataKey: "id" },
         { title: "Accesorio", dataKey: "name" },
-        { title: "Estado", dataKey: "status" },
+        { title: "Estado al entregar vehículo", dataKey: "previous_state" },
+        { title: "Estado al recibir vehículo", dataKey: "later_state" },
       ];
       const doc = new jsPDF({
         orientation: "portrait",
         unit: "in",
         format: "letter",
       });
-      
+
       doc.setFontSize(14).text(new Date().toLocaleDateString(), 7, 1);
-      doc.setFontSize(14).setFontStyle("bold").text("Reporte del Estado del vehículo", 0.5, 1);
+      doc
+        .setFontSize(14)
+        .setFontStyle("bold")
+        .text("Reserva de vehículo", 0.5, 1);
       doc.setLineWidth(0.01).line(0.5, 1.05, 8.0, 1.05);
       //doc.setLineWidth(0.01).line(0.5, 1.0, 0.5, 1.0);
-      doc.setFontSize(14).setFontStyle("").text("Nombre: "+this.vehicle.vehicle_name, 0.5, 1.25);
-      doc.setFontSize(14).text("Marca: "+this.vehicle.brand.brand_name, 0.5, 1.50);
-      doc.setFontSize(14).text("Combustible: "+this.vehicle.fuel_type.fuel_type_name, 0.5, 1.75);
-      doc.setFontSize(14).text("Estado: "+ (this.vehicle.status == 1 ? "Disponible" : this.vehicle.status == 2 ?"Reservado" : "Fuera de uso" ), 0.5, 2);
-      doc.setFontSize(14).text("No Regristro: "+this.vehicle.registry_number, 0.5, 2.25);
-
-      doc.setFontSize(14).text("Tipo: "+this.vehicle.vehicle_type.vehicle_type_name, 4, 1.25);
-      doc.setFontSize(14).text("Precio renta: $"+this.vehicle.rental_price, 4, 1.50);
-      doc.setFontSize(14).text("Año: "+this.vehicle.year, 4, 1.75);
-      doc.setFontSize(14).text("Color: "+this.vehicle.color, 4, 2);
-      doc.setFontSize(14).text("No puertas: "+this.vehicle.doors_number, 4, 2.25);
-
-      doc.setLineWidth(0.01).line(0.5, 2.30, 8.0, 2.30);
-      doc.setFontSize(14).setFontStyle("bold").text("Accesorios del vehículo", 0.5, 2.50);
+      doc
+        .setFontSize(14)
+        .setFontStyle("")
+        .text("Nombre: " + rental_client.vehicle.vehicle_name, 0.5, 1.25);
+      doc
+        .setFontSize(14)
+        .text(
+          "Costo alquiler: $ " +
+            parseFloat(rental_client.vehicle.rental_price) *
+              parseFloat(rental_client.rental_time),
+          0.5,
+          1.5
+        );
+      doc.setFontSize(14).text("Días: " + rental_client.rental_time, 0.5, 1.75);
       
+      doc
+        .setFontSize(14)
+        .text(
+          "Combustible: " + this.vehicles[0].fuel_type.fuel_type_name,
+          0.5,
+          2
+        );
+      doc
+        .setFontSize(14)
+        .text("Marca: " + this.vehicles[0].brand.brand_name, 0.5, 2.25);
+
+      doc.setFontSize(14).text("Deposito: " + rental_client.advance, 0.5, 2.5);
+      doc
+        .setFontSize(14)
+        .text("Nombre cliente: " + rental_client.client.client_name, 0.5, 2.75);
+      
+      doc
+        .setFontSize(14)
+        .text("Tipo: " + this.vehicles[0].vehicle_type.vehicle_type_name, 4, 1.25);
+      doc
+        .setFontSize(14)
+        .text(
+          "Precio alquiler x dia: $ " + rental_client.vehicle.rental_price,
+          4,
+          1.5
+        );
+      doc.setFontSize(14).text("Año: " + rental_client.vehicle.year, 4, 1.75);
+      doc.setFontSize(14).text("Color: " + rental_client.vehicle.color, 4, 2);
+      doc
+        .setFontSize(14)
+        .text("No puertas: " + rental_client.vehicle.doors_number, 4, 2.25);
+      doc.setFontSize(14).text("DUI: " + rental_client.client.dui, 4, 2.5);
+
+      doc.setFontSize(14).text("Email: " + rental_client.client.email, 4, 2.75);
+
+      doc.setLineWidth(0.01).line(0.5, 2.8, 8.0, 2.8);
+      doc
+        .setFontSize(14)
+        .setFontStyle("bold")
+        .text("Accesorios del vehículo", 0.5, 3);
+
       doc.autoTable({
         columns,
         body: this.dataReport,
-        margin: { left: 0.5, top: 2.55 },
-        didDrawPage: function (data){
-          data.settings.margin.top = 0.8
-        }
+        margin: { left: 0.5, top: 3.05 },
+        didDrawPage: function (data) {
+          data.settings.margin.top = 0.8;
+        },
       });
 
       /*doc
         .setFont("helvetica")
         .setFontSize(12)
-        .text(this.texto, 0.5, 3.5, { align: "left", maxWidth: "7.5" });/ //add *
+        .text(this.texto, 0.5, 3.5, { align: "left", maxWidth: "7.5" });*/
 
-    //footer
+      //footer
       doc
         .setFont("times")
         .setFontSize(11)
@@ -163,11 +225,13 @@ export default {
       doc.save("data.pdf");
 
       this.dataReport = [];
-    }*///end generate pdf
+      /**hasta aca */
+    },//end generate pdf
   },
   created() {
     this.getRentalDetailList();
     this.getAccesoriesUnAssigned();
+    this.getListVehicle();
   },
 };
 </script>
