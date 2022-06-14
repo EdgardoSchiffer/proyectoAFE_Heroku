@@ -15,25 +15,24 @@
       </div>
       <div class="form-group">
         <label>DUI</label>
-        <input class="form-control form-control-sm" type="text" v-model="client.dui" maxlength="9"
-        v-on:keyup="validateDuiNumber()"/>
+        <input class="form-control form-control-sm" type="text" v-model="client.dui" v-mask="'########-#'" />
         <div class="danger" v-if="messageErrorClientDui">Verificar datos</div>
       </div>
       <div class="form-group">
         <label>Correo</label>
-        <input class="form-control form-control-sm" type="text" v-model="client.email"/>
+        <input class="form-control form-control-sm" type="text" v-model="client.email" 
+          v-on:keyup="validateEmail()" />
         <div class="danger" v-if="messageErrorClientEmail">Verificar datos</div>
       </div>
       <div class="form-group">
         <label>Dirección</label>
         <input class="form-control form-control-sm" type="text" v-model="client.address"
-        v-on:keyup="validateTextNumber()" />
+        v-on:keyup="validateAddress()" />
         <div class="danger" v-if="messageErrorClientAddress">Verificar datos</div>
       </div>
       <div class="form-group">
         <label>Teléfono</label>
-        <input class="form-control form-control-sm" type="text" v-model="client.phone" maxlength="8"
-        v-on:keyup="validatePhoneNumber()"/>
+        <input class="form-control form-control-sm" type="text" v-model="client.phone" v-mask="'########'" />
         <div class="danger" v-if="messageErrorClientPhone">Verificar datos</div>
       </div>
       <div class="form-group">
@@ -175,18 +174,18 @@ export default {
         this.messageErrorClientName = false;
       }
     },
-    validateDuiNumber() {
-      if (this.client.dui.search(/^\d{9}$/)) {
-        this.messageErrorClientDui = true;
+    validateEmail() {
+      if (this.client.email.search(/[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}/)) {
+        this.messageErrorClientEmail = true;
       } else {
-        this.messageErrorClientDui = false;
+        this.messageErrorClientEmail = false;
       }
     },
-    validatePhoneNumber() {
-      if (this.client.phone.search(/^\d{8}$/)) {
-        this.messageErrorClientPhone = true;
+    validateAddress() {
+      if (this.client.address.search(/^[a-zA-Z0-9\s]*$/)) {
+        this.messageErrorClientAddress = true;
       } else {
-        this.messageErrorClientPhone = false;
+        this.messageErrorClientAddress = false;
       }
     },
     validateSelectClientMunicipality() {
