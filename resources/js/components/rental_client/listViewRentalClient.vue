@@ -64,6 +64,7 @@ export default {
   methods: {
     addAdvance(rental_client) {
       this.$emit("reloadadddeposit", rental_client);
+      
     },
     createPdf(rental_client) {
       this.$emit("reloadRentalPdf", rental_client);
