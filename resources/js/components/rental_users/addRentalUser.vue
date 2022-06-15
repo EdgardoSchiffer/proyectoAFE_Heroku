@@ -12,7 +12,7 @@
           v-on:change="validateSelectRental()">
           <option value="0" selected>Seleccione</option>
           <option v-for="rental in rentals" v-bind:key="rental.id" :value="rental.id">
-            {{ rental.id }}
+            {{ rental.id +" / "+ rental.client.client_name + " / "+ rental.client.dui }}
           </option>
         </select>
         <div class="danger" v-if="messageErrorRental">Verificar datos</div>

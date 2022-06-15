@@ -83,6 +83,11 @@
         'plus',
       ]"
     />
+    <font-awesome-icon
+      icon="circle-left"
+      @click="cancelDeposit()"
+      class="danger"
+    />
   </div>
 </template>
 
@@ -172,6 +177,9 @@ export default {
           //delete action
         }
       });
+    },
+    cancelDeposit() {
+      this.$emit("reloadadddeposit", false);
     },
     validateSelectYear() {
       if (this.rental_deposit.year == 0) {

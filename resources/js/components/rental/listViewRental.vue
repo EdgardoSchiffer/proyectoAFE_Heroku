@@ -2,7 +2,6 @@
   <div class="container">
     <table class="table table-borderless table-sm table-bordered border-light">
       <thead>
-        
         <th scope="col">fecha</th>
         <th scope="col">vehicle</th>
         <th scope="col">Cliente</th>
@@ -10,7 +9,7 @@
         <th scope="col">Cargo entrega tarde</th>
         <th scope="col">Comentario</th>
         <th scope="col">Cargo por daños</th>
-        <th scope="col">Tiempo renta (dias) </th>
+        <th scope="col">Tiempo renta (dias)</th>
         <th scope="col">Acciones</th>
       </thead>
       <tbody>
@@ -24,16 +23,29 @@
           <td>{{ rental.damage_charge }}</td>
           <td>{{ rental.rental_time }}</td>
           <td>
-            <button v-if="data_user.role_id==1" @click="removeItem(rental.id)" class="trashcan">
+            <button
+              v-if="data_user.role_id == 1"
+              @click="removeItem(rental.id)"
+              class="trashcan"
+            >
               <font-awesome-icon icon="trash" />
             </button>
-            <button v-if="data_user.role_id==1" @click="editItem(rental)" class="pentosquarecan">
+            <button
+              v-if="data_user.role_id == 1"
+              @click="editItem(rental)"
+              class="pentosquarecan"
+            >
               <font-awesome-icon icon="pen-to-square" />
             </button>
+
             <button @click="addReservaDetail(rental)" class="listcheck">
               <font-awesome-icon icon="list-check" />
             </button>
-            
+            <div v-if="rental.advance === 0 && data_user.role_id == 1">
+              <button @click="addAdvance(rental)" class="card">
+                <font-awesome-icon icon="fa-credit-card" />
+              </button>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -42,17 +54,14 @@
 </template>
 
 <script>
-
 export default {
-  props: ["rentals","data_user"],
+  props: ["rentals", "data_user"],
   /*data: function () {
     return {
       edit: false
     };
   },*/
-  components: {
-    
-  },
+  components: {},
   methods: {
     removeItem(id) {
       swal({
@@ -89,10 +98,12 @@ export default {
       this.$emit("reloadedit", rental);
       //this.edit = true;
     },
-    addReservaDetail(rental){
+    addReservaDetail(rental) {
       this.$emit("reloadaddrentaldetail", rental);
     },
-
+    addAdvance(rental_client) {
+      this.$emit("reloadadddeposit", rental_client);
+    },
   },
 };
 </script>
@@ -110,13 +121,13 @@ export default {
   color: darkcyan;
   outline: none;
 }
-.photofilm{
+.photofilm {
   background: transparent;
   border: none;
   color: mediumslateblue;
   outline: none;
 }
-.listcheck{
+.listcheck {
   background: transparent;
   border: none;
   color: dodgerblue;

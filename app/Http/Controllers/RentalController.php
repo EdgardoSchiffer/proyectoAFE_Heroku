@@ -123,7 +123,7 @@ class RentalController extends Controller
     public function list()
     {
         $renta_users = Rental_user::where('option','=','Completado')->get('rental_id');
-        $rentals = Rental::with('rental_users')->whereNotIn('id', $renta_users)->get();
+        $rentals = Rental::with('client')->with('rental_users')->whereNotIn('id', $renta_users)->get();
         //return Rental::with(['rental_users'=>function ($query){$query->where('option','!=','Comletado');}])->orderBy('id', 'ASC')->get();        
         //return Rental::select('*', 'rentals.id as id')->join('rental_users as ru','rentals.id','=','ru.id');
         return $rentals;

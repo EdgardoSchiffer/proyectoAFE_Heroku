@@ -7,15 +7,30 @@
       />
     </div>
     <div v-if="!showRentalDetail">
-      <div v-if="edit">
-        <edit-rental
-          :rental="rental"
+      <div v-if="showDeposit">
+        <add-advance
+          :rental_client="rental_client"
+          :data_user="data_user"
+          v-on:reloadadddeposit="addDeposit"
           v-on:reloadlist="getList()"
-          v-on:reloadedit="loadEdit"
         />
       </div>
-      <div v-else>
-        <add-rental  v-if="data_user.role_id==1" v-on:reloadlist="getList" v-on:reloadPdf="generatePdf()" />
+
+      <div v-else-if="!showDeposit">
+        <div v-if="edit">
+          <edit-rental
+            :rental="rental"
+            v-on:reloadlist="getList()"
+            v-on:reloadedit="loadEdit"
+          />
+        </div>
+        <div v-else>
+          <add-rental
+            v-if="data_user.role_id == 1"
+            v-on:reloadlist="getList"
+            v-on:reloadPdf="generatePdf()"
+          />
+        </div>
       </div>
 
       <list-view-rental
@@ -25,7 +40,7 @@
         v-on:reloadlist="getList()"
         v-on:reloadedit="loadEdit"
         v-on:reloadaddrentaldetail="loadShowRentalDetail"
-        
+        v-on:reloadadddeposit="addDeposit"
       />
       <nav class="pt-3">
         <ul class="pagination justify-content-center">
@@ -97,6 +112,7 @@ import addRental from "./addRental.vue";
 import editRental from "./editRental.vue";
 import listViewRental from "./listViewRental.vue";
 import indexRentalDetail from "../rental_details/index.vue";
+import addAdvance from "../advance/addAdvance.vue";
 
 export default {
   props: ["data_user"],
@@ -105,6 +121,7 @@ export default {
     listViewRental,
     editRental,
     indexRentalDetail,
+    addAdvance,
   },
   data: function () {
     return {
@@ -123,6 +140,7 @@ export default {
       showRentalDetail: false,
       allRentals: [],
       dataReport: [],
+      showDeposit: false,
     };
   },
   computed: {
@@ -177,8 +195,12 @@ export default {
           console.log(error);
         });
     },
-    
+
     loadEdit(rental) {
+      if(this.showDeposit){
+        this.showDeposit = false;
+      }
+      
       if (rental.id > 0) {
         this.edit = true;
         this.rental = rental;
@@ -199,6 +221,10 @@ export default {
       this.pagination.current_page = page;
       this.getList(page);
     }, //change page
+    addDeposit(rental_client) {
+      this.rental_client = rental_client;
+      this.showDeposit = !this.showDeposit;
+    },
     generatePdf() {
       /*
       gnerate data for report
@@ -277,7 +303,6 @@ export default {
 
       this.dataReport = [];
     }, //end generate pdf
-    
   },
   created() {
     this.getList();
