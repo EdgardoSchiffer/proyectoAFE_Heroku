@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('rental_users', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('rental_id')->reference('id')->on('rentals');
-            $table->foreignId('user_id')->reference('id')->on('users');
+            $table->foreignId('rental_id')->reference('id')->on('rentals')->nullable()->constrained();
+            $table->foreignId('user_id')->reference('id')->on('users')->nullable()->constrained();
             $table->string('option'); //option recibir, entregar
             $table->timestamp('date'); //fecha depende de la opcion recibir, entregar
             $table->softDeletes();

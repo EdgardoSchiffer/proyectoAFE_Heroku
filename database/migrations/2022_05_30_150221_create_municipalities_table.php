@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('municipalities', function (Blueprint $table) {
             $table->id();
             $table->string("municipality_name");
-            $table->foreignId('department_id')->reference('id')->on('departments');
+            $table->foreignId('department_id')->reference('id')->on('departments')->nullable()->constrained();
             $table->softDeletes();
             $table->timestamps();
         });

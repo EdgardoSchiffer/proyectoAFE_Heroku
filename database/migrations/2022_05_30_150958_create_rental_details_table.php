@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string("previous_state");
             $table->string("later_state");
-            $table->foreignId('rental_id')->reference('id')->on('rentals');
-            $table->foreignId('accessory_id')->reference('id')->on('accessories');
+            $table->foreignId('rental_id')->reference('id')->on('rentals')->nullable()->constrained();
+            $table->foreignId('accessory_id')->reference('id')->on('accessories')->nullable()->constrained();
             $table->softDeletes();
             $table->timestamps();
         });

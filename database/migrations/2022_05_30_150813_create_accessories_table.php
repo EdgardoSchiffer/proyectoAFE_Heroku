@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('accessories', function (Blueprint $table) {
             $table->id();
             $table->string("accessory_name");
-            $table->foreignId('accessory_type_id')->reference('id')->on('accessory_types');
+            $table->foreignId('accessory_type_id')->reference('id')->on('accessory_types')->nullable()->constrained();
             $table->softDeletes();
             $table->timestamps();
         });

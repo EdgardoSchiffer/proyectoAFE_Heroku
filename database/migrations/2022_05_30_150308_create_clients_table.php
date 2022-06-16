@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('address');
             $table->integer('phone');
-            $table->foreignId('municipality_id')->reference('id')->on('municipalities');
+            $table->foreignId('municipality_id')->reference('id')->on('municipalities')->nullable()->constrained();
             $table->foreignId('user_id')->reference('id')->on('users')->nullable()->constrained();
             $table->softDeletes();
             $table->timestamps();

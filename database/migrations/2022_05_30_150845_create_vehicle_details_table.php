@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('vehicle_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('vehicle_id')->reference('id')->on('vehicles');
-            $table->foreignId('accessory_id')->reference('id')->on('accessories');
+            $table->foreignId('vehicle_id')->reference('id')->on('vehicles')->nullable()->constrained();
+            $table->foreignId('accessory_id')->reference('id')->on('accessories')->nullable()->constrained();
             $table->boolean("status");
             $table->softDeletes();
             $table->timestamps();

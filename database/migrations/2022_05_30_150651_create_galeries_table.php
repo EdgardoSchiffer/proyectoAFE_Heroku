@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('galeries', function (Blueprint $table) {
             $table->id();
             $table->string('image_name');
-            $table->foreignId('vehicle_id')->reference('id')->on('vehicles');
+            $table->foreignId('vehicle_id')->reference('id')->on('vehicles')->nullable()->constrained();
             $table->softDeletes();
             $table->timestamps();
         });
