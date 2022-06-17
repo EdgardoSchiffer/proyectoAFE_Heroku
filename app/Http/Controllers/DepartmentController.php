@@ -16,6 +16,7 @@ class DepartmentController extends Controller
     {
         $departments = Department::OrderBy('id', 'ASC')->paginate(10);
         return [
+            
             'pagination' => [
                 'total' => $departments->total(),
                 'current_page' => $departments->currentPage(),
